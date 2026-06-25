@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatches } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { faculty } from "@/lib/faculty";
@@ -6,10 +6,15 @@ import { ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/faculty")({
   head: () => ({ meta: [{ title: "Our Faculty — John Amos International School" }, { name: "description", content: "Meet the teachers and academic leadership of John Amos International School." }] }),
-  component: Page,
+  component: FacultyLayout,
 });
 
-function Page() {
+function FacultyLayout() {
+  const matches = useMatches();
+  const isTeacherProfile = matches.some((m) => m.routeId === "/faculty/$id");
+
+  if (isTeacherProfile) return <Outlet />;
+
   return (
     <>
       <PageHero eyebrow="Faculty" title="Our pool of teachers." subtitle="Cambridge-trained educators who believe deeply in every child's potential." />
