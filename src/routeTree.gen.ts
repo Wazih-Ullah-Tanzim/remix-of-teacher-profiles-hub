@@ -32,6 +32,7 @@ import { Route as AcademicsRouteImport } from './routes/academics'
 import { Route as AcademicCalendarRouteImport } from './routes/academic-calendar'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FacultyIndexRouteImport } from './routes/faculty.index'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
 
@@ -150,6 +151,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FacultyIndexRoute = FacultyIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FacultyRoute,
+} as any)
 const GallerySlugRoute = GallerySlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -187,6 +193,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/faculty/': typeof FacultyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -202,7 +209,6 @@ export interface FileRoutesByTo {
   '/chairmans-message': typeof ChairmansMessageRoute
   '/contact': typeof ContactRoute
   '/english-courses': typeof EnglishCoursesRoute
-  '/faculty': typeof FacultyRouteWithChildren
   '/fees': typeof FeesRoute
   '/founder-message': typeof FounderMessageRoute
   '/gallery': typeof GalleryRouteWithChildren
@@ -214,6 +220,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/faculty': typeof FacultyIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -242,6 +249,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/faculty/': typeof FacultyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -271,6 +279,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/faculty/$id'
     | '/gallery/$slug'
+    | '/faculty/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -286,7 +295,6 @@ export interface FileRouteTypes {
     | '/chairmans-message'
     | '/contact'
     | '/english-courses'
-    | '/faculty'
     | '/fees'
     | '/founder-message'
     | '/gallery'
@@ -298,6 +306,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/faculty/$id'
     | '/gallery/$slug'
+    | '/faculty'
   id:
     | '__root__'
     | '/'
@@ -325,6 +334,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/faculty/$id'
     | '/gallery/$slug'
+    | '/faculty/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -516,6 +526,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faculty/': {
+      id: '/faculty/'
+      path: '/'
+      fullPath: '/faculty/'
+      preLoaderRoute: typeof FacultyIndexRouteImport
+      parentRoute: typeof FacultyRoute
+    }
     '/gallery/$slug': {
       id: '/gallery/$slug'
       path: '/$slug'
@@ -535,10 +552,12 @@ declare module '@tanstack/react-router' {
 
 interface FacultyRouteChildren {
   FacultyIdRoute: typeof FacultyIdRoute
+  FacultyIndexRoute: typeof FacultyIndexRoute
 }
 
 const FacultyRouteChildren: FacultyRouteChildren = {
   FacultyIdRoute: FacultyIdRoute,
+  FacultyIndexRoute: FacultyIndexRoute,
 }
 
 const FacultyRouteWithChildren =
