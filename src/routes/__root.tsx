@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Header } from "../components/site/Header";
+import { Footer } from "../components/site/Footer";
+import { NewsTicker } from "../components/site/NewsTicker";
+import { Toaster } from "../components/ui/sonner";
 
 function NotFoundComponent() {
   return (
@@ -77,19 +81,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "John Amos International School — Cambridge English Medium, Mymensingh" },
+      { name: "description", content: "John Amos International School is the first absolute English Medium School in Mymensingh, following the Cambridge curriculum in a modern, inspiring campus." },
+      { name: "author", content: "John Amos International School" },
+      { property: "og:title", content: "John Amos International School" },
+      { property: "og:description", content: "First absolute English Medium Cambridge curriculum school in Mymensingh, Bangladesh." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap",
       },
     ],
   }),
@@ -118,8 +125,15 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="flex min-h-screen flex-col" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }}>
+        <NewsTicker />
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+        <Toaster richColors position="top-right" />
+      </div>
     </QueryClientProvider>
   );
 }

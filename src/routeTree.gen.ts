@@ -9,38 +9,506 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as NewsNoticeRouteImport } from './routes/news-notice'
+import { Route as LanguageClubRouteImport } from './routes/language-club'
+import { Route as InternationalAffairsRouteImport } from './routes/international-affairs'
+import { Route as InstructorRegistrationRouteImport } from './routes/instructor-registration'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as FounderMessageRouteImport } from './routes/founder-message'
+import { Route as FeesRouteImport } from './routes/fees'
+import { Route as FacultyRouteImport } from './routes/faculty'
+import { Route as EnglishCoursesRouteImport } from './routes/english-courses'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ChairmansMessageRouteImport } from './routes/chairmans-message'
+import { Route as CareerRouteImport } from './routes/career'
+import { Route as CampusRouteImport } from './routes/campus'
+import { Route as BulletinRouteImport } from './routes/bulletin'
+import { Route as BoardOfDirectorsRouteImport } from './routes/board-of-directors'
+import { Route as AdvisorsRouteImport } from './routes/advisors'
+import { Route as AdmissionsRouteImport } from './routes/admissions'
+import { Route as AcademicsRouteImport } from './routes/academics'
+import { Route as AcademicCalendarRouteImport } from './routes/academic-calendar'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
+import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsNoticeRoute = NewsNoticeRouteImport.update({
+  id: '/news-notice',
+  path: '/news-notice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LanguageClubRoute = LanguageClubRouteImport.update({
+  id: '/language-club',
+  path: '/language-club',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InternationalAffairsRoute = InternationalAffairsRouteImport.update({
+  id: '/international-affairs',
+  path: '/international-affairs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InstructorRegistrationRoute = InstructorRegistrationRouteImport.update({
+  id: '/instructor-registration',
+  path: '/instructor-registration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderMessageRoute = FounderMessageRouteImport.update({
+  id: '/founder-message',
+  path: '/founder-message',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeesRoute = FeesRouteImport.update({
+  id: '/fees',
+  path: '/fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FacultyRoute = FacultyRouteImport.update({
+  id: '/faculty',
+  path: '/faculty',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnglishCoursesRoute = EnglishCoursesRouteImport.update({
+  id: '/english-courses',
+  path: '/english-courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChairmansMessageRoute = ChairmansMessageRouteImport.update({
+  id: '/chairmans-message',
+  path: '/chairmans-message',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareerRoute = CareerRouteImport.update({
+  id: '/career',
+  path: '/career',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampusRoute = CampusRouteImport.update({
+  id: '/campus',
+  path: '/campus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BulletinRoute = BulletinRouteImport.update({
+  id: '/bulletin',
+  path: '/bulletin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BoardOfDirectorsRoute = BoardOfDirectorsRouteImport.update({
+  id: '/board-of-directors',
+  path: '/board-of-directors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvisorsRoute = AdvisorsRouteImport.update({
+  id: '/advisors',
+  path: '/advisors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdmissionsRoute = AdmissionsRouteImport.update({
+  id: '/admissions',
+  path: '/admissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademicsRoute = AcademicsRouteImport.update({
+  id: '/academics',
+  path: '/academics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademicCalendarRoute = AcademicCalendarRouteImport.update({
+  id: '/academic-calendar',
+  path: '/academic-calendar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GallerySlugRoute = GallerySlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GalleryRoute,
+} as any)
+const FacultyIdRoute = FacultyIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => FacultyRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academic-calendar': typeof AcademicCalendarRoute
+  '/academics': typeof AcademicsRoute
+  '/admissions': typeof AdmissionsRoute
+  '/advisors': typeof AdvisorsRoute
+  '/board-of-directors': typeof BoardOfDirectorsRoute
+  '/bulletin': typeof BulletinRoute
+  '/campus': typeof CampusRoute
+  '/career': typeof CareerRoute
+  '/chairmans-message': typeof ChairmansMessageRoute
+  '/contact': typeof ContactRoute
+  '/english-courses': typeof EnglishCoursesRoute
+  '/faculty': typeof FacultyRouteWithChildren
+  '/fees': typeof FeesRoute
+  '/founder-message': typeof FounderMessageRoute
+  '/gallery': typeof GalleryRouteWithChildren
+  '/instructor-registration': typeof InstructorRegistrationRoute
+  '/international-affairs': typeof InternationalAffairsRoute
+  '/language-club': typeof LanguageClubRoute
+  '/news-notice': typeof NewsNoticeRoute
+  '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/faculty/$id': typeof FacultyIdRoute
+  '/gallery/$slug': typeof GallerySlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academic-calendar': typeof AcademicCalendarRoute
+  '/academics': typeof AcademicsRoute
+  '/admissions': typeof AdmissionsRoute
+  '/advisors': typeof AdvisorsRoute
+  '/board-of-directors': typeof BoardOfDirectorsRoute
+  '/bulletin': typeof BulletinRoute
+  '/campus': typeof CampusRoute
+  '/career': typeof CareerRoute
+  '/chairmans-message': typeof ChairmansMessageRoute
+  '/contact': typeof ContactRoute
+  '/english-courses': typeof EnglishCoursesRoute
+  '/faculty': typeof FacultyRouteWithChildren
+  '/fees': typeof FeesRoute
+  '/founder-message': typeof FounderMessageRoute
+  '/gallery': typeof GalleryRouteWithChildren
+  '/instructor-registration': typeof InstructorRegistrationRoute
+  '/international-affairs': typeof InternationalAffairsRoute
+  '/language-club': typeof LanguageClubRoute
+  '/news-notice': typeof NewsNoticeRoute
+  '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/faculty/$id': typeof FacultyIdRoute
+  '/gallery/$slug': typeof GallerySlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/academic-calendar': typeof AcademicCalendarRoute
+  '/academics': typeof AcademicsRoute
+  '/admissions': typeof AdmissionsRoute
+  '/advisors': typeof AdvisorsRoute
+  '/board-of-directors': typeof BoardOfDirectorsRoute
+  '/bulletin': typeof BulletinRoute
+  '/campus': typeof CampusRoute
+  '/career': typeof CareerRoute
+  '/chairmans-message': typeof ChairmansMessageRoute
+  '/contact': typeof ContactRoute
+  '/english-courses': typeof EnglishCoursesRoute
+  '/faculty': typeof FacultyRouteWithChildren
+  '/fees': typeof FeesRoute
+  '/founder-message': typeof FounderMessageRoute
+  '/gallery': typeof GalleryRouteWithChildren
+  '/instructor-registration': typeof InstructorRegistrationRoute
+  '/international-affairs': typeof InternationalAffairsRoute
+  '/language-club': typeof LanguageClubRoute
+  '/news-notice': typeof NewsNoticeRoute
+  '/projects': typeof ProjectsRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/faculty/$id': typeof FacultyIdRoute
+  '/gallery/$slug': typeof GallerySlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/academic-calendar'
+    | '/academics'
+    | '/admissions'
+    | '/advisors'
+    | '/board-of-directors'
+    | '/bulletin'
+    | '/campus'
+    | '/career'
+    | '/chairmans-message'
+    | '/contact'
+    | '/english-courses'
+    | '/faculty'
+    | '/fees'
+    | '/founder-message'
+    | '/gallery'
+    | '/instructor-registration'
+    | '/international-affairs'
+    | '/language-club'
+    | '/news-notice'
+    | '/projects'
+    | '/sitemap.xml'
+    | '/faculty/$id'
+    | '/gallery/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/academic-calendar'
+    | '/academics'
+    | '/admissions'
+    | '/advisors'
+    | '/board-of-directors'
+    | '/bulletin'
+    | '/campus'
+    | '/career'
+    | '/chairmans-message'
+    | '/contact'
+    | '/english-courses'
+    | '/faculty'
+    | '/fees'
+    | '/founder-message'
+    | '/gallery'
+    | '/instructor-registration'
+    | '/international-affairs'
+    | '/language-club'
+    | '/news-notice'
+    | '/projects'
+    | '/sitemap.xml'
+    | '/faculty/$id'
+    | '/gallery/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/academic-calendar'
+    | '/academics'
+    | '/admissions'
+    | '/advisors'
+    | '/board-of-directors'
+    | '/bulletin'
+    | '/campus'
+    | '/career'
+    | '/chairmans-message'
+    | '/contact'
+    | '/english-courses'
+    | '/faculty'
+    | '/fees'
+    | '/founder-message'
+    | '/gallery'
+    | '/instructor-registration'
+    | '/international-affairs'
+    | '/language-club'
+    | '/news-notice'
+    | '/projects'
+    | '/sitemap.xml'
+    | '/faculty/$id'
+    | '/gallery/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AcademicCalendarRoute: typeof AcademicCalendarRoute
+  AcademicsRoute: typeof AcademicsRoute
+  AdmissionsRoute: typeof AdmissionsRoute
+  AdvisorsRoute: typeof AdvisorsRoute
+  BoardOfDirectorsRoute: typeof BoardOfDirectorsRoute
+  BulletinRoute: typeof BulletinRoute
+  CampusRoute: typeof CampusRoute
+  CareerRoute: typeof CareerRoute
+  ChairmansMessageRoute: typeof ChairmansMessageRoute
+  ContactRoute: typeof ContactRoute
+  EnglishCoursesRoute: typeof EnglishCoursesRoute
+  FacultyRoute: typeof FacultyRouteWithChildren
+  FeesRoute: typeof FeesRoute
+  FounderMessageRoute: typeof FounderMessageRoute
+  GalleryRoute: typeof GalleryRouteWithChildren
+  InstructorRegistrationRoute: typeof InstructorRegistrationRoute
+  InternationalAffairsRoute: typeof InternationalAffairsRoute
+  LanguageClubRoute: typeof LanguageClubRoute
+  NewsNoticeRoute: typeof NewsNoticeRoute
+  ProjectsRoute: typeof ProjectsRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/news-notice': {
+      id: '/news-notice'
+      path: '/news-notice'
+      fullPath: '/news-notice'
+      preLoaderRoute: typeof NewsNoticeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/language-club': {
+      id: '/language-club'
+      path: '/language-club'
+      fullPath: '/language-club'
+      preLoaderRoute: typeof LanguageClubRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/international-affairs': {
+      id: '/international-affairs'
+      path: '/international-affairs'
+      fullPath: '/international-affairs'
+      preLoaderRoute: typeof InternationalAffairsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/instructor-registration': {
+      id: '/instructor-registration'
+      path: '/instructor-registration'
+      fullPath: '/instructor-registration'
+      preLoaderRoute: typeof InstructorRegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder-message': {
+      id: '/founder-message'
+      path: '/founder-message'
+      fullPath: '/founder-message'
+      preLoaderRoute: typeof FounderMessageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fees': {
+      id: '/fees'
+      path: '/fees'
+      fullPath: '/fees'
+      preLoaderRoute: typeof FeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faculty': {
+      id: '/faculty'
+      path: '/faculty'
+      fullPath: '/faculty'
+      preLoaderRoute: typeof FacultyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/english-courses': {
+      id: '/english-courses'
+      path: '/english-courses'
+      fullPath: '/english-courses'
+      preLoaderRoute: typeof EnglishCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chairmans-message': {
+      id: '/chairmans-message'
+      path: '/chairmans-message'
+      fullPath: '/chairmans-message'
+      preLoaderRoute: typeof ChairmansMessageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/career': {
+      id: '/career'
+      path: '/career'
+      fullPath: '/career'
+      preLoaderRoute: typeof CareerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campus': {
+      id: '/campus'
+      path: '/campus'
+      fullPath: '/campus'
+      preLoaderRoute: typeof CampusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bulletin': {
+      id: '/bulletin'
+      path: '/bulletin'
+      fullPath: '/bulletin'
+      preLoaderRoute: typeof BulletinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/board-of-directors': {
+      id: '/board-of-directors'
+      path: '/board-of-directors'
+      fullPath: '/board-of-directors'
+      preLoaderRoute: typeof BoardOfDirectorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advisors': {
+      id: '/advisors'
+      path: '/advisors'
+      fullPath: '/advisors'
+      preLoaderRoute: typeof AdvisorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admissions': {
+      id: '/admissions'
+      path: '/admissions'
+      fullPath: '/admissions'
+      preLoaderRoute: typeof AdmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academics': {
+      id: '/academics'
+      path: '/academics'
+      fullPath: '/academics'
+      preLoaderRoute: typeof AcademicsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academic-calendar': {
+      id: '/academic-calendar'
+      path: '/academic-calendar'
+      fullPath: '/academic-calendar'
+      preLoaderRoute: typeof AcademicCalendarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +516,70 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gallery/$slug': {
+      id: '/gallery/$slug'
+      path: '/$slug'
+      fullPath: '/gallery/$slug'
+      preLoaderRoute: typeof GallerySlugRouteImport
+      parentRoute: typeof GalleryRoute
+    }
+    '/faculty/$id': {
+      id: '/faculty/$id'
+      path: '/$id'
+      fullPath: '/faculty/$id'
+      preLoaderRoute: typeof FacultyIdRouteImport
+      parentRoute: typeof FacultyRoute
+    }
   }
 }
 
+interface FacultyRouteChildren {
+  FacultyIdRoute: typeof FacultyIdRoute
+}
+
+const FacultyRouteChildren: FacultyRouteChildren = {
+  FacultyIdRoute: FacultyIdRoute,
+}
+
+const FacultyRouteWithChildren =
+  FacultyRoute._addFileChildren(FacultyRouteChildren)
+
+interface GalleryRouteChildren {
+  GallerySlugRoute: typeof GallerySlugRoute
+}
+
+const GalleryRouteChildren: GalleryRouteChildren = {
+  GallerySlugRoute: GallerySlugRoute,
+}
+
+const GalleryRouteWithChildren =
+  GalleryRoute._addFileChildren(GalleryRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AcademicCalendarRoute: AcademicCalendarRoute,
+  AcademicsRoute: AcademicsRoute,
+  AdmissionsRoute: AdmissionsRoute,
+  AdvisorsRoute: AdvisorsRoute,
+  BoardOfDirectorsRoute: BoardOfDirectorsRoute,
+  BulletinRoute: BulletinRoute,
+  CampusRoute: CampusRoute,
+  CareerRoute: CareerRoute,
+  ChairmansMessageRoute: ChairmansMessageRoute,
+  ContactRoute: ContactRoute,
+  EnglishCoursesRoute: EnglishCoursesRoute,
+  FacultyRoute: FacultyRouteWithChildren,
+  FeesRoute: FeesRoute,
+  FounderMessageRoute: FounderMessageRoute,
+  GalleryRoute: GalleryRouteWithChildren,
+  InstructorRegistrationRoute: InstructorRegistrationRoute,
+  InternationalAffairsRoute: InternationalAffairsRoute,
+  LanguageClubRoute: LanguageClubRoute,
+  NewsNoticeRoute: NewsNoticeRoute,
+  ProjectsRoute: ProjectsRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
