@@ -6,7 +6,7 @@ import { ArrowLeft } from "lucide-react";
 
 type LoaderData = { gallery?: (typeof galleries)[string]; node?: GalleryNode };
 
-export const Route = createFileRoute("/gallery/$slug")({
+export const Route = createFileRoute("/gallery/")({
   head: ({ params }) => { const gallery = galleries[params.slug]; const node = findGalleryNode(params.slug); return { meta: [{ title: `${gallery?.title ?? node?.label ?? "Gallery"} — Gallery | John Amos` }, { name: "description", content: gallery?.description ?? node?.description ?? "John Amos gallery" }, ...(gallery ? [{ property: "og:image", content: gallery.images[0].src }] : [])] }; },
   loader: ({ params }): LoaderData => { const gallery = galleries[params.slug]; const node = findGalleryNode(params.slug); if (!gallery && !node) throw notFound(); return { gallery, node }; },
   component: Page,
