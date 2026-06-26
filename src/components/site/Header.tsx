@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
-import { galleryMenu } from "@/lib/galleries";
+import { galleryCategories } from "@/lib/galleries";
 
 type NavItem = { to: string; label: string; children?: { to: string; label: string }[] };
 
@@ -22,9 +22,11 @@ const nav: NavItem[] = [
   {
     to: "/academics", label: "Academics",
     children: [
-      { to: "/academics", label: "Academics" },
+      { to: "/academics", label: "Curriculum Overview" },
       { to: "/academic-calendar", label: "Academic Calendar" },
       { to: "/faculty", label: "Our Faculty" },
+      { to: "/counseling", label: "Counseling" },
+      { to: "/bulletin", label: "Bulletin" },
       { to: "/projects", label: "Projects" },
       { to: "/language-club", label: "Language Club" },
       { to: "/english-courses", label: "IELTS & Spoken English" },
@@ -42,15 +44,23 @@ const nav: NavItem[] = [
   },
   { to: "/campus", label: "Campus" },
   {
+    to: "/blog", label: "JAIS Life",
+    children: [
+      { to: "/facilities", label: "Facilities" },
+      { to: "/eca-clubs", label: "ECA Clubs & Activities" },
+      { to: "/yearbook", label: "JAIS Yearbook" },
+      { to: "/blog", label: "Blog" },
+      { to: "/alumni", label: "Alumni Association" },
+    ],
+  },
+  {
     to: "/gallery", label: "Gallery",
     children: [
       { to: "/gallery", label: "All Galleries" },
-      { to: "/bulletin", label: "Bulletin" },
-      ...galleryMenu.map((g) => ({ to: `/gallery/${g.slug}`, label: g.label })),
+      ...galleryCategories.flatMap((c) => c.items.map((i) => ({ to: `/gallery/${i.slug}`, label: `${c.label} · ${i.label}` }))),
     ],
   },
   { to: "/news-notice", label: "News" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export function Header() {

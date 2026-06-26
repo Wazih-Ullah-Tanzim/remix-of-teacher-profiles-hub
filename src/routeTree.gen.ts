@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YearbookRouteImport } from './routes/yearbook'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as NewsNoticeRouteImport } from './routes/news-notice'
@@ -29,6 +30,8 @@ import { Route as CareerRouteImport } from './routes/career'
 import { Route as CampusRouteImport } from './routes/campus'
 import { Route as BulletinRouteImport } from './routes/bulletin'
 import { Route as BoardOfDirectorsRouteImport } from './routes/board-of-directors'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AlumniRouteImport } from './routes/alumni'
 import { Route as AdvisorsRouteImport } from './routes/advisors'
 import { Route as AdmissionsRouteImport } from './routes/admissions'
 import { Route as AcademicsRouteImport } from './routes/academics'
@@ -40,7 +43,13 @@ import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
 import { Route as EcaClubsClassRouteImport } from './routes/eca-clubs.$class'
 import { Route as CounselingTypeRouteImport } from './routes/counseling.$type'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const YearbookRoute = YearbookRouteImport.update({
+  id: '/yearbook',
+  path: '/yearbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -141,6 +150,16 @@ const BoardOfDirectorsRoute = BoardOfDirectorsRouteImport.update({
   path: '/board-of-directors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlumniRoute = AlumniRouteImport.update({
+  id: '/alumni',
+  path: '/alumni',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdvisorsRoute = AdvisorsRouteImport.update({
   id: '/advisors',
   path: '/advisors',
@@ -196,6 +215,11 @@ const CounselingTypeRoute = CounselingTypeRouteImport.update({
   path: '/$type',
   getParentRoute: () => CounselingRoute,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -204,6 +228,8 @@ export interface FileRoutesByFullPath {
   '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
+  '/alumni': typeof AlumniRoute
+  '/blog': typeof BlogRouteWithChildren
   '/board-of-directors': typeof BoardOfDirectorsRoute
   '/bulletin': typeof BulletinRoute
   '/campus': typeof CampusRoute
@@ -224,6 +250,8 @@ export interface FileRoutesByFullPath {
   '/news-notice': typeof NewsNoticeRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yearbook': typeof YearbookRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
@@ -237,6 +265,8 @@ export interface FileRoutesByTo {
   '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
+  '/alumni': typeof AlumniRoute
+  '/blog': typeof BlogRouteWithChildren
   '/board-of-directors': typeof BoardOfDirectorsRoute
   '/bulletin': typeof BulletinRoute
   '/campus': typeof CampusRoute
@@ -256,6 +286,8 @@ export interface FileRoutesByTo {
   '/news-notice': typeof NewsNoticeRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yearbook': typeof YearbookRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
@@ -270,6 +302,8 @@ export interface FileRoutesById {
   '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
+  '/alumni': typeof AlumniRoute
+  '/blog': typeof BlogRouteWithChildren
   '/board-of-directors': typeof BoardOfDirectorsRoute
   '/bulletin': typeof BulletinRoute
   '/campus': typeof CampusRoute
@@ -290,6 +324,8 @@ export interface FileRoutesById {
   '/news-notice': typeof NewsNoticeRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yearbook': typeof YearbookRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
@@ -305,6 +341,8 @@ export interface FileRouteTypes {
     | '/academics'
     | '/admissions'
     | '/advisors'
+    | '/alumni'
+    | '/blog'
     | '/board-of-directors'
     | '/bulletin'
     | '/campus'
@@ -325,6 +363,8 @@ export interface FileRouteTypes {
     | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
+    | '/yearbook'
+    | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
@@ -338,6 +378,8 @@ export interface FileRouteTypes {
     | '/academics'
     | '/admissions'
     | '/advisors'
+    | '/alumni'
+    | '/blog'
     | '/board-of-directors'
     | '/bulletin'
     | '/campus'
@@ -357,6 +399,8 @@ export interface FileRouteTypes {
     | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
+    | '/yearbook'
+    | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
@@ -370,6 +414,8 @@ export interface FileRouteTypes {
     | '/academics'
     | '/admissions'
     | '/advisors'
+    | '/alumni'
+    | '/blog'
     | '/board-of-directors'
     | '/bulletin'
     | '/campus'
@@ -390,6 +436,8 @@ export interface FileRouteTypes {
     | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
+    | '/yearbook'
+    | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
@@ -404,6 +452,8 @@ export interface RootRouteChildren {
   AcademicsRoute: typeof AcademicsRoute
   AdmissionsRoute: typeof AdmissionsRoute
   AdvisorsRoute: typeof AdvisorsRoute
+  AlumniRoute: typeof AlumniRoute
+  BlogRoute: typeof BlogRouteWithChildren
   BoardOfDirectorsRoute: typeof BoardOfDirectorsRoute
   BulletinRoute: typeof BulletinRoute
   CampusRoute: typeof CampusRoute
@@ -424,10 +474,18 @@ export interface RootRouteChildren {
   NewsNoticeRoute: typeof NewsNoticeRoute
   ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  YearbookRoute: typeof YearbookRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yearbook': {
+      id: '/yearbook'
+      path: '/yearbook'
+      fullPath: '/yearbook'
+      preLoaderRoute: typeof YearbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -568,6 +626,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BoardOfDirectorsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alumni': {
+      id: '/alumni'
+      path: '/alumni'
+      fullPath: '/alumni'
+      preLoaderRoute: typeof AlumniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/advisors': {
       id: '/advisors'
       path: '/advisors'
@@ -645,8 +717,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CounselingTypeRouteImport
       parentRoute: typeof CounselingRoute
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 interface CounselingRouteChildren {
   CounselingTypeRoute: typeof CounselingTypeRoute
@@ -703,6 +792,8 @@ const rootRouteChildren: RootRouteChildren = {
   AcademicsRoute: AcademicsRoute,
   AdmissionsRoute: AdmissionsRoute,
   AdvisorsRoute: AdvisorsRoute,
+  AlumniRoute: AlumniRoute,
+  BlogRoute: BlogRouteWithChildren,
   BoardOfDirectorsRoute: BoardOfDirectorsRoute,
   BulletinRoute: BulletinRoute,
   CampusRoute: CampusRoute,
@@ -723,6 +814,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsNoticeRoute: NewsNoticeRoute,
   ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  YearbookRoute: YearbookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
