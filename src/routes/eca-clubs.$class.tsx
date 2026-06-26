@@ -35,7 +35,7 @@ function Page() {
           <Link to="/eca-clubs" className="inline-flex items-center gap-1 text-sm font-semibold text-muted-foreground hover:text-primary">
             <ArrowLeft className="h-4 w-4" /> Back to all classes
           </Link>
-          <SectionHeader className="mt-6" eyebrow={c.label} title="Club activities" />
+          <div className="mt-6"><SectionHeader eyebrow={c.label} title="Club activities" /></div>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {clubs.map((club, i) => (
               <div key={club.name} className="tilt-card animate-fade-up rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]" style={{ animationDelay: `${i * 70}ms` }}>
