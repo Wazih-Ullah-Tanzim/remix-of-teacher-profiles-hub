@@ -44,7 +44,6 @@ import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
 import { Route as EcaClubsClassRouteImport } from './routes/eca-clubs.$class'
 import { Route as CounselingTypeRouteImport } from './routes/counseling.$type'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as GalleryRouteImport } from './routes/gallery.'
 
 const YearbookRoute = YearbookRouteImport.update({
   id: '/yearbook',
@@ -221,11 +220,6 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => GalleryRoute,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -257,7 +251,6 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
-  '/gallery/': typeof GalleryRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
@@ -286,6 +279,7 @@ export interface FileRoutesByTo {
   '/facilities': typeof FacilitiesRoute
   '/fees': typeof FeesRoute
   '/founder-message': typeof FounderMessageRoute
+  '/gallery': typeof GalleryRouteWithChildren
   '/instructor-registration': typeof InstructorRegistrationRoute
   '/international-affairs': typeof InternationalAffairsRoute
   '/language-club': typeof LanguageClubRoute
@@ -293,7 +287,6 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
-  '/gallery': typeof GalleryRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
@@ -332,7 +325,6 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
-  '/gallery/': typeof GalleryRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
@@ -372,7 +364,6 @@ export interface FileRouteTypes {
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
-    | '/gallery/'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
@@ -401,6 +392,7 @@ export interface FileRouteTypes {
     | '/facilities'
     | '/fees'
     | '/founder-message'
+    | '/gallery'
     | '/instructor-registration'
     | '/international-affairs'
     | '/language-club'
@@ -408,7 +400,6 @@ export interface FileRouteTypes {
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
-    | '/gallery'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
@@ -446,7 +437,6 @@ export interface FileRouteTypes {
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
-    | '/gallery/'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
@@ -734,13 +724,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
-    '/gallery/': {
-      id: '/gallery/'
-      path: '/'
-      fullPath: '/gallery/'
-      preLoaderRoute: typeof GalleryRouteImport
-      parentRoute: typeof GalleryRoute
-    }
   }
 }
 
@@ -792,12 +775,10 @@ const FacultyRouteWithChildren =
   FacultyRoute._addFileChildren(FacultyRouteChildren)
 
 interface GalleryRouteChildren {
-  GalleryRoute: typeof GalleryRoute
   GallerySlugRoute: typeof GallerySlugRoute
 }
 
 const GalleryRouteChildren: GalleryRouteChildren = {
-  GalleryRoute: GalleryRoute,
   GallerySlugRoute: GallerySlugRoute,
 }
 
