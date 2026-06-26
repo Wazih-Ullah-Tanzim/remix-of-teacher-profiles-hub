@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YearbookRouteImport } from './routes/yearbook'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as NewsNoticeRouteImport } from './routes/news-notice'
@@ -19,13 +20,18 @@ import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FounderMessageRouteImport } from './routes/founder-message'
 import { Route as FeesRouteImport } from './routes/fees'
 import { Route as FacultyRouteImport } from './routes/faculty'
+import { Route as FacilitiesRouteImport } from './routes/facilities'
 import { Route as EnglishCoursesRouteImport } from './routes/english-courses'
+import { Route as EcaClubsRouteImport } from './routes/eca-clubs'
+import { Route as CounselingRouteImport } from './routes/counseling'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ChairmansMessageRouteImport } from './routes/chairmans-message'
 import { Route as CareerRouteImport } from './routes/career'
 import { Route as CampusRouteImport } from './routes/campus'
 import { Route as BulletinRouteImport } from './routes/bulletin'
 import { Route as BoardOfDirectorsRouteImport } from './routes/board-of-directors'
+import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AlumniRouteImport } from './routes/alumni'
 import { Route as AdvisorsRouteImport } from './routes/advisors'
 import { Route as AdmissionsRouteImport } from './routes/admissions'
 import { Route as AcademicsRouteImport } from './routes/academics'
@@ -35,7 +41,15 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as FacultyIndexRouteImport } from './routes/faculty.index'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
+import { Route as EcaClubsClassRouteImport } from './routes/eca-clubs.$class'
+import { Route as CounselingTypeRouteImport } from './routes/counseling.$type'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
+const YearbookRoute = YearbookRouteImport.update({
+  id: '/yearbook',
+  path: '/yearbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -86,9 +100,24 @@ const FacultyRoute = FacultyRouteImport.update({
   path: '/faculty',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FacilitiesRoute = FacilitiesRouteImport.update({
+  id: '/facilities',
+  path: '/facilities',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnglishCoursesRoute = EnglishCoursesRouteImport.update({
   id: '/english-courses',
   path: '/english-courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EcaClubsRoute = EcaClubsRouteImport.update({
+  id: '/eca-clubs',
+  path: '/eca-clubs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CounselingRoute = CounselingRouteImport.update({
+  id: '/counseling',
+  path: '/counseling',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -119,6 +148,16 @@ const BulletinRoute = BulletinRouteImport.update({
 const BoardOfDirectorsRoute = BoardOfDirectorsRouteImport.update({
   id: '/board-of-directors',
   path: '/board-of-directors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlumniRoute = AlumniRouteImport.update({
+  id: '/alumni',
+  path: '/alumni',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdvisorsRoute = AdvisorsRouteImport.update({
@@ -166,6 +205,21 @@ const FacultyIdRoute = FacultyIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => FacultyRoute,
 } as any)
+const EcaClubsClassRoute = EcaClubsClassRouteImport.update({
+  id: '/$class',
+  path: '/$class',
+  getParentRoute: () => EcaClubsRoute,
+} as any)
+const CounselingTypeRoute = CounselingTypeRouteImport.update({
+  id: '/$type',
+  path: '/$type',
+  getParentRoute: () => CounselingRoute,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -174,13 +228,18 @@ export interface FileRoutesByFullPath {
   '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
+  '/alumni': typeof AlumniRoute
+  '/blog': typeof BlogRouteWithChildren
   '/board-of-directors': typeof BoardOfDirectorsRoute
   '/bulletin': typeof BulletinRoute
   '/campus': typeof CampusRoute
   '/career': typeof CareerRoute
   '/chairmans-message': typeof ChairmansMessageRoute
   '/contact': typeof ContactRoute
+  '/counseling': typeof CounselingRouteWithChildren
+  '/eca-clubs': typeof EcaClubsRouteWithChildren
   '/english-courses': typeof EnglishCoursesRoute
+  '/facilities': typeof FacilitiesRoute
   '/faculty': typeof FacultyRouteWithChildren
   '/fees': typeof FeesRoute
   '/founder-message': typeof FounderMessageRoute
@@ -191,6 +250,10 @@ export interface FileRoutesByFullPath {
   '/news-notice': typeof NewsNoticeRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yearbook': typeof YearbookRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/counseling/$type': typeof CounselingTypeRoute
+  '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/faculty/': typeof FacultyIndexRoute
@@ -202,13 +265,18 @@ export interface FileRoutesByTo {
   '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
+  '/alumni': typeof AlumniRoute
+  '/blog': typeof BlogRouteWithChildren
   '/board-of-directors': typeof BoardOfDirectorsRoute
   '/bulletin': typeof BulletinRoute
   '/campus': typeof CampusRoute
   '/career': typeof CareerRoute
   '/chairmans-message': typeof ChairmansMessageRoute
   '/contact': typeof ContactRoute
+  '/counseling': typeof CounselingRouteWithChildren
+  '/eca-clubs': typeof EcaClubsRouteWithChildren
   '/english-courses': typeof EnglishCoursesRoute
+  '/facilities': typeof FacilitiesRoute
   '/fees': typeof FeesRoute
   '/founder-message': typeof FounderMessageRoute
   '/gallery': typeof GalleryRouteWithChildren
@@ -218,6 +286,10 @@ export interface FileRoutesByTo {
   '/news-notice': typeof NewsNoticeRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yearbook': typeof YearbookRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/counseling/$type': typeof CounselingTypeRoute
+  '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/faculty': typeof FacultyIndexRoute
@@ -230,13 +302,18 @@ export interface FileRoutesById {
   '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
+  '/alumni': typeof AlumniRoute
+  '/blog': typeof BlogRouteWithChildren
   '/board-of-directors': typeof BoardOfDirectorsRoute
   '/bulletin': typeof BulletinRoute
   '/campus': typeof CampusRoute
   '/career': typeof CareerRoute
   '/chairmans-message': typeof ChairmansMessageRoute
   '/contact': typeof ContactRoute
+  '/counseling': typeof CounselingRouteWithChildren
+  '/eca-clubs': typeof EcaClubsRouteWithChildren
   '/english-courses': typeof EnglishCoursesRoute
+  '/facilities': typeof FacilitiesRoute
   '/faculty': typeof FacultyRouteWithChildren
   '/fees': typeof FeesRoute
   '/founder-message': typeof FounderMessageRoute
@@ -247,6 +324,10 @@ export interface FileRoutesById {
   '/news-notice': typeof NewsNoticeRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/yearbook': typeof YearbookRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/counseling/$type': typeof CounselingTypeRoute
+  '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/faculty/': typeof FacultyIndexRoute
@@ -260,13 +341,18 @@ export interface FileRouteTypes {
     | '/academics'
     | '/admissions'
     | '/advisors'
+    | '/alumni'
+    | '/blog'
     | '/board-of-directors'
     | '/bulletin'
     | '/campus'
     | '/career'
     | '/chairmans-message'
     | '/contact'
+    | '/counseling'
+    | '/eca-clubs'
     | '/english-courses'
+    | '/facilities'
     | '/faculty'
     | '/fees'
     | '/founder-message'
@@ -277,6 +363,10 @@ export interface FileRouteTypes {
     | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
+    | '/yearbook'
+    | '/blog/$slug'
+    | '/counseling/$type'
+    | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/faculty/'
@@ -288,13 +378,18 @@ export interface FileRouteTypes {
     | '/academics'
     | '/admissions'
     | '/advisors'
+    | '/alumni'
+    | '/blog'
     | '/board-of-directors'
     | '/bulletin'
     | '/campus'
     | '/career'
     | '/chairmans-message'
     | '/contact'
+    | '/counseling'
+    | '/eca-clubs'
     | '/english-courses'
+    | '/facilities'
     | '/fees'
     | '/founder-message'
     | '/gallery'
@@ -304,6 +399,10 @@ export interface FileRouteTypes {
     | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
+    | '/yearbook'
+    | '/blog/$slug'
+    | '/counseling/$type'
+    | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/faculty'
@@ -315,13 +414,18 @@ export interface FileRouteTypes {
     | '/academics'
     | '/admissions'
     | '/advisors'
+    | '/alumni'
+    | '/blog'
     | '/board-of-directors'
     | '/bulletin'
     | '/campus'
     | '/career'
     | '/chairmans-message'
     | '/contact'
+    | '/counseling'
+    | '/eca-clubs'
     | '/english-courses'
+    | '/facilities'
     | '/faculty'
     | '/fees'
     | '/founder-message'
@@ -332,6 +436,10 @@ export interface FileRouteTypes {
     | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
+    | '/yearbook'
+    | '/blog/$slug'
+    | '/counseling/$type'
+    | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/faculty/'
@@ -344,13 +452,18 @@ export interface RootRouteChildren {
   AcademicsRoute: typeof AcademicsRoute
   AdmissionsRoute: typeof AdmissionsRoute
   AdvisorsRoute: typeof AdvisorsRoute
+  AlumniRoute: typeof AlumniRoute
+  BlogRoute: typeof BlogRouteWithChildren
   BoardOfDirectorsRoute: typeof BoardOfDirectorsRoute
   BulletinRoute: typeof BulletinRoute
   CampusRoute: typeof CampusRoute
   CareerRoute: typeof CareerRoute
   ChairmansMessageRoute: typeof ChairmansMessageRoute
   ContactRoute: typeof ContactRoute
+  CounselingRoute: typeof CounselingRouteWithChildren
+  EcaClubsRoute: typeof EcaClubsRouteWithChildren
   EnglishCoursesRoute: typeof EnglishCoursesRoute
+  FacilitiesRoute: typeof FacilitiesRoute
   FacultyRoute: typeof FacultyRouteWithChildren
   FeesRoute: typeof FeesRoute
   FounderMessageRoute: typeof FounderMessageRoute
@@ -361,10 +474,18 @@ export interface RootRouteChildren {
   NewsNoticeRoute: typeof NewsNoticeRoute
   ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  YearbookRoute: typeof YearbookRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yearbook': {
+      id: '/yearbook'
+      path: '/yearbook'
+      fullPath: '/yearbook'
+      preLoaderRoute: typeof YearbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -435,11 +556,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FacultyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/facilities': {
+      id: '/facilities'
+      path: '/facilities'
+      fullPath: '/facilities'
+      preLoaderRoute: typeof FacilitiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/english-courses': {
       id: '/english-courses'
       path: '/english-courses'
       fullPath: '/english-courses'
       preLoaderRoute: typeof EnglishCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eca-clubs': {
+      id: '/eca-clubs'
+      path: '/eca-clubs'
+      fullPath: '/eca-clubs'
+      preLoaderRoute: typeof EcaClubsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/counseling': {
+      id: '/counseling'
+      path: '/counseling'
+      fullPath: '/counseling'
+      preLoaderRoute: typeof CounselingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -482,6 +624,20 @@ declare module '@tanstack/react-router' {
       path: '/board-of-directors'
       fullPath: '/board-of-directors'
       preLoaderRoute: typeof BoardOfDirectorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alumni': {
+      id: '/alumni'
+      path: '/alumni'
+      fullPath: '/alumni'
+      preLoaderRoute: typeof AlumniRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/advisors': {
@@ -547,8 +703,63 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FacultyIdRouteImport
       parentRoute: typeof FacultyRoute
     }
+    '/eca-clubs/$class': {
+      id: '/eca-clubs/$class'
+      path: '/$class'
+      fullPath: '/eca-clubs/$class'
+      preLoaderRoute: typeof EcaClubsClassRouteImport
+      parentRoute: typeof EcaClubsRoute
+    }
+    '/counseling/$type': {
+      id: '/counseling/$type'
+      path: '/$type'
+      fullPath: '/counseling/$type'
+      preLoaderRoute: typeof CounselingTypeRouteImport
+      parentRoute: typeof CounselingRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
+
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
+interface CounselingRouteChildren {
+  CounselingTypeRoute: typeof CounselingTypeRoute
+}
+
+const CounselingRouteChildren: CounselingRouteChildren = {
+  CounselingTypeRoute: CounselingTypeRoute,
+}
+
+const CounselingRouteWithChildren = CounselingRoute._addFileChildren(
+  CounselingRouteChildren,
+)
+
+interface EcaClubsRouteChildren {
+  EcaClubsClassRoute: typeof EcaClubsClassRoute
+}
+
+const EcaClubsRouteChildren: EcaClubsRouteChildren = {
+  EcaClubsClassRoute: EcaClubsClassRoute,
+}
+
+const EcaClubsRouteWithChildren = EcaClubsRoute._addFileChildren(
+  EcaClubsRouteChildren,
+)
 
 interface FacultyRouteChildren {
   FacultyIdRoute: typeof FacultyIdRoute
@@ -581,13 +792,18 @@ const rootRouteChildren: RootRouteChildren = {
   AcademicsRoute: AcademicsRoute,
   AdmissionsRoute: AdmissionsRoute,
   AdvisorsRoute: AdvisorsRoute,
+  AlumniRoute: AlumniRoute,
+  BlogRoute: BlogRouteWithChildren,
   BoardOfDirectorsRoute: BoardOfDirectorsRoute,
   BulletinRoute: BulletinRoute,
   CampusRoute: CampusRoute,
   CareerRoute: CareerRoute,
   ChairmansMessageRoute: ChairmansMessageRoute,
   ContactRoute: ContactRoute,
+  CounselingRoute: CounselingRouteWithChildren,
+  EcaClubsRoute: EcaClubsRouteWithChildren,
   EnglishCoursesRoute: EnglishCoursesRoute,
+  FacilitiesRoute: FacilitiesRoute,
   FacultyRoute: FacultyRouteWithChildren,
   FeesRoute: FeesRoute,
   FounderMessageRoute: FounderMessageRoute,
@@ -598,6 +814,7 @@ const rootRouteChildren: RootRouteChildren = {
   NewsNoticeRoute: NewsNoticeRoute,
   ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  YearbookRoute: YearbookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

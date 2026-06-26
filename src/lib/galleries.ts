@@ -19,7 +19,7 @@ export const galleries: Record<
   },
   "sirat-un-nabi": {
     title: "Sirat-Un-Nabi (PBUH)",
-    eyebrow: "Faith & Reflection",
+    eyebrow: "Occasion",
     description: "Our annual Sirat-Un-Nabi gathering — students share the life and teachings of the Prophet (PBUH).",
     images: [
       { src: u("photo-1542816417-0983c9c9ad53"), caption: "Recitation" },
@@ -28,20 +28,9 @@ export const galleries: Record<
       { src: u("photo-1473177104440-ffee2f376098"), caption: "Community gathering" },
     ],
   },
-  excursion: {
-    title: "Excursion",
-    eyebrow: "Field Trips",
-    description: "Learning beyond the classroom — museums, nature reserves and historic landmarks.",
-    images: [
-      { src: u("photo-1503454537195-1dcabb73ffb9"), caption: "Riverside discovery" },
-      { src: u("photo-1485470733090-0aae1788d5af"), caption: "Botanical garden visit" },
-      { src: u("photo-1551038247-3d9af20df552"), caption: "Heritage tour" },
-      { src: u("photo-1500964757637-c85e8a162699"), caption: "Nature trail" },
-    ],
-  },
   "pitha-utsob": {
     title: "Pitha Utsob",
-    eyebrow: "Winter Festival",
+    eyebrow: "Occasion",
     description: "Traditional Bangladeshi pithas, music and laughter — a true taste of winter at school.",
     images: [
       { src: u("photo-1565299624946-b28f40a0ae38"), caption: "Pitha stalls" },
@@ -52,7 +41,7 @@ export const galleries: Record<
   },
   "food-party": {
     title: "Food Party",
-    eyebrow: "Celebrations",
+    eyebrow: "Occasion",
     description: "A joyful celebration of cuisine, culture and community across the John Amos family.",
     images: [
       { src: u("photo-1555939594-58d7cb561ad1"), caption: "Buffet of joy" },
@@ -63,7 +52,7 @@ export const galleries: Record<
   },
   "music-and-art": {
     title: "Music & Art",
-    eyebrow: "Creative Expression",
+    eyebrow: "Occasion",
     description: "From watercolour to woodwind — every child is invited to express themselves.",
     images: [
       { src: u("photo-1513829596324-4bb2800c5efb"), caption: "Young painters" },
@@ -74,7 +63,7 @@ export const galleries: Record<
   },
   "nobo-borsho": {
     title: "Nobo Borsho",
-    eyebrow: "Bengali New Year",
+    eyebrow: "Occasion",
     description: "Pohela Boishakh on campus — colour, song and Bengali heritage celebrated together.",
     images: [
       { src: u("photo-1535905557558-afc4877a26fc"), caption: "Cultural parade" },
@@ -83,16 +72,64 @@ export const galleries: Record<
       { src: u("photo-1542317854-92a8866d2b80"), caption: "Boishakhi dance" },
     ],
   },
+  excursion: {
+    title: "Excursion",
+    eyebrow: "Tour",
+    description: "Learning beyond the classroom — museums, nature reserves and historic landmarks.",
+    images: [
+      { src: u("photo-1503454537195-1dcabb73ffb9"), caption: "Riverside discovery" },
+      { src: u("photo-1485470733090-0aae1788d5af"), caption: "Botanical garden visit" },
+      { src: u("photo-1551038247-3d9af20df552"), caption: "Heritage tour" },
+      { src: u("photo-1500964757637-c85e8a162699"), caption: "Nature trail" },
+    ],
+  },
+  "tour-domestic": {
+    title: "Domestic Trip",
+    eyebrow: "Tour",
+    description: "Exploring the beauty of Bangladesh — Sundarbans, Cox's Bazar, Sylhet tea gardens and beyond.",
+    images: [
+      { src: u("photo-1528127269322-539801943592"), caption: "Cox's Bazar shoreline" },
+      { src: u("photo-1469474968028-56623f02e42e"), caption: "Sylhet tea gardens" },
+      { src: u("photo-1501785888041-af3ef285b470"), caption: "Sundarbans expedition" },
+      { src: u("photo-1506905925346-21bda4d32df4"), caption: "Hill tracts of Bandarban" },
+    ],
+  },
+  "tour-international": {
+    title: "International Trip",
+    eyebrow: "Tour",
+    description: "Global learning journeys — Malaysia, Thailand, Singapore and cultural exchange programmes.",
+    images: [
+      { src: u("photo-1508009603885-50cf7c579365"), caption: "Singapore skyline study" },
+      { src: u("photo-1528181304800-259b08848526"), caption: "Cultural exchange, Thailand" },
+      { src: u("photo-1596422846543-75c6fc197f07"), caption: "Petronas, Malaysia" },
+      { src: u("photo-1502602898657-3e91760cbb34"), caption: "Paris heritage walk" },
+    ],
+  },
 };
 
 export type GallerySlug = keyof typeof galleries;
 
-export const galleryMenu: { slug: string; label: string }[] = [
-  { slug: "first-day", label: "First Day at School" },
-  { slug: "sirat-un-nabi", label: "Sirat-Un-Nabi (PBUH)" },
-  { slug: "excursion", label: "Excursion" },
-  { slug: "pitha-utsob", label: "Pitha Utsob" },
-  { slug: "food-party", label: "Food Party" },
-  { slug: "music-and-art", label: "Music & Art" },
-  { slug: "nobo-borsho", label: "Nobo Borsho" },
+// Categorized menu for the new Gallery dropdown.
+export const galleryCategories: { label: string; items: { slug: string; label: string }[] }[] = [
+  {
+    label: "Tour",
+    items: [
+      { slug: "tour-domestic", label: "Domestic Trip" },
+      { slug: "tour-international", label: "International Trip" },
+      { slug: "excursion", label: "Excursion" },
+    ],
+  },
+  {
+    label: "Occasion",
+    items: [
+      { slug: "sirat-un-nabi", label: "Sirat-Un-Nabi (PBUH)" },
+      { slug: "pitha-utsob", label: "Pitha Utsob" },
+      { slug: "food-party", label: "Food Party" },
+      { slug: "music-and-art", label: "Music & Art" },
+      { slug: "nobo-borsho", label: "Nobo Borsho" },
+    ],
+  },
 ];
+
+// Flat list (used by older index page).
+export const galleryMenu: { slug: string; label: string }[] = galleryCategories.flatMap((c) => c.items);
