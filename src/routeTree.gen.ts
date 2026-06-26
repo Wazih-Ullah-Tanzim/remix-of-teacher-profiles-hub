@@ -16,6 +16,7 @@ import { Route as NewsNoticeRouteImport } from './routes/news-notice'
 import { Route as LanguageClubRouteImport } from './routes/language-club'
 import { Route as InternationalAffairsRouteImport } from './routes/international-affairs'
 import { Route as InstructorRegistrationRouteImport } from './routes/instructor-registration'
+import { Route as HeadTeacherMessageRouteImport } from './routes/head-teacher-message'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as FounderMessageRouteImport } from './routes/founder-message'
 import { Route as FeesRouteImport } from './routes/fees'
@@ -44,6 +45,7 @@ import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
 import { Route as EcaClubsClassRouteImport } from './routes/eca-clubs.$class'
 import { Route as CounselingTypeRouteImport } from './routes/counseling.$type'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as NewsNoticeRouteImport } from './routes/news-notice.'
 
 const YearbookRoute = YearbookRouteImport.update({
   id: '/yearbook',
@@ -78,6 +80,11 @@ const InternationalAffairsRoute = InternationalAffairsRouteImport.update({
 const InstructorRegistrationRoute = InstructorRegistrationRouteImport.update({
   id: '/instructor-registration',
   path: '/instructor-registration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HeadTeacherMessageRoute = HeadTeacherMessageRouteImport.update({
+  id: '/head-teacher-message',
+  path: '/head-teacher-message',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -220,6 +227,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const NewsNoticeRoute = NewsNoticeRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => NewsNoticeRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -244,13 +256,15 @@ export interface FileRoutesByFullPath {
   '/fees': typeof FeesRoute
   '/founder-message': typeof FounderMessageRoute
   '/gallery': typeof GalleryRouteWithChildren
+  '/head-teacher-message': typeof HeadTeacherMessageRoute
   '/instructor-registration': typeof InstructorRegistrationRoute
   '/international-affairs': typeof InternationalAffairsRoute
   '/language-club': typeof LanguageClubRoute
-  '/news-notice': typeof NewsNoticeRoute
+  '/news-notice': typeof NewsNoticeRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
+  '/news-notice/': typeof NewsNoticeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
@@ -280,13 +294,14 @@ export interface FileRoutesByTo {
   '/fees': typeof FeesRoute
   '/founder-message': typeof FounderMessageRoute
   '/gallery': typeof GalleryRouteWithChildren
+  '/head-teacher-message': typeof HeadTeacherMessageRoute
   '/instructor-registration': typeof InstructorRegistrationRoute
   '/international-affairs': typeof InternationalAffairsRoute
   '/language-club': typeof LanguageClubRoute
-  '/news-notice': typeof NewsNoticeRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
+  '/news-notice': typeof NewsNoticeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
@@ -318,13 +333,15 @@ export interface FileRoutesById {
   '/fees': typeof FeesRoute
   '/founder-message': typeof FounderMessageRoute
   '/gallery': typeof GalleryRouteWithChildren
+  '/head-teacher-message': typeof HeadTeacherMessageRoute
   '/instructor-registration': typeof InstructorRegistrationRoute
   '/international-affairs': typeof InternationalAffairsRoute
   '/language-club': typeof LanguageClubRoute
-  '/news-notice': typeof NewsNoticeRoute
+  '/news-notice': typeof NewsNoticeRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
+  '/news-notice/': typeof NewsNoticeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
@@ -357,6 +374,7 @@ export interface FileRouteTypes {
     | '/fees'
     | '/founder-message'
     | '/gallery'
+    | '/head-teacher-message'
     | '/instructor-registration'
     | '/international-affairs'
     | '/language-club'
@@ -364,6 +382,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
+    | '/news-notice/'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
@@ -393,13 +412,14 @@ export interface FileRouteTypes {
     | '/fees'
     | '/founder-message'
     | '/gallery'
+    | '/head-teacher-message'
     | '/instructor-registration'
     | '/international-affairs'
     | '/language-club'
-    | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
+    | '/news-notice'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
@@ -430,6 +450,7 @@ export interface FileRouteTypes {
     | '/fees'
     | '/founder-message'
     | '/gallery'
+    | '/head-teacher-message'
     | '/instructor-registration'
     | '/international-affairs'
     | '/language-club'
@@ -437,6 +458,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
+    | '/news-notice/'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
@@ -468,10 +490,11 @@ export interface RootRouteChildren {
   FeesRoute: typeof FeesRoute
   FounderMessageRoute: typeof FounderMessageRoute
   GalleryRoute: typeof GalleryRouteWithChildren
+  HeadTeacherMessageRoute: typeof HeadTeacherMessageRoute
   InstructorRegistrationRoute: typeof InstructorRegistrationRoute
   InternationalAffairsRoute: typeof InternationalAffairsRoute
   LanguageClubRoute: typeof LanguageClubRoute
-  NewsNoticeRoute: typeof NewsNoticeRoute
+  NewsNoticeRoute: typeof NewsNoticeRouteWithChildren
   ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   YearbookRoute: typeof YearbookRoute
@@ -526,6 +549,13 @@ declare module '@tanstack/react-router' {
       path: '/instructor-registration'
       fullPath: '/instructor-registration'
       preLoaderRoute: typeof InstructorRegistrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/head-teacher-message': {
+      id: '/head-teacher-message'
+      path: '/head-teacher-message'
+      fullPath: '/head-teacher-message'
+      preLoaderRoute: typeof HeadTeacherMessageRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -724,6 +754,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/news-notice/': {
+      id: '/news-notice/'
+      path: '/'
+      fullPath: '/news-notice/'
+      preLoaderRoute: typeof NewsNoticeRouteImport
+      parentRoute: typeof NewsNoticeRoute
+    }
   }
 }
 
@@ -785,6 +822,18 @@ const GalleryRouteChildren: GalleryRouteChildren = {
 const GalleryRouteWithChildren =
   GalleryRoute._addFileChildren(GalleryRouteChildren)
 
+interface NewsNoticeRouteChildren {
+  NewsNoticeRoute: typeof NewsNoticeRoute
+}
+
+const NewsNoticeRouteChildren: NewsNoticeRouteChildren = {
+  NewsNoticeRoute: NewsNoticeRoute,
+}
+
+const NewsNoticeRouteWithChildren = NewsNoticeRoute._addFileChildren(
+  NewsNoticeRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
@@ -808,10 +857,11 @@ const rootRouteChildren: RootRouteChildren = {
   FeesRoute: FeesRoute,
   FounderMessageRoute: FounderMessageRoute,
   GalleryRoute: GalleryRouteWithChildren,
+  HeadTeacherMessageRoute: HeadTeacherMessageRoute,
   InstructorRegistrationRoute: InstructorRegistrationRoute,
   InternationalAffairsRoute: InternationalAffairsRoute,
   LanguageClubRoute: LanguageClubRoute,
-  NewsNoticeRoute: NewsNoticeRoute,
+  NewsNoticeRoute: NewsNoticeRouteWithChildren,
   ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   YearbookRoute: YearbookRoute,

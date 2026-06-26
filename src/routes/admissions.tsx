@@ -1,86 +1,25 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useMemo, useState } from "react";
+import { toast } from "sonner";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, FileText, Calendar, ClipboardCheck, GraduationCap } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { submitAdmissionApplication } from "@/lib/site.functions";
+import { CheckCircle2, FileText, Calendar, ClipboardCheck, GraduationCap, ShieldCheck } from "lucide-react";
 
-export const Route = createFileRoute("/admissions")({
-  head: () => ({
-    meta: [
-      { title: "Admissions — John Amos International School" },
-      { name: "description", content: "Apply to John Amos International School. Learn about our admissions process, requirements and fees." },
-      { property: "og:title", content: "Admissions — John Amos International School" },
-      { property: "og:description", content: "Apply to Mymensingh's first absolute English Medium Cambridge school." },
-    ],
-  }),
-  component: AdmissionsPage,
-});
+export const Route = createFileRoute("/admissions")({ head: () => ({ meta: [{ title: "Admissions 2026-2027 — John Amos International School" }, { name: "description", content: "Apply online for John Amos International School admission session 2026-2027. Online admission includes an extra 10% discount." }] }), component: AdmissionsPage });
 
 function AdmissionsPage() {
-  const steps = [
-    { icon: FileText, title: "1. Enquire", text: "Submit an enquiry form or call our admissions office to learn more." },
-    { icon: Calendar, title: "2. Visit & Tour", text: "Book a campus tour to meet our team and see classrooms in action." },
-    { icon: ClipboardCheck, title: "3. Assessment", text: "An age-appropriate assessment and a brief parent interview." },
-    { icon: GraduationCap, title: "4. Enrol", text: "Receive an offer letter, complete enrolment forms and begin." },
-  ];
-  const docs = [
-    "Completed application form",
-    "Child's birth certificate copy",
-    "Two recent passport-size photographs",
-    "Previous school records (if applicable)",
-    "Parent/Guardian National ID copies",
-    "Medical / immunisation records",
-  ];
-  return (
-    <>
-      <PageHero eyebrow="Admissions" title="Join the John Amos family." subtitle="A simple, supportive process designed to help your child take the next step in their learning journey." />
-
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="The Process" title="Four steps to enrolment" />
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {steps.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:border-accent">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground"><s.icon className="h-6 w-6" /></div>
-                <h3 className="text-lg font-bold text-primary">{s.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-secondary py-20">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 md:grid-cols-2 lg:px-8">
-          <div>
-            <SectionHeader align="left" eyebrow="Required Documents" title="What you'll need to apply" />
-            <ul className="mt-8 space-y-3">
-              {docs.map((d) => (
-                <li key={d} className="flex items-start gap-3 rounded-xl bg-background p-4 shadow-[var(--shadow-card)]">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
-                  <span className="text-sm font-medium text-primary">{d}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <SectionHeader align="left" eyebrow="Key Dates & Fees" title="Plan your enrolment" />
-            <div className="mt-8 space-y-4">
-              <div className="rounded-2xl border border-border bg-background p-6 shadow-[var(--shadow-card)]">
-                <div className="text-xs font-bold uppercase tracking-wider text-accent">Admissions Window</div>
-                <div className="mt-1 text-lg font-bold text-primary">Open year-round</div>
-                <p className="mt-1 text-sm text-muted-foreground">Limited seats per class — early application recommended.</p>
-              </div>
-              <div className="rounded-2xl border border-border bg-background p-6 shadow-[var(--shadow-card)]">
-                <div className="text-xs font-bold uppercase tracking-wider text-accent">Fees</div>
-                <div className="mt-1 text-lg font-bold text-primary">On request</div>
-                <p className="mt-1 text-sm text-muted-foreground">Detailed fee structures are shared during the campus visit.</p>
-              </div>
-              <Link to="/contact"><Button variant="hero" size="xl" className="w-full">Start your Application</Button></Link>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  const submitAdmission = useServerFn(submitAdmissionApplication); const startedAt = useMemo(() => Date.now(), []); const [loading, setLoading] = useState(false);
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); setLoading(true); const f = new FormData(e.currentTarget); try { await submitAdmission({ data: { studentName: String(f.get("studentName") || ""), fatherName: String(f.get("fatherName") || ""), motherName: String(f.get("motherName") || ""), birthDate: String(f.get("birthDate") || ""), previousSchool: String(f.get("previousSchool") || ""), session: "2026-2027", phone: String(f.get("phone") || ""), guardianEmail: String(f.get("guardianEmail") || ""), fullAddress: String(f.get("fullAddress") || ""), city: String(f.get("city") || ""), country: String(f.get("country") || ""), message: String(f.get("message") || ""), website: String(f.get("website") || ""), startedAt } }); toast.success("Application submitted to admission@johnamosbd.com"); e.currentTarget.reset(); } catch (err) { toast.error(err instanceof Error ? err.message : "Could not submit application"); } finally { setLoading(false); } };
+  const steps = [{ icon: FileText, title: "1. Online / Offline Form", text: "Submit this secure online form or collect the form from campus." }, { icon: Calendar, title: "2. Campus Visit", text: "Parents meet the admissions desk and tour the school." }, { icon: ClipboardCheck, title: "3. Assessment", text: "Age-appropriate student assessment and brief guardian interview." }, { icon: GraduationCap, title: "4. Enrolment", text: "Receive confirmation and complete admission formalities." }];
+  const docs = ["Birth certificate copy", "Two passport-size photographs", "Previous school records if applicable", "Father's and mother's NID copies", "Medical / immunisation information", "Completed admission form"];
+  const faqs = ["What is the session?", "The admission session is fixed as 2026-2027.", "Is there an online discount?", "Yes. Online admission receives an extra 10% discount.", "Where does my form go?", "The application is securely sent to admission@johnamosbd.com and stored for admission follow-up."];
+  return <><PageHero eyebrow="Admissions" title="Admission Session 2026-2027" subtitle="Apply online or offline. Online admission receives an extra 10% discount." />
+    <section className="py-20"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><SectionHeader eyebrow="Admission Procedure" title="Four steps to enrolment" /><div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{steps.map((s) => <div key={s.title} className="tilt-card rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"><div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-primary-foreground"><s.icon className="h-6 w-6" /></div><h3 className="text-lg font-bold text-primary">{s.title}</h3><p className="mt-2 text-sm text-muted-foreground">{s.text}</p></div>)}</div></div></section>
+    <section className="bg-secondary py-20"><div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8"><div><SectionHeader align="left" eyebrow="Admission Requirement" title="Documents & discount" /><ul className="mt-8 space-y-3">{docs.map((d) => <li key={d} className="flex items-start gap-3 rounded-xl bg-background p-4 shadow-[var(--shadow-card)]"><CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" /><span className="text-sm font-medium text-primary">{d}</span></li>)}</ul><div className="mt-6 rounded-2xl border border-emerald-300 bg-emerald-50 p-5 text-sm font-bold text-emerald-800"><ShieldCheck className="mr-2 inline h-5 w-5" /> Online admission gets extra 10% discount.</div></div><form onSubmit={onSubmit} className="grid gap-4 rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-elegant)] sm:grid-cols-2"><input name="website" className="hidden" tabIndex={-1} autoComplete="off" /><Field label="Student's name" name="studentName" required /><Field label="Father's name" name="fatherName" required /><Field label="Mother's name" name="motherName" required /><Field label="Birth date" name="birthDate" type="date" required /><Field label="Previous school" name="previousSchool" /><Field label="Session" name="session" value="2026-2027" readOnly /><Field label="Phone number" name="phone" required /><Field label="Guardian email" name="guardianEmail" type="email" /><Field label="City" name="city" required /><Field label="Country" name="country" required /><div className="sm:col-span-2"><label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-primary">Full address *</label><textarea name="fullAddress" required rows={3} className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30" /></div><div className="sm:col-span-2"><label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-primary">Message</label><textarea name="message" rows={3} className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30" /></div><Button disabled={loading} type="submit" variant="hero" size="xl" className="sm:col-span-2">{loading ? "Submitting..." : "Submit Application"}</Button></form></div></section>
+    <section className="py-20"><div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8"><SectionHeader eyebrow="FAQ" title="Recent questions" /><Accordion type="single" collapsible className="mt-10 rounded-3xl border border-border bg-card p-4 shadow-[var(--shadow-card)]">{[0,2,4].map((i) => <AccordionItem key={faqs[i]} value={`q${i}`}><AccordionTrigger className="text-left font-bold text-primary">{faqs[i]}</AccordionTrigger><AccordionContent className="text-muted-foreground">{faqs[i+1]}</AccordionContent></AccordionItem>)}</Accordion></div></section></>;
 }
+function Field({ label, name, type = "text", required, value, readOnly }: { label: string; name: string; type?: string; required?: boolean; value?: string; readOnly?: boolean }) { return <div><label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-primary">{label}{required && <span className="text-accent"> *</span>}</label><input name={name} type={type} required={required} defaultValue={value} readOnly={readOnly} className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 read-only:bg-secondary" /></div>; }
