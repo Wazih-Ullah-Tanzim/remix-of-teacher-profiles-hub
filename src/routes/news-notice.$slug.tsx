@@ -3,7 +3,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { notices } from "@/lib/news";
 import { ArrowLeft, CalendarDays } from "lucide-react";
 
-export const Route = createFileRoute("/news-notice/")({
+export const Route = createFileRoute("/news-notice/$slug")({
   head: ({ params }) => { const n = notices.find((x) => x.slug === params.slug); return { meta: [{ title: n ? `${n.title} — News | John Amos` : "News" }, { name: "description", content: n?.body ?? "School news" }] }; },
   loader: ({ params }) => { const n = notices.find((x) => x.slug === params.slug); if (!n) throw notFound(); return n; },
   component: Page,
