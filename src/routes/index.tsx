@@ -8,6 +8,28 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MapEmbed } from "@/components/site/MapEmbed";
 import { MotionStagger, MotionStaggerItem, AnimatedCounter } from "@/components/site/Motion";
+import { useEffect, useState } from "react";
+
+function VisitsStat() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const KEY = "jais_visit_count";
+    const SESSION = "jais_visit_session";
+    let n = parseInt(localStorage.getItem(KEY) || "1233", 10);
+    if (!sessionStorage.getItem(SESSION)) {
+      n += 1;
+      localStorage.setItem(KEY, String(n));
+      sessionStorage.setItem(SESSION, "1");
+    }
+    setCount(n);
+  }, []);
+  return (
+    <div className="text-center">
+      <div className="text-5xl font-extrabold text-primary">{count.toLocaleString()}</div>
+      <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">Visitors</div>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -74,7 +96,7 @@ function HomePage() {
       <section className="relative -mt-12 z-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)] sm:p-10">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
               {[
                 { n: 9, suffix: "+", label: "Expert Teachers" },
                 { n: 280, suffix: "+", label: "Students Enrolled" },
@@ -88,10 +110,12 @@ function HomePage() {
                   <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">{c.label}</div>
                 </div>
               ))}
+              <VisitsStat />
             </div>
           </div>
         </div>
       </section>
+
 
       {/* WELCOME */}
       <section className="py-20 sm:py-24">
