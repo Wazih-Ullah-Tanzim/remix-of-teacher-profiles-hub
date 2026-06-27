@@ -40,6 +40,7 @@ import { Route as AcademicCalendarRouteImport } from './routes/academic-calendar
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FacultyIndexRouteImport } from './routes/faculty.index'
+import { Route as AcademicsIndexRouteImport } from './routes/academics.index'
 import { Route as NewsNoticeSlugRouteImport } from './routes/news-notice.$slug'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
@@ -202,6 +203,11 @@ const FacultyIndexRoute = FacultyIndexRouteImport.update({
   path: '/',
   getParentRoute: () => FacultyRoute,
 } as any)
+const AcademicsIndexRoute = AcademicsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AcademicsRoute,
+} as any)
 const NewsNoticeSlugRoute = NewsNoticeSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -237,7 +243,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academic-calendar': typeof AcademicCalendarRoute
-  '/academics': typeof AcademicsRoute
+  '/academics': typeof AcademicsRouteWithChildren
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
   '/alumni': typeof AlumniRoute
@@ -270,13 +276,13 @@ export interface FileRoutesByFullPath {
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/news-notice/$slug': typeof NewsNoticeSlugRoute
+  '/academics/': typeof AcademicsIndexRoute
   '/faculty/': typeof FacultyIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academic-calendar': typeof AcademicCalendarRoute
-  '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
   '/alumni': typeof AlumniRoute
@@ -308,6 +314,7 @@ export interface FileRoutesByTo {
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/news-notice/$slug': typeof NewsNoticeSlugRoute
+  '/academics': typeof AcademicsIndexRoute
   '/faculty': typeof FacultyIndexRoute
 }
 export interface FileRoutesById {
@@ -315,7 +322,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academic-calendar': typeof AcademicCalendarRoute
-  '/academics': typeof AcademicsRoute
+  '/academics': typeof AcademicsRouteWithChildren
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
   '/alumni': typeof AlumniRoute
@@ -348,6 +355,7 @@ export interface FileRoutesById {
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/news-notice/$slug': typeof NewsNoticeSlugRoute
+  '/academics/': typeof AcademicsIndexRoute
   '/faculty/': typeof FacultyIndexRoute
 }
 export interface FileRouteTypes {
@@ -389,13 +397,13 @@ export interface FileRouteTypes {
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/news-notice/$slug'
+    | '/academics/'
     | '/faculty/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/academic-calendar'
-    | '/academics'
     | '/admissions'
     | '/advisors'
     | '/alumni'
@@ -427,6 +435,7 @@ export interface FileRouteTypes {
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/news-notice/$slug'
+    | '/academics'
     | '/faculty'
   id:
     | '__root__'
@@ -466,6 +475,7 @@ export interface FileRouteTypes {
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/news-notice/$slug'
+    | '/academics/'
     | '/faculty/'
   fileRoutesById: FileRoutesById
 }
@@ -473,7 +483,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AcademicCalendarRoute: typeof AcademicCalendarRoute
-  AcademicsRoute: typeof AcademicsRoute
+  AcademicsRoute: typeof AcademicsRouteWithChildren
   AdmissionsRoute: typeof AdmissionsRoute
   AdvisorsRoute: typeof AdvisorsRoute
   AlumniRoute: typeof AlumniRoute
@@ -721,6 +731,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FacultyIndexRouteImport
       parentRoute: typeof FacultyRoute
     }
+    '/academics/': {
+      id: '/academics/'
+      path: '/'
+      fullPath: '/academics/'
+      preLoaderRoute: typeof AcademicsIndexRouteImport
+      parentRoute: typeof AcademicsRoute
+    }
     '/news-notice/$slug': {
       id: '/news-notice/$slug'
       path: '/$slug'
@@ -765,6 +782,18 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AcademicsRouteChildren {
+  AcademicsIndexRoute: typeof AcademicsIndexRoute
+}
+
+const AcademicsRouteChildren: AcademicsRouteChildren = {
+  AcademicsIndexRoute: AcademicsIndexRoute,
+}
+
+const AcademicsRouteWithChildren = AcademicsRoute._addFileChildren(
+  AcademicsRouteChildren,
+)
 
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
@@ -840,7 +869,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AcademicCalendarRoute: AcademicCalendarRoute,
-  AcademicsRoute: AcademicsRoute,
+  AcademicsRoute: AcademicsRouteWithChildren,
   AdmissionsRoute: AdmissionsRoute,
   AdvisorsRoute: AdvisorsRoute,
   AlumniRoute: AlumniRoute,
@@ -871,13 +900,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
