@@ -40,12 +40,12 @@ import { Route as AcademicCalendarRouteImport } from './routes/academic-calendar
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FacultyIndexRouteImport } from './routes/faculty.index'
+import { Route as NewsNoticeSlugRouteImport } from './routes/news-notice.$slug'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
 import { Route as EcaClubsClassRouteImport } from './routes/eca-clubs.$class'
 import { Route as CounselingTypeRouteImport } from './routes/counseling.$type'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as NewsNoticeRouteImport } from './routes/news-notice.'
 
 const YearbookRoute = YearbookRouteImport.update({
   id: '/yearbook',
@@ -202,6 +202,11 @@ const FacultyIndexRoute = FacultyIndexRouteImport.update({
   path: '/',
   getParentRoute: () => FacultyRoute,
 } as any)
+const NewsNoticeSlugRoute = NewsNoticeSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => NewsNoticeRoute,
+} as any)
 const GallerySlugRoute = GallerySlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -226,11 +231,6 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => BlogRoute,
-} as any)
-const NewsNoticeRoute = NewsNoticeRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => NewsNoticeRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -264,12 +264,12 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
-  '/news-notice/': typeof NewsNoticeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/news-notice/$slug': typeof NewsNoticeSlugRoute
   '/faculty/': typeof FacultyIndexRoute
 }
 export interface FileRoutesByTo {
@@ -298,15 +298,16 @@ export interface FileRoutesByTo {
   '/instructor-registration': typeof InstructorRegistrationRoute
   '/international-affairs': typeof InternationalAffairsRoute
   '/language-club': typeof LanguageClubRoute
+  '/news-notice': typeof NewsNoticeRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
-  '/news-notice': typeof NewsNoticeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/news-notice/$slug': typeof NewsNoticeSlugRoute
   '/faculty': typeof FacultyIndexRoute
 }
 export interface FileRoutesById {
@@ -341,12 +342,12 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
-  '/news-notice/': typeof NewsNoticeRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
+  '/news-notice/$slug': typeof NewsNoticeSlugRoute
   '/faculty/': typeof FacultyIndexRoute
 }
 export interface FileRouteTypes {
@@ -382,12 +383,12 @@ export interface FileRouteTypes {
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
-    | '/news-notice/'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
+    | '/news-notice/$slug'
     | '/faculty/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -416,15 +417,16 @@ export interface FileRouteTypes {
     | '/instructor-registration'
     | '/international-affairs'
     | '/language-club'
+    | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
-    | '/news-notice'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
+    | '/news-notice/$slug'
     | '/faculty'
   id:
     | '__root__'
@@ -458,12 +460,12 @@ export interface FileRouteTypes {
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
-    | '/news-notice/'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
+    | '/news-notice/$slug'
     | '/faculty/'
   fileRoutesById: FileRoutesById
 }
@@ -719,6 +721,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FacultyIndexRouteImport
       parentRoute: typeof FacultyRoute
     }
+    '/news-notice/$slug': {
+      id: '/news-notice/$slug'
+      path: '/$slug'
+      fullPath: '/news-notice/$slug'
+      preLoaderRoute: typeof NewsNoticeSlugRouteImport
+      parentRoute: typeof NewsNoticeRoute
+    }
     '/gallery/$slug': {
       id: '/gallery/$slug'
       path: '/$slug'
@@ -753,13 +762,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
-    }
-    '/news-notice/': {
-      id: '/news-notice/'
-      path: '/'
-      fullPath: '/news-notice/'
-      preLoaderRoute: typeof NewsNoticeRouteImport
-      parentRoute: typeof NewsNoticeRoute
     }
   }
 }
@@ -823,11 +825,11 @@ const GalleryRouteWithChildren =
   GalleryRoute._addFileChildren(GalleryRouteChildren)
 
 interface NewsNoticeRouteChildren {
-  NewsNoticeRoute: typeof NewsNoticeRoute
+  NewsNoticeSlugRoute: typeof NewsNoticeSlugRoute
 }
 
 const NewsNoticeRouteChildren: NewsNoticeRouteChildren = {
-  NewsNoticeRoute: NewsNoticeRoute,
+  NewsNoticeSlugRoute: NewsNoticeSlugRoute,
 }
 
 const NewsNoticeRouteWithChildren = NewsNoticeRoute._addFileChildren(
