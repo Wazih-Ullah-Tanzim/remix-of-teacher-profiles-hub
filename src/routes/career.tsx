@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Briefcase, MapPin, Clock } from "lucide-react";
 import { toast } from "sonner";
+import { guardSubmit, markSubmitted, honeypotInputProps } from "@/lib/form-security";
 
 export const Route = createFileRoute("/career")({
   head: () => ({ meta: [{ title: "Careers — John Amos" }, { name: "description", content: "Open teaching and staff positions at John Amos International School." }] }),
@@ -20,8 +21,11 @@ const openings = [
 function Page() {
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    if (!guardSubmit(form, "career", (m) => toast.error(m))) return;
+    markSubmitted("career");
     toast.success("Application received — we'll review and reply shortly.");
-    (e.target as HTMLFormElement).reset();
+    form.reset();
   };
   return (
     <>
