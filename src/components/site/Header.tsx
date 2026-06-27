@@ -83,11 +83,13 @@ function SmartLink({ item, className, onClick }: { item: NavItem; className?: st
   return <Link to={item.to} onClick={onClick} className={className} activeProps={{ className: "bg-secondary text-primary font-semibold" }}>{item.label}</Link>;
 }
 
-function DesktopChildren({ items, level = 0 }: { items: NavItem[]; level?: number }) {
-  return <div className={`${level ? "absolute left-full top-0 ml-2" : "absolute left-0 top-full"} invisible z-50 min-w-[250px] -translate-y-2 rounded-xl border border-border bg-popover p-2 opacity-0 shadow-[var(--shadow-elegant)] transition-all duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100`}>
+function DesktopChildren({ items, level = 0, flip = false }: { items: NavItem[]; level?: number; flip?: boolean }) {
+  const nestedPos = flip ? "absolute right-full top-0 mr-2" : "absolute left-full top-0 ml-2";
+  const rootPos = flip ? "absolute right-0 top-full" : "absolute left-0 top-full";
+  return <div className={`${level ? nestedPos : rootPos} invisible z-50 min-w-[250px] -translate-y-2 rounded-xl border border-border bg-popover p-2 opacity-0 shadow-[var(--shadow-elegant)] transition-all duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100`}>
     {items.map((c) => <div key={c.to + c.label} className="group/menu relative">
       <SmartLink item={c} className="flex items-center justify-between rounded-md px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-primary" />
-      {c.children && <><ChevronRight className="pointer-events-none absolute right-2 top-2.5 h-4 w-4 text-muted-foreground" /><DesktopChildren items={c.children} level={level + 1} /></>}
+      {c.children && <><ChevronRight className="pointer-events-none absolute right-2 top-2.5 h-4 w-4 text-muted-foreground" /><DesktopChildren items={c.children} level={level + 1} flip={flip} /></>}
     </div>)}
   </div>;
 }
@@ -116,7 +118,7 @@ export function Header() {
           </div>
         </Link>
         <nav className="hidden items-center gap-0.5 lg:flex">
-          {nav.map((n) => n.children ? <div key={n.label} className="group/menu relative"><button className="flex items-center gap-1 rounded-md px-2.5 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:text-primary">{n.label}<ChevronDown className="h-3.5 w-3.5 transition-transform group-hover/menu:rotate-180" /></button><DesktopChildren items={n.children} /></div> : <Link key={n.to} to={n.to} activeOptions={{ exact: n.to === "/" }} className="rounded-md px-2.5 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:text-primary" activeProps={{ className: "text-primary font-semibold" }}>{n.label}</Link>)}
+          {nav.map((n) => n.children ? <div key={n.label} className="group/menu relative"><button className="flex items-center gap-1 rounded-md px-2.5 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:text-primary">{n.label}<ChevronDown className="h-3.5 w-3.5 transition-transform group-hover/menu:rotate-180" /></button><DesktopChildren items={n.children} flip={n.label === "Gallery" || n.label === "JAIS Life"} /></div> : <Link key={n.to} to={n.to} activeOptions={{ exact: n.to === "/" }} className="rounded-md px-2.5 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:text-primary" activeProps={{ className: "text-primary font-semibold" }}>{n.label}</Link>)}
           <Link to="/admissions" className="ml-2"><Button variant="hero" size="sm">Apply Now</Button></Link>
         </nav>
         <button className="lg:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">{open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
