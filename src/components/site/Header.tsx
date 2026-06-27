@@ -160,7 +160,7 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-0.5 lg:flex" onMouseLeave={scheduleClose}>
+        <nav className="hidden items-center gap-0.5 md:flex" onMouseLeave={scheduleClose}>
           {nav.map((n) => {
             if (!n.children) {
               return (
@@ -189,13 +189,13 @@ export function Header() {
           </Link>
         </nav>
 
-        <button className="lg:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
+        <button className="md:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="max-h-[80vh] overflow-y-auto border-t border-border bg-background lg:hidden">
+        <div className="max-h-[80vh] overflow-y-auto border-t border-border bg-background md:hidden">
           <div className="flex flex-col px-4 py-3">
             {nav.map((n) => n.children ? (
               <div key={n.label} className="border-b border-border/50 py-1">
