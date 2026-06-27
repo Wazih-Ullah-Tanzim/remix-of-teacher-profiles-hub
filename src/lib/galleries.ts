@@ -17,16 +17,39 @@ export const galleries: Record<
     ],
   },
   "international-excursion": {
-    title: "International Excursion",
+    title: "China Study Tour",
     eyebrow: "International Trip",
-    description: "Global learning journeys — cultural exchange, museums, universities and city study tours.",
+    description: "Our flagship international journey — cultural exchange, universities and city study tours in China.",
     images: [
-      { src: u("photo-1508009603885-50cf7c579365"), caption: "Singapore skyline study" },
-      { src: u("photo-1528181304800-259b08848526"), caption: "Cultural exchange, Thailand" },
-      { src: u("photo-1596422846543-75c6fc197f07"), caption: "Petronas, Malaysia" },
-      { src: u("photo-1502602898657-3e91760cbb34"), caption: "Global heritage walk" },
+      { src: u("photo-1508009603885-50cf7c579365"), caption: "Shanghai skyline" },
+      { src: u("photo-1547981609-4b6bfe67ca0b"), caption: "Great Wall walk" },
+      { src: u("photo-1513415564515-763d91423bdd"), caption: "Beijing heritage" },
+      { src: u("photo-1502602898657-3e91760cbb34"), caption: "Cultural exchange" },
     ],
   },
+  "sports-day": {
+    title: "Sports Day",
+    eyebrow: "Occasion",
+    description: "Track, field and team spirit — our annual sports day brings the whole school together.",
+    images: [
+      { src: u("photo-1517649763962-0c623066013b"), caption: "Track events" },
+      { src: u("photo-1521412644187-c49fa049e84d"), caption: "Team spirit" },
+      { src: u("photo-1526506118085-60ce8714f8c5"), caption: "Field games" },
+      { src: u("photo-1518972559570-7cc1309f3229"), caption: "Award ceremony" },
+    ],
+  },
+  "cultural-program": {
+    title: "Cultural Program",
+    eyebrow: "Occasion",
+    description: "Music, dance and drama — students showcase talent and celebrate heritage on the school stage.",
+    images: [
+      { src: u("photo-1511379938547-c1f69419868d"), caption: "Music ensemble" },
+      { src: u("photo-1499415479124-43c32433a620"), caption: "Stage performance" },
+      { src: u("photo-1493612276216-ee3925520721"), caption: "Dance recital" },
+      { src: u("photo-1513829596324-4bb2800c5efb"), caption: "Drama night" },
+    ],
+  },
+
   "pohela-boishakh": {
     title: "Pohela Boishakh",
     eyebrow: "Occasion",
