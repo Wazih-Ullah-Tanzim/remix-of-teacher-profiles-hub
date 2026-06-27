@@ -56,7 +56,7 @@ function Page() {
           <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {directorsList.map((d) => (
               <div key={d.sl} className="flex flex-col items-center rounded-2xl border border-border bg-card p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                <div className="img-zoom aspect-square w-full max-w-[140px] overflow-hidden rounded-full ring-2 ring-primary/10">
+                <div className="img-zoom aspect-[3/4] w-full max-w-[150px] overflow-hidden rounded-xl ring-2 ring-primary/10 shadow-sm">
                   <img src={d.photo} alt={d.name} loading="lazy" className="h-full w-full object-cover" />
                 </div>
                 <div className="mt-3">
