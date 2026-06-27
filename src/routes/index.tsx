@@ -8,6 +8,28 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MapEmbed } from "@/components/site/MapEmbed";
 import { MotionStagger, MotionStaggerItem, AnimatedCounter } from "@/components/site/Motion";
+import { useEffect, useState } from "react";
+
+function VisitsStat() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const KEY = "jais_visit_count";
+    const SESSION = "jais_visit_session";
+    let n = parseInt(localStorage.getItem(KEY) || "1233", 10);
+    if (!sessionStorage.getItem(SESSION)) {
+      n += 1;
+      localStorage.setItem(KEY, String(n));
+      sessionStorage.setItem(SESSION, "1");
+    }
+    setCount(n);
+  }, []);
+  return (
+    <div className="text-center">
+      <div className="text-5xl font-extrabold text-primary">{count.toLocaleString()}</div>
+      <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">Visitors</div>
+    </div>
+  );
+}
 
 export const Route = createFileRoute("/")({
   head: () => ({
