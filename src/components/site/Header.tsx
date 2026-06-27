@@ -178,7 +178,9 @@ export function Header() {
                 </button>
                 {isOpen && (
                   <div className={`absolute top-full ${flip ? "right-0" : "left-0"} z-50 pt-2`}>
-                    <SubMenu items={n.children} flip={flip} close={closeNow} />
+                    <div className="min-w-[260px] max-h-[70vh] overflow-y-auto rounded-xl border border-border bg-popover p-2 shadow-[var(--shadow-elegant)]">
+                      <MobileItems items={n.children} onClick={closeNow} />
+                    </div>
                   </div>
                 )}
               </div>
