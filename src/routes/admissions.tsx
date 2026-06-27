@@ -6,6 +6,7 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CheckCircle2, FileText, Upload, CreditCard, Building2, ShieldCheck } from "lucide-react";
+import { guardSubmit, markSubmitted, honeypotInputProps } from "@/lib/form-security";
 
 export const Route = createFileRoute("/admissions")({
   head: () => ({
@@ -43,13 +44,10 @@ function AdmissionsPage() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
+    if (!guardSubmit(form, "admissions", (m) => toast.error(m))) return;
     const f = new FormData(form);
-    // Honeypot
-    if (String(f.get("website") || "").trim() !== "") {
-      toast.error("Submission blocked.");
-      return;
-    }
     setLoading(true);
+    markSubmitted("admissions");
     const fields: [string, string][] = [
       ["Student Full Name", String(f.get("studentName") || "")],
       ["Father's Name", String(f.get("fatherName") || "")],
@@ -158,7 +156,8 @@ function AdmissionsPage() {
           <SectionHeader eyebrow="Admission Form" title="Apply for Session 2026-2027" />
           <form onSubmit={onSubmit} className="mt-10 grid gap-4 rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-elegant)] sm:grid-cols-2">
             {/* Honeypot */}
-            <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, opacity: 0 }} />
+            <input {...honeypotInputProps} />
+
 
             <Field label="Student Full Name" name="studentName" required />
             <Field label="Father's Name" name="fatherName" required />
