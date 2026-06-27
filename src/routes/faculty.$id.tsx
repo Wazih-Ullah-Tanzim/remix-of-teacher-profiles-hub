@@ -62,6 +62,34 @@ function Page() {
               </ul>
             </div>
 
+            <div
+              className="relative mt-10 overflow-hidden rounded-xl p-6 pl-8"
+              style={{ backgroundColor: "#fef3c7", borderLeft: "4px solid #f97316" }}
+            >
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -top-4 left-3 select-none font-serif leading-none"
+                style={{ fontSize: "6rem", color: "#f97316", opacity: 0.35 }}
+              >
+                “
+              </span>
+              <div className="relative">
+                <div className="text-xs font-bold uppercase tracking-[0.18em]" style={{ color: "#c2410c" }}>
+                  In Their Own Words
+                </div>
+                <p className="mt-3 text-base italic leading-relaxed text-foreground/85">
+                  {t.personalMessage}
+                </p>
+              </div>
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -bottom-10 right-4 select-none font-serif leading-none"
+                style={{ fontSize: "6rem", color: "#f97316", opacity: 0.35 }}
+              >
+                ”
+              </span>
+            </div>
+
             <div className="mt-10 flex items-center gap-3 rounded-xl bg-secondary p-5">
               <BriefcaseBusiness className="h-5 w-5 text-accent" />
               <div>
