@@ -31,29 +31,39 @@ function HomePage() {
           backgroundImage: "radial-gradient(circle at 15% 20%, rgba(255,255,255,0.3), transparent 40%), radial-gradient(circle at 85% 75%, oklch(0.72 0.18 50 / 0.5), transparent 45%)",
         }} />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 md:grid-cols-2 md:py-28 lg:px-8 lg:py-32">
-          <div className="flex flex-col justify-center">
-            <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent backdrop-blur animate-fade-up">
-              <Sparkles className="h-3.5 w-3.5" /> First in Mymensingh
-            </div>
-            <h1 className="animate-fade-up delay-100 text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              An Absolute <span className="text-accent">English Medium</span> School.
-            </h1>
-            <p className="animate-fade-up delay-200 mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/85">
-              John Amos International School follows the Cambridge curriculum exclusively — built for curious young minds in a modern, elegant Mymensingh campus.
-            </p>
-            <div className="animate-fade-up delay-300 mt-8 flex flex-wrap gap-3">
-              <Link to="/admissions"><Button variant="hero" size="xl">Apply for Admission <ArrowRight className="h-4 w-4" /></Button></Link>
-              <Link to="/contact"><Button variant="outlineLight" size="xl">Get in Touch</Button></Link>
-            </div>
-            <div className="animate-fade-up delay-500 mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-white/15 pt-6 text-sm">
-              <div><div className="text-2xl font-extrabold text-accent">100%</div><div className="text-primary-foreground/70">Cambridge</div></div>
-              <div><div className="text-2xl font-extrabold text-accent">2023</div><div className="text-primary-foreground/70">Established</div></div>
-              <div><div className="text-2xl font-extrabold text-accent">1:12</div><div className="text-primary-foreground/70">Class ratio</div></div>
-            </div>
-          </div>
+          <MotionStagger className="flex flex-col justify-center" stagger={0.15}>
+            <MotionStaggerItem>
+              <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent backdrop-blur">
+                <Sparkles className="h-3.5 w-3.5" /> First in Mymensingh
+              </div>
+            </MotionStaggerItem>
+            <MotionStaggerItem>
+              <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+                An Absolute <span className="text-accent">English Medium</span> School.
+              </h1>
+            </MotionStaggerItem>
+            <MotionStaggerItem>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-primary-foreground/85">
+                John Amos International School follows the Cambridge curriculum exclusively — built for curious young minds in a modern, elegant Mymensingh campus.
+              </p>
+            </MotionStaggerItem>
+            <MotionStaggerItem>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link to="/admissions"><Button variant="hero" size="xl">Apply for Admission <ArrowRight className="h-4 w-4" /></Button></Link>
+                <Link to="/contact"><Button variant="outlineLight" size="xl">Get in Touch</Button></Link>
+              </div>
+            </MotionStaggerItem>
+            <MotionStaggerItem>
+              <div className="mt-10 grid max-w-md grid-cols-3 gap-6 border-t border-white/15 pt-6 text-sm">
+                <div><div className="text-2xl font-extrabold text-accent">100%</div><div className="text-primary-foreground/70">Cambridge</div></div>
+                <div><div className="text-2xl font-extrabold text-accent">2023</div><div className="text-primary-foreground/70">Established</div></div>
+                <div><div className="text-2xl font-extrabold text-accent">1:12</div><div className="text-primary-foreground/70">Class ratio</div></div>
+              </div>
+            </MotionStaggerItem>
+          </MotionStagger>
           <div className="relative animate-scale-in delay-200">
             <div className="absolute -inset-6 rounded-3xl bg-accent/30 blur-3xl animate-float" />
-            <div className="img-zoom relative overflow-hidden rounded-2xl shadow-[var(--shadow-elegant)] ring-1 ring-white/10">
+            <div className="img-zoom relative overflow-hidden rounded-2xl shadow-[var(--shadow-elegant)] ring-1 ring-white/10 glow-photo">
               <img src={heroImg} alt="John Amos International School campus" width={1536} height={1024} className="aspect-[4/3] w-full object-cover" />
             </div>
           </div>
