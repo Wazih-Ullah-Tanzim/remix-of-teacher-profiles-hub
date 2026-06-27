@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 
@@ -46,13 +49,26 @@ const directorsList: Director[] = [
   { sl: 21, name: "Md. Sahadat Hossan Somel", role: "Director" },
 ].map((d, i) => ({ ...d, photo: u(portraits[i % portraits.length]) }));
 
-const PAGE_SIZE = 12;
-
 function Page() {
-  const [page, setPage] = useState(0);
-  const totalPages = Math.ceil(directorsList.length / PAGE_SIZE);
-  const start = page * PAGE_SIZE;
-  const visible = directorsList.slice(start, start + PAGE_SIZE);
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    { loop: true, align: "start" },
+    [Autoplay({ delay: 4000, stopOnMouseEnter: true, stopOnInteraction: false })],
+  );
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+  const scrollTo = useCallback((i: number) => emblaApi?.scrollTo(i), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    setScrollSnaps(emblaApi.scrollSnapList());
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi]);
 
   return (
     <>
@@ -60,47 +76,52 @@ function Page() {
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader eyebrow="Leadership" title="Meet the board" />
-          <div className="mt-12 grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-            {visible.map((d) => (
-              <div key={d.sl} className="group rounded-2xl border border-border bg-card p-3 text-center shadow-sm transition hover:shadow-md">
-                <div className="img-zoom mx-auto aspect-square w-full overflow-hidden rounded-xl">
-                  <img src={d.photo} alt={d.name} loading="lazy" className="h-full w-full object-cover" />
-                </div>
-                <div className="mt-3">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-accent">{d.role}</div>
-                  <h3 className="mt-1 text-sm font-bold leading-tight text-primary">{d.name}</h3>
-                </div>
+
+          <div className="relative mt-12">
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {directorsList.map((d) => (
+                  <div key={d.sl} className="min-w-0 flex-[0_0_100%] px-3 md:flex-[0_0_33.3333%]">
+                    <div className="flex flex-col items-center rounded-2xl border border-border bg-card p-6 text-center shadow-sm">
+                      <div className="img-zoom aspect-square w-full max-w-[160px] overflow-hidden rounded-full ring-2 ring-primary/10">
+                        <img src={d.photo} alt={d.name} loading="lazy" className="h-full w-full object-cover" />
+                      </div>
+                      <div className="mt-4">
+                        <div className="text-[10px] font-bold uppercase tracking-wider text-accent">{d.role}</div>
+                        <h3 className="mt-1 text-sm font-bold leading-tight text-primary">{d.name}</h3>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            <button
+              onClick={scrollPrev}
+              aria-label="Previous"
+              className="absolute -left-2 top-1/2 -translate-y-1/2 rounded-full bg-primary p-2 text-primary-foreground shadow-lg transition hover:scale-110 md:-left-4"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={scrollNext}
+              aria-label="Next"
+              className="absolute -right-2 top-1/2 -translate-y-1/2 rounded-full bg-primary p-2 text-primary-foreground shadow-lg transition hover:scale-110 md:-right-4"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
           </div>
 
-          {totalPages > 1 && (
-            <div className="mt-10 flex items-center justify-center gap-2">
+          <div className="mt-8 flex flex-wrap justify-center gap-2">
+            {scrollSnaps.map((_, i) => (
               <button
-                onClick={() => setPage((p) => Math.max(0, p - 1))}
-                disabled={page === 0}
-                className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-semibold disabled:opacity-40"
-              >
-                ← Prev
-              </button>
-              {Array.from({ length: totalPages }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setPage(i)}
-                  className={`h-9 w-9 rounded-lg text-sm font-semibold ${i === page ? "bg-primary text-primary-foreground" : "border border-border bg-card"}`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-              <button
-                onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
-                disabled={page === totalPages - 1}
-                className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-semibold disabled:opacity-40"
-              >
-                Next →
-              </button>
-            </div>
-          )}
+                key={i}
+                onClick={() => scrollTo(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`h-2 rounded-full transition-all ${i === selectedIndex ? "w-6 bg-primary" : "w-2 bg-primary/30"}`}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </>
