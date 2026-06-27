@@ -5,8 +5,8 @@ const items = [
   "🎉 Annual Pitha Utsob celebrated with parents on campus",
   "🏅 Cambridge Primary Checkpoint preparation begins",
   "📚 New IELTS & Spoken English batch starts next month",
-  "🎁 Apply online and get a 10% discount on admission fees",
-  "🎓 Annual Ceremony will be held on 30 June 2026",
+  "🚌 Campus tours every Saturday — book your slot",
+  "🌍 International Affairs Club launches student exchange",
 ];
 
 export function NewsTicker() {
