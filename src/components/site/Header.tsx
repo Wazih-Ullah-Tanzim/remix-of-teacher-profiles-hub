@@ -50,33 +50,40 @@ const nav: NavItem[] = [
   {
     to: "/academics", label: "JAIS Life",
     children: [
-      { to: "/academics", label: "Academics" },
+      { to: "/academics", label: "Academics", children: [
+        { to: "/bulletin", label: "Bulletin Board" },
+      ]},
+      { to: "/counseling", label: "Counselling", children: [
+        { to: "/counseling/academic", label: "Academic" },
+        { to: "/counseling/health", label: "Health" },
+        { to: "/counseling/psychiatrist", label: "Psychiatrist Support" },
+      ]},
       { to: "/facilities", label: "Facilities" },
-      { to: "/eca-clubs", label: "ECA Clubs Activities" },
+      { to: "/gallery", label: "Gallery", children: [
+        { to: "/gallery/tour", label: "Tour", children: [
+          { to: "/gallery/tour-domestic", label: "Domestic Trip", children: [
+            { to: "/gallery/excursion", label: "Excursion" },
+          ]},
+          { to: "/gallery/tour-international", label: "International Trip", children: [
+            { to: "/gallery/international-excursion", label: "China" },
+          ]},
+        ]},
+        { to: "/gallery/occasion", label: "Occasions", children: [
+          { to: "/gallery/pohela-boishakh", label: "Pohela Boishakh" },
+          { to: "/gallery/pitha-utsob", label: "Pitha Utsob" },
+          { to: "/gallery/sports-day", label: "Sports Day" },
+          { to: "/gallery/cultural-program", label: "Cultural Program" },
+        ]},
+      ]},
+      { to: "/eca-clubs", label: "ECA Clubs" },
       { to: "/yearbook", label: "JAIS Yearbook" },
       { to: "/blog", label: "Blog" },
       { to: "/alumni", label: "Alumni Association" },
       { to: "/academic-calendar", label: "Academic Calendar" },
     ],
   },
-  {
-    to: "/gallery", label: "Gallery",
-    children: [
-      { to: "/gallery", label: "All Galleries" },
-      { to: "/gallery/tour", label: "Tour", children: [
-        { to: "/gallery/tour-domestic", label: "Domestic Trip", children: [{ to: "/gallery/excursion", label: "Excursion" }] },
-        { to: "/gallery/tour-international", label: "International Trip", children: [{ to: "/gallery/international-excursion", label: "Excursion" }] },
-      ]},
-      { to: "/gallery/occasion", label: "Occasion", children: [
-        { to: "/gallery/pohela-boishakh", label: "Pohela Boishakh" },
-        { to: "/gallery/pitha-utsob", label: "Pitha Utsob" },
-        { to: "/gallery/sirat-un-nabi", label: "Sirat-Un-Nabi" },
-        { to: "/gallery/food-party", label: "Food Party" },
-        { to: "/gallery/music-and-art", label: "Music & Art" },
-      ]},
-    ],
-  },
 ];
+
 
 function SmartLink({ item, className, onClick }: { item: NavItem; className?: string; onClick?: () => void }) {
   if (item.to.includes("#"))
