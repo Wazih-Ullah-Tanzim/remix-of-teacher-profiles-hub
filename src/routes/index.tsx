@@ -207,6 +207,22 @@ function HomePage() {
           </div>
         </div>
       </section>
+      <section className="bg-background py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader eyebrow="Watch" title="Life at John Amos" description="A glimpse into our campus, classrooms and community." />
+          <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-lg" style={{ aspectRatio: "16 / 9" }}>
+            <iframe
+              src="https://www.youtube.com/embed/icBcFiVScHU?si=2eXpZY2a7JQosEzL"
+              title="John Amos International School"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="h-full w-full"
+            />
+          </div>
+        </div>
+      </section>
       <MapEmbed />
     </>
   );
