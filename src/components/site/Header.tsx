@@ -14,7 +14,7 @@ const nav: NavItem[] = [
       { to: "/about", label: "About Us" },
       { to: "/about#mission-vision", label: "Mission & Vision" },
       { to: "/about#history", label: "History of JAIS" },
-      { to: "/head-teacher-message", label: "Message from Head Teacher" },
+      { to: "/head-teacher-message", label: "Head Teacher's Message" },
       { to: "/chairmans-message", label: "Chairman's Message" },
       { to: "/founder-message", label: "Founder's Message" },
       { to: "/board-of-directors", label: "Board of Directors" },
