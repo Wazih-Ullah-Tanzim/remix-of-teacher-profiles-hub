@@ -24,6 +24,7 @@ function Page() {
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <form onSubmit={submit} className="grid gap-4 rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)] animate-fade-up">
+            <input {...honeypotInputProps} />
             <div className="grid gap-4 sm:grid-cols-2">
               <F label="Full name" name="name" required />
               <F label="Email" type="email" name="email" required />

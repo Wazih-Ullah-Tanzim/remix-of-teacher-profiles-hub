@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { guardSubmit, markSubmitted, honeypotInputProps } from "@/lib/form-security";
+import { ObfuscatedEmail } from "@/components/site/ObfuscatedEmail";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -22,10 +24,13 @@ function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    if (!guardSubmit(form, "contact", (m) => toast.error(m))) return;
     setSubmitting(true);
     setTimeout(() => {
+      markSubmitted("contact");
       toast.success("Thanks! We'll be in touch shortly.");
-      (e.target as HTMLFormElement).reset();
+      form.reset();
       setSubmitting(false);
     }, 600);
   };
