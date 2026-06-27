@@ -42,7 +42,6 @@ import { Route as FacultyIndexRouteImport } from './routes/faculty.index'
 import { Route as AcademicsIndexRouteImport } from './routes/academics.index'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
-import { Route as EcaClubsClassRouteImport } from './routes/eca-clubs.$class'
 import { Route as CounselingTypeRouteImport } from './routes/counseling.$type'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AcademicsNewsRouteImport } from './routes/academics.news'
@@ -213,11 +212,6 @@ const FacultyIdRoute = FacultyIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => FacultyRoute,
 } as any)
-const EcaClubsClassRoute = EcaClubsClassRouteImport.update({
-  id: '/$class',
-  path: '/$class',
-  getParentRoute: () => EcaClubsRoute,
-} as any)
 const CounselingTypeRoute = CounselingTypeRouteImport.update({
   id: '/$type',
   path: '/$type',
@@ -255,7 +249,7 @@ export interface FileRoutesByFullPath {
   '/chairmans-message': typeof ChairmansMessageRoute
   '/contact': typeof ContactRoute
   '/counseling': typeof CounselingRouteWithChildren
-  '/eca-clubs': typeof EcaClubsRouteWithChildren
+  '/eca-clubs': typeof EcaClubsRoute
   '/english-courses': typeof EnglishCoursesRoute
   '/facilities': typeof FacilitiesRoute
   '/faculty': typeof FacultyRouteWithChildren
@@ -272,7 +266,6 @@ export interface FileRoutesByFullPath {
   '/academics/news': typeof AcademicsNewsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
-  '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/academics/': typeof AcademicsIndexRoute
@@ -294,7 +287,7 @@ export interface FileRoutesByTo {
   '/chairmans-message': typeof ChairmansMessageRoute
   '/contact': typeof ContactRoute
   '/counseling': typeof CounselingRouteWithChildren
-  '/eca-clubs': typeof EcaClubsRouteWithChildren
+  '/eca-clubs': typeof EcaClubsRoute
   '/english-courses': typeof EnglishCoursesRoute
   '/facilities': typeof FacilitiesRoute
   '/fees': typeof FeesRoute
@@ -310,7 +303,6 @@ export interface FileRoutesByTo {
   '/academics/news': typeof AcademicsNewsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
-  '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/academics': typeof AcademicsIndexRoute
@@ -334,7 +326,7 @@ export interface FileRoutesById {
   '/chairmans-message': typeof ChairmansMessageRoute
   '/contact': typeof ContactRoute
   '/counseling': typeof CounselingRouteWithChildren
-  '/eca-clubs': typeof EcaClubsRouteWithChildren
+  '/eca-clubs': typeof EcaClubsRoute
   '/english-courses': typeof EnglishCoursesRoute
   '/facilities': typeof FacilitiesRoute
   '/faculty': typeof FacultyRouteWithChildren
@@ -351,7 +343,6 @@ export interface FileRoutesById {
   '/academics/news': typeof AcademicsNewsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
-  '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/academics/': typeof AcademicsIndexRoute
@@ -393,7 +384,6 @@ export interface FileRouteTypes {
     | '/academics/news'
     | '/blog/$slug'
     | '/counseling/$type'
-    | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/academics/'
@@ -431,7 +421,6 @@ export interface FileRouteTypes {
     | '/academics/news'
     | '/blog/$slug'
     | '/counseling/$type'
-    | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/academics'
@@ -471,7 +460,6 @@ export interface FileRouteTypes {
     | '/academics/news'
     | '/blog/$slug'
     | '/counseling/$type'
-    | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
     | '/academics/'
@@ -495,7 +483,7 @@ export interface RootRouteChildren {
   ChairmansMessageRoute: typeof ChairmansMessageRoute
   ContactRoute: typeof ContactRoute
   CounselingRoute: typeof CounselingRouteWithChildren
-  EcaClubsRoute: typeof EcaClubsRouteWithChildren
+  EcaClubsRoute: typeof EcaClubsRoute
   EnglishCoursesRoute: typeof EnglishCoursesRoute
   FacilitiesRoute: typeof FacilitiesRoute
   FacultyRoute: typeof FacultyRouteWithChildren
@@ -744,13 +732,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FacultyIdRouteImport
       parentRoute: typeof FacultyRoute
     }
-    '/eca-clubs/$class': {
-      id: '/eca-clubs/$class'
-      path: '/$class'
-      fullPath: '/eca-clubs/$class'
-      preLoaderRoute: typeof EcaClubsClassRouteImport
-      parentRoute: typeof EcaClubsRoute
-    }
     '/counseling/$type': {
       id: '/counseling/$type'
       path: '/$type'
@@ -830,18 +811,6 @@ const CounselingRouteWithChildren = CounselingRoute._addFileChildren(
   CounselingRouteChildren,
 )
 
-interface EcaClubsRouteChildren {
-  EcaClubsClassRoute: typeof EcaClubsClassRoute
-}
-
-const EcaClubsRouteChildren: EcaClubsRouteChildren = {
-  EcaClubsClassRoute: EcaClubsClassRoute,
-}
-
-const EcaClubsRouteWithChildren = EcaClubsRoute._addFileChildren(
-  EcaClubsRouteChildren,
-)
-
 interface FacultyRouteChildren {
   FacultyIdRoute: typeof FacultyIdRoute
   FacultyIndexRoute: typeof FacultyIndexRoute
@@ -882,7 +851,7 @@ const rootRouteChildren: RootRouteChildren = {
   ChairmansMessageRoute: ChairmansMessageRoute,
   ContactRoute: ContactRoute,
   CounselingRoute: CounselingRouteWithChildren,
-  EcaClubsRoute: EcaClubsRouteWithChildren,
+  EcaClubsRoute: EcaClubsRoute,
   EnglishCoursesRoute: EnglishCoursesRoute,
   FacilitiesRoute: FacilitiesRoute,
   FacultyRoute: FacultyRouteWithChildren,
