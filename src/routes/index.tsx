@@ -210,15 +210,15 @@ function HomePage() {
       <section className="bg-background py-16">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <SectionHeader eyebrow="Watch" title="Life at John Amos" subtitle="A glimpse into our campus, classrooms and community." />
-          <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-lg" style={{ aspectRatio: "16 / 9" }}>
+          <div className="relative mt-8 w-full overflow-hidden rounded-2xl border border-border shadow-lg" style={{ paddingBottom: "56.25%" }}>
             <iframe
-              src="https://www.youtube.com/embed/icBcFiVScHU?si=2eXpZY2a7JQosEzL"
+              src="https://www.youtube.com/embed/icBcFiVScHU"
               title="John Amos International School"
               loading="lazy"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
-              className="h-full w-full"
+              className="absolute inset-0 h-full w-full border-0"
             />
           </div>
         </div>
