@@ -76,7 +76,6 @@ const nav: NavItem[] = [
       ]},
     ],
   },
-  { to: "/news-notice", label: "News" },
 ];
 
 function SmartLink({ item, className, onClick }: { item: NavItem; className?: string; onClick?: () => void }) {
