@@ -164,7 +164,7 @@ export function Header() {
           {nav.map((n) => {
             if (!n.children) {
               return (
-                <Link key={n.to} to={n.to} activeOptions={{ exact: n.to === "/" }} onMouseEnter={() => openMenu("__none__")} className="rounded-md px-2.5 py-2 text-[13px] font-medium text-foreground/80 transition-colors hover:text-primary" activeProps={{ className: "text-primary font-semibold" }}>
+                <Link key={n.to} to={n.to} activeOptions={{ exact: n.to === "/" }} onMouseEnter={() => openMenu("__none__")} className="rounded-md px-2 py-2 text-[12px] font-medium text-foreground/80 transition-colors hover:text-primary" activeProps={{ className: "text-primary font-semibold" }}>
                   {n.label}
                 </Link>
               );
@@ -173,7 +173,7 @@ export function Header() {
             const isOpen = activeMenu === n.label;
             return (
               <div key={n.label} className="relative" onMouseEnter={() => openMenu(n.label)}>
-                <button onClick={() => setActiveMenu(isOpen ? null : n.label)} className={`flex items-center gap-1 rounded-md px-2.5 py-2 text-[13px] font-medium transition-colors hover:text-primary ${isOpen ? "text-primary" : "text-foreground/80"}`}>
+                <button onClick={() => setActiveMenu(isOpen ? null : n.label)} className={`flex items-center gap-1 rounded-md px-2 py-2 text-[12px] font-medium transition-colors hover:text-primary ${isOpen ? "text-primary" : "text-foreground/80"}`}>
                   {n.label}<ChevronDown className={`h-3.5 w-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                 </button>
                 {isOpen && (
@@ -191,13 +191,13 @@ export function Header() {
           </Link>
         </nav>
 
-        <button className="md:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
+        <button className="lg:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="max-h-[80vh] overflow-y-auto border-t border-border bg-background md:hidden">
+        <div className="max-h-[80vh] overflow-y-auto border-t border-border bg-background lg:hidden">
           <div className="flex flex-col px-4 py-3">
             {nav.map((n) => n.children ? (
               <div key={n.label} className="border-b border-border/50 py-1">
