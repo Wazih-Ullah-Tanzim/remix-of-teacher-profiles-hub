@@ -1,34 +1,106 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { directors } from "@/lib/faculty";
 
 export const Route = createFileRoute("/board-of-directors")({
   head: () => ({ meta: [{ title: "Board of Directors — John Amos International School" }, { name: "description", content: "Meet the Board of Directors of John Amos International School." }] }),
   component: Page,
 });
 
+type Director = { sl: number; name: string; role: string; photo: string };
+
+const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=80`;
+
+const portraits = [
+  "photo-1556157382-97eda2d62296", "photo-1573497019940-1c28c88b4f3e", "photo-1519085360753-af0119f7cbe7",
+  "photo-1472099645785-5658abf4ff4e", "photo-1500648767791-00dcc994a43e", "photo-1507003211169-0a1dd7228f2d",
+  "photo-1560250097-0b93528c311a", "photo-1568602471122-7832951cc4c5", "photo-1531427186611-ecfd6d936c79",
+  "photo-1494790108377-be9c29b29330", "photo-1438761681033-6461ffad8d80", "photo-1551836022-d5d88e9218df",
+  "photo-1573496359142-b8d87734a5a2", "photo-1580489944761-15a19d654956", "photo-1521119989659-a83eee488004",
+  "photo-1463453091185-61582044d556", "photo-1547425260-76bcadfb4f2c", "photo-1542178243-bc20204b769f",
+  "photo-1506794778202-cad84cf45f1d", "photo-1492562080023-ab3db95bfbce", "photo-1488161628813-04466f872be2",
+];
+
+const directorsList: Director[] = [
+  { sl: 1, name: "Mr. Khondokar Ehosan Habib", role: "Founder" },
+  { sl: 2, name: "Dr. Abul Khaer Mohammad Helal Uddin", role: "Chairman" },
+  { sl: 3, name: "Eng. A K M Jahirul Hasan", role: "Treasurer" },
+  { sl: 4, name: "Mr. Shah Muhammad Mustofa Noor", role: "Founding Director" },
+  { sl: 5, name: "Md. Mazharul Islam Bhuiya", role: "Founding Director" },
+  { sl: 6, name: "Mr. Khandaker Imtiyaz Habib", role: "Founding Director" },
+  { sl: 7, name: "Mr. Matiur Rahman", role: "Founding Director" },
+  { sl: 8, name: "Mr. Hasan Jamil", role: "Founding Director" },
+  { sl: 9, name: "Mr. Razuan Ahmed Shuvro", role: "Founding Director" },
+  { sl: 10, name: "Ms. Tanjila Akter", role: "Director" },
+  { sl: 11, name: "Mr. Abdul Jabbar Selim", role: "Director" },
+  { sl: 12, name: "Mr. Shahidul Islam Shahid", role: "Director" },
+  { sl: 13, name: "Mr. Anisur Rahman Anis", role: "Director" },
+  { sl: 14, name: "Ms. Jannatun Nusra", role: "Director" },
+  { sl: 15, name: "Mr. Mohammad Abdul Queaum", role: "Director" },
+  { sl: 16, name: "Dr. Ahmad Shakil Hashmi", role: "Director" },
+  { sl: 17, name: "Mr. Habibur Rahman Milon", role: "Director" },
+  { sl: 18, name: "Mr. Diderul Islam Dider", role: "Director" },
+  { sl: 19, name: "Mr. Anwar Hossain Kamal", role: "Director" },
+  { sl: 20, name: "Dr. Bilkis Parvin", role: "Director" },
+  { sl: 21, name: "Md. Sahadat Hossan Somel", role: "Director" },
+].map((d, i) => ({ ...d, photo: u(portraits[i % portraits.length]) }));
+
+const PAGE_SIZE = 12;
+
 function Page() {
+  const [page, setPage] = useState(0);
+  const totalPages = Math.ceil(directorsList.length / PAGE_SIZE);
+  const start = page * PAGE_SIZE;
+  const visible = directorsList.slice(start, start + PAGE_SIZE);
+
   return (
     <>
       <PageHero eyebrow="Governance" title="Our Board of Directors" subtitle="Stewards of the school's mission, governance and long-term direction." />
-      <section className="py-20">
+      <section className="py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <SectionHeader eyebrow="Leadership" title="Meet the board" />
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {directors.map((d, i) => (
-              <div key={d.name} className="tilt-card animate-fade-up rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]" style={{ animationDelay: `${i * 80}ms` }}>
-                <div className="img-zoom overflow-hidden rounded-t-3xl">
-                  <img src={d.photo} alt={d.name} className="aspect-[4/5] w-full object-cover" />
+          <div className="mt-12 grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            {visible.map((d) => (
+              <div key={d.sl} className="group rounded-2xl border border-border bg-card p-3 text-center shadow-sm transition hover:shadow-md">
+                <div className="img-zoom mx-auto aspect-square w-full overflow-hidden rounded-xl">
+                  <img src={d.photo} alt={d.name} loading="lazy" className="h-full w-full object-cover" />
                 </div>
-                <div className="p-6">
-                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{d.role}</div>
-                  <h3 className="mt-1 text-xl font-extrabold text-primary">{d.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d.bio}</p>
+                <div className="mt-3">
+                  <div className="text-[10px] font-bold uppercase tracking-wider text-accent">{d.role}</div>
+                  <h3 className="mt-1 text-sm font-bold leading-tight text-primary">{d.name}</h3>
                 </div>
               </div>
             ))}
           </div>
+
+          {totalPages > 1 && (
+            <div className="mt-10 flex items-center justify-center gap-2">
+              <button
+                onClick={() => setPage((p) => Math.max(0, p - 1))}
+                disabled={page === 0}
+                className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-semibold disabled:opacity-40"
+              >
+                ← Prev
+              </button>
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setPage(i)}
+                  className={`h-9 w-9 rounded-lg text-sm font-semibold ${i === page ? "bg-primary text-primary-foreground" : "border border-border bg-card"}`}
+                >
+                  {i + 1}
+                </button>
+              ))}
+              <button
+                onClick={() => setPage((p) => Math.min(totalPages - 1, p + 1))}
+                disabled={page === totalPages - 1}
+                className="rounded-lg border border-border bg-card px-4 py-2 text-sm font-semibold disabled:opacity-40"
+              >
+                Next →
+              </button>
+            </div>
+          )}
         </div>
       </section>
     </>
