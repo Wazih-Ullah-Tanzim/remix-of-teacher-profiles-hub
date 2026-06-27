@@ -3,7 +3,7 @@ import { MessageCircle } from "lucide-react";
 export function FloatingWhatsApp() {
   return (
     <a
-      href="https://wa.me/8801700000000"
+      href="https://wa.me/8801786412300"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Call John Amos International School on WhatsApp"
