@@ -171,7 +171,7 @@ export function Header() {
           {nav.map((n) => {
             if (!n.children) {
               return (
-                <Link key={n.to} to={n.to} activeOptions={{ exact: n.to === "/" }} onMouseEnter={() => openMenu("__none__")} className="rounded-md px-2 py-2 text-[12px] font-medium text-foreground/80 transition-colors hover:text-primary" activeProps={{ className: "text-primary font-semibold" }}>
+                <Link key={n.to} to={n.to} activeOptions={{ exact: n.to === "/" }} onMouseEnter={() => openMenu("__none__")} className="nav-underline rounded-md px-2 py-2 text-[12px] font-medium text-foreground/80 transition-colors hover:text-primary" activeProps={{ className: "text-primary font-semibold" }}>
                   {n.label}
                 </Link>
               );
