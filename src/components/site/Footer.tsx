@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Youtube } from "lucide-react";
 const logo = "/logo.png";
 import { VisitCounter } from "./VisitCounter";
 
