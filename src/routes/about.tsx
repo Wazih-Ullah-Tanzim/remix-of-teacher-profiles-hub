@@ -2,8 +2,140 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Button } from "@/components/ui/button";
-import { Target, Heart, Compass, Award, Sparkles } from "lucide-react";
+import { Target, Eye } from "lucide-react";
 import studentsImg from "@/assets/students.jpg";
 
-export const Route = createFileRoute("/about")({ head: () => ({ meta: [{ title: "About, Mission & Vision — John Amos International School" }, { name: "description", content: "Mission, vision and chronological history of John Amos International School in Mymensingh." }, { property: "og:image", content: studentsImg }] }), component: AboutPage });
-function AboutPage() { const values = [{ icon: Target, title: "Our Mission", text: "To deliver a world-class Cambridge education that empowers every learner to think critically, act ethically and thrive globally." }, { icon: Compass, title: "Our Vision", text: "To be the leading English Medium school in northern Bangladesh, recognised for academic excellence and character formation." }, { icon: Heart, title: "Our Values", text: "Curiosity, kindness, integrity and excellence guide every classroom, conversation and community we build." }, { icon: Award, title: "Our Promise", text: "A safe, modern, and inspiring environment where every child is known, nurtured and challenged to grow." }]; const timeline = ["2023 — Vision and planning for a Cambridge-focused English Medium school", "2024 — Campus refurbishment and learning environment development", "2025 — Classroom, library, lab and activity systems expanded", "2026 — Admission session 2026-2027 with JAIS Life programmes"]; return <><PageHero eyebrow="Our Story" title="A school built around the curious mind." subtitle="Mission, vision and the chronological history of John Amos International School." /><section className="py-20"><div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 md:grid-cols-2 md:items-center lg:px-8"><img src={studentsImg} alt="Students at John Amos" loading="lazy" className="glow-image aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" /><div><SectionHeader align="left" eyebrow="Who We Are" title="First absolute English Medium school in Mymensingh" subtitle="Established in late 2023, we follow the Cambridge curriculum in an elegant multi-storey building thoughtfully refurbished for modern learning." /><p className="mt-6 text-muted-foreground">Our calm, friendly atmosphere allows children to learn at their best — supported by experienced educators, small class sizes and a genuine commitment to every child's progress.</p></div></div></section><section id="mission-vision" className="bg-secondary py-20"><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><SectionHeader eyebrow="Mission & Vision" title="What we stand for" /><div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{values.map((v) => <div key={v.title} className="tilt-card rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"><div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[image:var(--gradient-accent)] text-accent-foreground"><v.icon className="h-6 w-6" /></div><h3 className="text-lg font-bold text-primary">{v.title}</h3><p className="mt-2 text-sm text-muted-foreground">{v.text}</p></div>)}</div></div></section><section id="history" className="py-20"><div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8"><SectionHeader eyebrow="History of John Amos International School" title="Chronological sequence — linear progression" /><div className="relative mt-14 border-l-4 border-accent/50 pl-8">{timeline.map((t, i) => <div key={t} className="animate-fade-up relative mb-10 rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)]" style={{ animationDelay: `${i * 100}ms` }}><span className="absolute -left-[50px] top-6 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white shadow-[0_0_18px_rgba(255,143,46,.5)]"><Sparkles className="h-5 w-5 text-accent" /></span><p className="font-bold text-primary">{t}</p></div>)}</div></div></section><section className="bg-secondary py-20 text-center"><SectionHeader eyebrow="Visit Us" title="See John Amos in person" subtitle="Take a campus tour and meet our team to experience the John Amos difference." /><Link to="/admissions" className="mt-8 inline-flex"><Button variant="hero" size="xl">Apply / Book a Tour</Button></Link></section></>; }
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: "About, Mission & Vision — John Amos International School" },
+      { name: "description", content: "Mission, vision and the journey of John Amos International School in Mymensingh." },
+      { property: "og:image", content: studentsImg },
+    ],
+  }),
+  component: AboutPage,
+});
+
+const TIMELINE: { year: string; title: string; text: string }[] = [
+  { year: "2021", title: "School founded", text: "Cambridge vision for Mymensingh takes shape." },
+  { year: "2022", title: "First batch enrolled", text: "Play Group to Standard I welcomed." },
+  { year: "2023", title: "Expanded to Std III", text: "New computer lab launched." },
+  { year: "2024", title: "Cambridge curriculum", text: "Fully implemented across all grades." },
+  { year: "2025", title: "First Std V batch", text: "Sports facilities added on campus." },
+  { year: "2026", title: "Growing strong", text: "280+ students and 9 expert teachers." },
+];
+
+function AboutPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Our Story"
+        title="A school built around the curious mind."
+        subtitle="Mission, vision and the journey of John Amos International School."
+      />
+
+      <section className="py-20">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 md:grid-cols-2 md:items-center lg:px-8">
+          <img
+            src={studentsImg}
+            alt="Students at John Amos"
+            loading="lazy"
+            className="glow-image aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]"
+          />
+          <div>
+            <SectionHeader
+              align="left"
+              eyebrow="Who We Are"
+              title="First absolute English Medium school in Mymensingh"
+              subtitle="Following the Cambridge curriculum in an elegant multi-storey building thoughtfully refurbished for modern learning."
+            />
+            <p className="mt-6 text-muted-foreground">
+              Our calm, friendly atmosphere allows children to learn at their best — supported by experienced
+              educators, small class sizes and a genuine commitment to every child's progress.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* PART A — Mission & Vision */}
+      <section id="mission-vision" className="bg-secondary py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader eyebrow="Mission & Vision" title="What we stand for" />
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            <article className="animate-fade-up rounded-3xl bg-primary p-10 text-primary-foreground shadow-[var(--shadow-elegant)]">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
+                <Target className="h-7 w-7 text-white" />
+              </div>
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-accent">Our Mission</div>
+              <h3 className="mt-2 text-2xl font-extrabold">Empower every learner</h3>
+              <p className="mt-4 text-base leading-relaxed text-white/85">
+                To deliver a world-class Cambridge education that empowers every learner to think critically,
+                act ethically and thrive globally — grounded in the values of our community.
+              </p>
+            </article>
+            <article className="animate-fade-up rounded-3xl bg-accent p-10 text-accent-foreground shadow-[var(--shadow-elegant)]" style={{ animationDelay: "120ms" }}>
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 backdrop-blur">
+                <Eye className="h-7 w-7 text-white" />
+              </div>
+              <div className="text-xs font-bold uppercase tracking-[0.2em] text-white">Our Vision</div>
+              <h3 className="mt-2 text-2xl font-extrabold text-white">Leaders of tomorrow</h3>
+              <p className="mt-4 text-base leading-relaxed text-white/90">
+                To be the leading English Medium school in northern Bangladesh — recognised for academic
+                excellence, character formation and a learning culture that prepares students for the world.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* PART B — History Timeline */}
+      <section id="history" className="py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader eyebrow="History of John Amos International School" title="Our Journey" />
+
+          <div className="relative mt-16">
+            {/* Connecting navy vertical line */}
+            <div className="absolute left-6 top-0 bottom-0 w-1 bg-primary md:left-1/2 md:-translate-x-1/2" aria-hidden="true" />
+
+            <ol className="space-y-12">
+              {TIMELINE.map((item, i) => {
+                const isLeft = i % 2 === 0;
+                return (
+                  <li key={item.year} className="relative md:grid md:grid-cols-2 md:gap-12">
+                    {/* Year badge */}
+                    <span className="absolute left-6 top-3 z-10 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full bg-accent text-sm font-extrabold text-accent-foreground shadow-[0_0_18px_rgba(255,143,46,.55)] ring-4 ring-background md:left-1/2">
+                      {item.year.slice(-2)}
+                    </span>
+
+                    {/* Card */}
+                    <div
+                      className={`animate-fade-up ml-16 rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-card)] md:ml-0 ${
+                        isLeft ? "md:col-start-1 md:mr-8 md:text-right" : "md:col-start-2 md:ml-8"
+                      }`}
+                      style={{ animationDelay: `${i * 90}ms` }}
+                    >
+                      <div className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{item.year}</div>
+                      <h3 className="mt-1 text-xl font-extrabold text-primary">{item.title}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{item.text}</p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-secondary py-20 text-center">
+        <SectionHeader
+          eyebrow="Visit Us"
+          title="See John Amos in person"
+          subtitle="Take a campus tour and meet our team to experience the John Amos difference."
+        />
+        <Link to="/admissions" className="mt-8 inline-flex">
+          <Button variant="hero" size="xl">Apply / Book a Tour</Button>
+        </Link>
+      </section>
+    </>
+  );
+}
