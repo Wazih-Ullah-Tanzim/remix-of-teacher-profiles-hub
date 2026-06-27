@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucide-react";
-import logo from "@/assets/jais-emblem.png";
+const logo = "/logo.png";
 import { VisitCounter } from "./VisitCounter";
 
 export function Footer() {
