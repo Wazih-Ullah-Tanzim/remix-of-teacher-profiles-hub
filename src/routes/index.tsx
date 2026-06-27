@@ -207,6 +207,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+      <MapEmbed />
     </>
   );
 }
