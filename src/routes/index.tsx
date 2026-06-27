@@ -6,8 +6,8 @@ import studentsImg from "@/assets/students.jpg";
 import playgroundImg from "@/assets/playground.jpg";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { Counter } from "@/components/site/Counter";
 import { MapEmbed } from "@/components/site/MapEmbed";
+import { MotionStagger, MotionStaggerItem, AnimatedCounter } from "@/components/site/Motion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
