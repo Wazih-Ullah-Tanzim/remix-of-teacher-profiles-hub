@@ -83,11 +83,13 @@ function SmartLink({ item, className, onClick }: { item: NavItem; className?: st
   return <Link to={item.to} onClick={onClick} className={className} activeProps={{ className: "bg-secondary text-primary font-semibold" }}>{item.label}</Link>;
 }
 
-function DesktopChildren({ items, level = 0 }: { items: NavItem[]; level?: number }) {
-  return <div className={`${level ? "absolute left-full top-0 ml-2" : "absolute left-0 top-full"} invisible z-50 min-w-[250px] -translate-y-2 rounded-xl border border-border bg-popover p-2 opacity-0 shadow-[var(--shadow-elegant)] transition-all duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100`}>
+function DesktopChildren({ items, level = 0, flip = false }: { items: NavItem[]; level?: number; flip?: boolean }) {
+  const nestedPos = flip ? "absolute right-full top-0 mr-2" : "absolute left-full top-0 ml-2";
+  const rootPos = flip ? "absolute right-0 top-full" : "absolute left-0 top-full";
+  return <div className={`${level ? nestedPos : rootPos} invisible z-50 min-w-[250px] -translate-y-2 rounded-xl border border-border bg-popover p-2 opacity-0 shadow-[var(--shadow-elegant)] transition-all duration-200 group-hover/menu:visible group-hover/menu:translate-y-0 group-hover/menu:opacity-100`}>
     {items.map((c) => <div key={c.to + c.label} className="group/menu relative">
       <SmartLink item={c} className="flex items-center justify-between rounded-md px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-primary" />
-      {c.children && <><ChevronRight className="pointer-events-none absolute right-2 top-2.5 h-4 w-4 text-muted-foreground" /><DesktopChildren items={c.children} level={level + 1} /></>}
+      {c.children && <><ChevronRight className="pointer-events-none absolute right-2 top-2.5 h-4 w-4 text-muted-foreground" /><DesktopChildren items={c.children} level={level + 1} flip={flip} /></>}
     </div>)}
   </div>;
 }
