@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { guardSubmit, markSubmitted, honeypotInputProps } from "@/lib/form-security";
 
 export const Route = createFileRoute("/instructor-registration")({
   head: () => ({ meta: [{ title: "Instructor Registration — John Amos" }, { name: "description", content: "Register your interest in joining our instructor pool." }] }),
@@ -11,8 +12,11 @@ export const Route = createFileRoute("/instructor-registration")({
 function Page() {
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    if (!guardSubmit(form, "instructor-registration", (m) => toast.error(m))) return;
+    markSubmitted("instructor-registration");
     toast.success("Registration submitted — we'll be in touch.");
-    (e.target as HTMLFormElement).reset();
+    form.reset();
   };
   return (
     <>

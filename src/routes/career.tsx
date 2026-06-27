@@ -56,6 +56,7 @@ function Page() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <SectionHeader eyebrow="Apply" title="Send us your application" />
           <form onSubmit={submit} className="mt-10 grid gap-4 rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-card)]">
+            <input {...honeypotInputProps} />
             <Field label="Full name" name="name" required />
             <Field label="Email" type="email" name="email" required />
             <Field label="Phone" name="phone" />
