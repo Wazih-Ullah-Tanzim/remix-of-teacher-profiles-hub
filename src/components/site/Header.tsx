@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
-import logo from "@/assets/jais-emblem.png";
+const logo = "/logo.png";
 import { Button } from "@/components/ui/button";
 
 type NavItem = { to: string; label: string; children?: NavItem[] };
