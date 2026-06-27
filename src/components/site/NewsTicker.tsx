@@ -6,7 +6,7 @@ const items = [
   "🏅 Cambridge Primary Checkpoint preparation begins",
   "📚 New IELTS & Spoken English batch starts next month",
   "🎁 Apply online and get a 10% discount on admission fees",
-  "🌍 International Affairs Club launches student exchange",
+  "🎓 Annual Ceremony will be held on 30 June 2026",
 ];
 
 export function NewsTicker() {
