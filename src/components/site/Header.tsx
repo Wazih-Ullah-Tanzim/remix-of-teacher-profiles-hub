@@ -160,7 +160,7 @@ export function Header() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-0.5 md:flex" onMouseLeave={scheduleClose}>
+        <nav className="hidden items-center gap-0 lg:flex" onMouseLeave={scheduleClose}>
           {nav.map((n) => {
             if (!n.children) {
               return (
