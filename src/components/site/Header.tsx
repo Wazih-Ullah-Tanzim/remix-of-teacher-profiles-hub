@@ -180,7 +180,7 @@ export function Header() {
             const isOpen = activeMenu === n.label;
             return (
               <div key={n.label} className="relative" onMouseEnter={() => openMenu(n.label)}>
-                <button onClick={() => setActiveMenu(isOpen ? null : n.label)} className={`flex items-center gap-1 rounded-md px-2 py-2 text-[12px] font-medium transition-colors hover:text-primary ${isOpen ? "text-primary" : "text-foreground/80"}`}>
+                <button onClick={() => setActiveMenu(isOpen ? null : n.label)} className={`nav-underline flex items-center gap-1 rounded-md px-2 py-2 text-[12px] font-medium transition-colors hover:text-primary ${isOpen ? "text-primary" : "text-foreground/80"}`}>
                   {n.label}<ChevronDown className={`h-3.5 w-3.5 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                 </button>
                 {isOpen && (
