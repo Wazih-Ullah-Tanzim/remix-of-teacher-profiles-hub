@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="bg-[image:var(--gradient-navy)] text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-4 lg:px-8">
         <div className="space-y-4">
-          <div className="flex items-center gap-3"><img src={logo} alt="" width={44} height={44} className="h-11 w-11 rounded bg-white/10 p-1" /><div><div className="font-extrabold">John Amos</div><div className="text-[11px] uppercase tracking-[0.18em] text-accent">International School</div></div></div>
+          <div className="flex items-center gap-3"><img src={logo} alt="" width={44} height={44} className="h-11 w-11 rounded bg-white/10 p-1" /><div className="font-extrabold leading-tight"><span className="text-white">John Amos</span> <span className="text-accent">International</span> <span className="text-white">School</span></div></div>
           <p className="text-sm leading-relaxed text-primary-foreground/75">The first absolute English Medium School in Mymensingh, following the Cambridge curriculum.</p>
           <div className="text-xs text-primary-foreground/70"><VisitCounter /></div>
           <div className="flex gap-3 pt-2"><a href="https://www.facebook.com/Johnamoscentre/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="rounded-full bg-white/10 p-2 hover:bg-accent"><Facebook className="h-4 w-4" /></a><a href="https://www.youtube.com/@JAISTV2025/videos" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="rounded-full bg-white/10 p-2 hover:bg-accent"><Youtube className="h-4 w-4" /></a></div>
