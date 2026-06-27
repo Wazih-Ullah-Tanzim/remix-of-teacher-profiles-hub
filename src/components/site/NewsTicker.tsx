@@ -5,7 +5,7 @@ const items = [
   "🎉 Annual Pitha Utsob celebrated with parents on campus",
   "🏅 Cambridge Primary Checkpoint preparation begins",
   "📚 New IELTS & Spoken English batch starts next month",
-  "🚌 Campus tours every Saturday — book your slot",
+  "🎁 Apply online and get a 10% discount on admission fees",
   "🌍 International Affairs Club launches student exchange",
 ];
 
