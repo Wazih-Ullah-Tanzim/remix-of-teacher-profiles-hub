@@ -10,7 +10,11 @@ export type Teacher = {
   qualifications: string[];
   experience: string;
   email: string;
+  personalMessage?: string;
 };
+
+const defaultMessage =
+  "Teaching at John Amos has been a journey of discovery for both my students and myself. Every day in the classroom reminds me that learning is a partnership — built on curiosity, patience and the courage to ask questions. I am grateful to walk this path alongside young minds who inspire me to keep growing as an educator.";
 
 export const faculty: Teacher[] = [
   {
