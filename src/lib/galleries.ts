@@ -118,19 +118,18 @@ export const galleryTree: GalleryNode[] = [
     description: "Domestic and international learning trips.",
     children: [
       { slug: "tour-domestic", label: "Domestic Trip", description: "Inside Bangladesh", children: [{ slug: "excursion", label: "Excursion" }] },
-      { slug: "tour-international", label: "International Trip", description: "Global learning", children: [{ slug: "international-excursion", label: "Excursion" }] },
+      { slug: "tour-international", label: "International Trip", description: "Global learning", children: [{ slug: "international-excursion", label: "China" }] },
     ],
   },
   {
     slug: "occasion",
-    label: "Occasion",
+    label: "Occasions",
     description: "Festivals and special programmes.",
     children: [
       { slug: "pohela-boishakh", label: "Pohela Boishakh" },
       { slug: "pitha-utsob", label: "Pitha Utsob" },
-      { slug: "sirat-un-nabi", label: "Sirat-Un-Nabi" },
-      { slug: "food-party", label: "Food Party" },
-      { slug: "music-and-art", label: "Music & Art" },
+      { slug: "sports-day", label: "Sports Day" },
+      { slug: "cultural-program", label: "Cultural Program" },
     ],
   },
 ];
