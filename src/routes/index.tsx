@@ -7,6 +7,7 @@ import playgroundImg from "@/assets/playground.jpg";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Counter } from "@/components/site/Counter";
+import { MapEmbed } from "@/components/site/MapEmbed";
 
 export const Route = createFileRoute("/")({
   head: () => ({
