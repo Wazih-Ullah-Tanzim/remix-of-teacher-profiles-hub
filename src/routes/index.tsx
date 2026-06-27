@@ -83,7 +83,7 @@ function HomePage() {
               ].map((c) => (
                 <div key={c.label} className="text-center">
                   <div className="text-5xl font-extrabold text-primary">
-                    <Counter to={c.n} suffix={c.suffix} />
+                    <AnimatedCounter to={c.n} suffix={c.suffix} />
                   </div>
                   <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">{c.label}</div>
                 </div>
