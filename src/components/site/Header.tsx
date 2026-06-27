@@ -31,6 +31,7 @@ const nav: NavItem[] = [
         { to: "/counseling/psychiatrist", label: "Psychiatrist" },
       ]},
       { to: "/bulletin", label: "Bulletin" },
+      { to: "/news-notice", label: "News" },
       { to: "/academic-calendar", label: "Academic Calendar" },
       { to: "/faculty", label: "Our Faculty" },
       { to: "/projects", label: "Projects" },
@@ -75,7 +76,6 @@ const nav: NavItem[] = [
       ]},
     ],
   },
-  { to: "/news-notice", label: "News" },
 ];
 
 function SmartLink({ item, className, onClick }: { item: NavItem; className?: string; onClick?: () => void }) {
