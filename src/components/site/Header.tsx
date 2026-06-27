@@ -31,7 +31,7 @@ const nav: NavItem[] = [
         { to: "/counseling/psychiatrist", label: "Psychiatrist" },
       ]},
       { to: "/bulletin", label: "Bulletin" },
-      { to: "/news-notice", label: "News" },
+      { to: "/academics/news", label: "News" },
       { to: "/academic-calendar", label: "Academic Calendar" },
       { to: "/faculty", label: "Our Faculty" },
       { to: "/projects", label: "Projects" },

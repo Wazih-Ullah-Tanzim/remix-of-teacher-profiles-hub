@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as YearbookRouteImport } from './routes/yearbook'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as NewsNoticeRouteImport } from './routes/news-notice'
 import { Route as LanguageClubRouteImport } from './routes/language-club'
 import { Route as InternationalAffairsRouteImport } from './routes/international-affairs'
 import { Route as InstructorRegistrationRouteImport } from './routes/instructor-registration'
@@ -40,12 +39,14 @@ import { Route as AcademicCalendarRouteImport } from './routes/academic-calendar
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FacultyIndexRouteImport } from './routes/faculty.index'
-import { Route as NewsNoticeSlugRouteImport } from './routes/news-notice.$slug'
+import { Route as AcademicsIndexRouteImport } from './routes/academics.index'
 import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as FacultyIdRouteImport } from './routes/faculty.$id'
 import { Route as EcaClubsClassRouteImport } from './routes/eca-clubs.$class'
 import { Route as CounselingTypeRouteImport } from './routes/counseling.$type'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AcademicsNewsRouteImport } from './routes/academics.news'
+import { Route as AcademicsNewsSlugRouteImport } from './routes/academics.news.$slug'
 
 const YearbookRoute = YearbookRouteImport.update({
   id: '/yearbook',
@@ -60,11 +61,6 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NewsNoticeRoute = NewsNoticeRouteImport.update({
-  id: '/news-notice',
-  path: '/news-notice',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LanguageClubRoute = LanguageClubRouteImport.update({
@@ -202,10 +198,10 @@ const FacultyIndexRoute = FacultyIndexRouteImport.update({
   path: '/',
   getParentRoute: () => FacultyRoute,
 } as any)
-const NewsNoticeSlugRoute = NewsNoticeSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => NewsNoticeRoute,
+const AcademicsIndexRoute = AcademicsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AcademicsRoute,
 } as any)
 const GallerySlugRoute = GallerySlugRouteImport.update({
   id: '/$slug',
@@ -232,12 +228,22 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => BlogRoute,
 } as any)
+const AcademicsNewsRoute = AcademicsNewsRouteImport.update({
+  id: '/news',
+  path: '/news',
+  getParentRoute: () => AcademicsRoute,
+} as any)
+const AcademicsNewsSlugRoute = AcademicsNewsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => AcademicsNewsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academic-calendar': typeof AcademicCalendarRoute
-  '/academics': typeof AcademicsRoute
+  '/academics': typeof AcademicsRouteWithChildren
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
   '/alumni': typeof AlumniRoute
@@ -260,23 +266,23 @@ export interface FileRoutesByFullPath {
   '/instructor-registration': typeof InstructorRegistrationRoute
   '/international-affairs': typeof InternationalAffairsRoute
   '/language-club': typeof LanguageClubRoute
-  '/news-notice': typeof NewsNoticeRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
+  '/academics/news': typeof AcademicsNewsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
-  '/news-notice/$slug': typeof NewsNoticeSlugRoute
+  '/academics/': typeof AcademicsIndexRoute
   '/faculty/': typeof FacultyIndexRoute
+  '/academics/news/$slug': typeof AcademicsNewsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academic-calendar': typeof AcademicCalendarRoute
-  '/academics': typeof AcademicsRoute
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
   '/alumni': typeof AlumniRoute
@@ -298,24 +304,25 @@ export interface FileRoutesByTo {
   '/instructor-registration': typeof InstructorRegistrationRoute
   '/international-affairs': typeof InternationalAffairsRoute
   '/language-club': typeof LanguageClubRoute
-  '/news-notice': typeof NewsNoticeRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
+  '/academics/news': typeof AcademicsNewsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
-  '/news-notice/$slug': typeof NewsNoticeSlugRoute
+  '/academics': typeof AcademicsIndexRoute
   '/faculty': typeof FacultyIndexRoute
+  '/academics/news/$slug': typeof AcademicsNewsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/academic-calendar': typeof AcademicCalendarRoute
-  '/academics': typeof AcademicsRoute
+  '/academics': typeof AcademicsRouteWithChildren
   '/admissions': typeof AdmissionsRoute
   '/advisors': typeof AdvisorsRoute
   '/alumni': typeof AlumniRoute
@@ -338,17 +345,18 @@ export interface FileRoutesById {
   '/instructor-registration': typeof InstructorRegistrationRoute
   '/international-affairs': typeof InternationalAffairsRoute
   '/language-club': typeof LanguageClubRoute
-  '/news-notice': typeof NewsNoticeRouteWithChildren
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/yearbook': typeof YearbookRoute
+  '/academics/news': typeof AcademicsNewsRouteWithChildren
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/eca-clubs/$class': typeof EcaClubsClassRoute
   '/faculty/$id': typeof FacultyIdRoute
   '/gallery/$slug': typeof GallerySlugRoute
-  '/news-notice/$slug': typeof NewsNoticeSlugRoute
+  '/academics/': typeof AcademicsIndexRoute
   '/faculty/': typeof FacultyIndexRoute
+  '/academics/news/$slug': typeof AcademicsNewsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -379,23 +387,23 @@ export interface FileRouteTypes {
     | '/instructor-registration'
     | '/international-affairs'
     | '/language-club'
-    | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
+    | '/academics/news'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
-    | '/news-notice/$slug'
+    | '/academics/'
     | '/faculty/'
+    | '/academics/news/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/academic-calendar'
-    | '/academics'
     | '/admissions'
     | '/advisors'
     | '/alumni'
@@ -417,17 +425,18 @@ export interface FileRouteTypes {
     | '/instructor-registration'
     | '/international-affairs'
     | '/language-club'
-    | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
+    | '/academics/news'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
-    | '/news-notice/$slug'
+    | '/academics'
     | '/faculty'
+    | '/academics/news/$slug'
   id:
     | '__root__'
     | '/'
@@ -456,24 +465,25 @@ export interface FileRouteTypes {
     | '/instructor-registration'
     | '/international-affairs'
     | '/language-club'
-    | '/news-notice'
     | '/projects'
     | '/sitemap.xml'
     | '/yearbook'
+    | '/academics/news'
     | '/blog/$slug'
     | '/counseling/$type'
     | '/eca-clubs/$class'
     | '/faculty/$id'
     | '/gallery/$slug'
-    | '/news-notice/$slug'
+    | '/academics/'
     | '/faculty/'
+    | '/academics/news/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AcademicCalendarRoute: typeof AcademicCalendarRoute
-  AcademicsRoute: typeof AcademicsRoute
+  AcademicsRoute: typeof AcademicsRouteWithChildren
   AdmissionsRoute: typeof AdmissionsRoute
   AdvisorsRoute: typeof AdvisorsRoute
   AlumniRoute: typeof AlumniRoute
@@ -496,7 +506,6 @@ export interface RootRouteChildren {
   InstructorRegistrationRoute: typeof InstructorRegistrationRoute
   InternationalAffairsRoute: typeof InternationalAffairsRoute
   LanguageClubRoute: typeof LanguageClubRoute
-  NewsNoticeRoute: typeof NewsNoticeRouteWithChildren
   ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   YearbookRoute: typeof YearbookRoute
@@ -523,13 +532,6 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/news-notice': {
-      id: '/news-notice'
-      path: '/news-notice'
-      fullPath: '/news-notice'
-      preLoaderRoute: typeof NewsNoticeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/language-club': {
@@ -721,12 +723,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FacultyIndexRouteImport
       parentRoute: typeof FacultyRoute
     }
-    '/news-notice/$slug': {
-      id: '/news-notice/$slug'
-      path: '/$slug'
-      fullPath: '/news-notice/$slug'
-      preLoaderRoute: typeof NewsNoticeSlugRouteImport
-      parentRoute: typeof NewsNoticeRoute
+    '/academics/': {
+      id: '/academics/'
+      path: '/'
+      fullPath: '/academics/'
+      preLoaderRoute: typeof AcademicsIndexRouteImport
+      parentRoute: typeof AcademicsRoute
     }
     '/gallery/$slug': {
       id: '/gallery/$slug'
@@ -763,8 +765,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof BlogRoute
     }
+    '/academics/news': {
+      id: '/academics/news'
+      path: '/news'
+      fullPath: '/academics/news'
+      preLoaderRoute: typeof AcademicsNewsRouteImport
+      parentRoute: typeof AcademicsRoute
+    }
+    '/academics/news/$slug': {
+      id: '/academics/news/$slug'
+      path: '/$slug'
+      fullPath: '/academics/news/$slug'
+      preLoaderRoute: typeof AcademicsNewsSlugRouteImport
+      parentRoute: typeof AcademicsNewsRoute
+    }
   }
 }
+
+interface AcademicsNewsRouteChildren {
+  AcademicsNewsSlugRoute: typeof AcademicsNewsSlugRoute
+}
+
+const AcademicsNewsRouteChildren: AcademicsNewsRouteChildren = {
+  AcademicsNewsSlugRoute: AcademicsNewsSlugRoute,
+}
+
+const AcademicsNewsRouteWithChildren = AcademicsNewsRoute._addFileChildren(
+  AcademicsNewsRouteChildren,
+)
+
+interface AcademicsRouteChildren {
+  AcademicsNewsRoute: typeof AcademicsNewsRouteWithChildren
+  AcademicsIndexRoute: typeof AcademicsIndexRoute
+}
+
+const AcademicsRouteChildren: AcademicsRouteChildren = {
+  AcademicsNewsRoute: AcademicsNewsRouteWithChildren,
+  AcademicsIndexRoute: AcademicsIndexRoute,
+}
+
+const AcademicsRouteWithChildren = AcademicsRoute._addFileChildren(
+  AcademicsRouteChildren,
+)
 
 interface BlogRouteChildren {
   BlogSlugRoute: typeof BlogSlugRoute
@@ -824,23 +866,11 @@ const GalleryRouteChildren: GalleryRouteChildren = {
 const GalleryRouteWithChildren =
   GalleryRoute._addFileChildren(GalleryRouteChildren)
 
-interface NewsNoticeRouteChildren {
-  NewsNoticeSlugRoute: typeof NewsNoticeSlugRoute
-}
-
-const NewsNoticeRouteChildren: NewsNoticeRouteChildren = {
-  NewsNoticeSlugRoute: NewsNoticeSlugRoute,
-}
-
-const NewsNoticeRouteWithChildren = NewsNoticeRoute._addFileChildren(
-  NewsNoticeRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AcademicCalendarRoute: AcademicCalendarRoute,
-  AcademicsRoute: AcademicsRoute,
+  AcademicsRoute: AcademicsRouteWithChildren,
   AdmissionsRoute: AdmissionsRoute,
   AdvisorsRoute: AdvisorsRoute,
   AlumniRoute: AlumniRoute,
@@ -863,7 +893,6 @@ const rootRouteChildren: RootRouteChildren = {
   InstructorRegistrationRoute: InstructorRegistrationRoute,
   InternationalAffairsRoute: InternationalAffairsRoute,
   LanguageClubRoute: LanguageClubRoute,
-  NewsNoticeRoute: NewsNoticeRouteWithChildren,
   ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   YearbookRoute: YearbookRoute,
@@ -871,13 +900,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
