@@ -1,45 +1,115 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { SectionHeader } from "@/components/site/SectionHeader";
-import { SiteSlider } from "@/components/site/SiteSlider";
-
-const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=80`;
-
-const images = [
-  { src: u("photo-1503676260728-1c00da094a0b"), caption: "Welcome Week Bulletin" },
-  { src: u("photo-1577896851231-70ef18881754"), caption: "Cambridge Pathway Update" },
-  { src: u("photo-1509062522246-3755977927d7"), caption: "Term 2 Highlights" },
-  { src: u("photo-1427504494785-3a9ca7044f45"), caption: "Sports Week" },
-  { src: u("photo-1588072432836-e10032774350"), caption: "Science Fair 2026" },
-  { src: u("photo-1499415479124-43c32433a620"), caption: "Annual Concert" },
-  { src: u("photo-1565299624946-b28f40a0ae38"), caption: "Pitha Utsob" },
-  { src: u("photo-1485470733090-0aae1788d5af"), caption: "Excursion Diaries" },
-];
+import { Button } from "@/components/ui/button";
+import p1 from "@/assets/bulletin-p-1.jpg.asset.json";
+import p2 from "@/assets/bulletin-p-2.jpg.asset.json";
+import p3 from "@/assets/bulletin-p-3.jpg.asset.json";
+import p4 from "@/assets/bulletin-p-4.jpg.asset.json";
+import p5 from "@/assets/bulletin-p-5.jpg.asset.json";
+import p6 from "@/assets/bulletin-p-6.jpg.asset.json";
+import p7 from "@/assets/bulletin-p-7.jpg.asset.json";
+import p8 from "@/assets/bulletin-p-8.jpg.asset.json";
 
 export const Route = createFileRoute("/bulletin")({
-  head: () => ({ meta: [{ title: "Bulletin — John Amos" }, { name: "description", content: "Visual bulletin of recent moments at John Amos International School." }] }),
-  component: Page,
+  head: () => ({
+    meta: [
+      { title: "JAIS Bulletin — March 2026 | John Amos International School" },
+      { name: "description", content: "Flip through the JAIS Bulletin — Year 1, Issue 2, March 2026." },
+      { property: "og:title", content: "JAIS Bulletin — March 2026" },
+      { property: "og:description", content: "News, events and achievements from John Amos International School." },
+    ],
+  }),
+  component: BulletinPage,
 });
 
-function Page() {
+const PAGES = [p1.url, p2.url, p3.url, p4.url, p5.url, p6.url, p7.url, p8.url];
+const TOTAL = PAGES.length;
+
+function BulletinPage() {
+  const [index, setIndex] = useState(0);
+  const next = () => setIndex((i) => Math.min(i + 1, TOTAL - 1));
+  const prev = () => setIndex((i) => Math.max(i - 1, 0));
+
   return (
-    <>
-      <PageHero eyebrow="Bulletin" title="In pictures." subtitle="A rolling visual bulletin of our school life." />
-      <section className="py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="Slideshow" title="Recent highlights" />
-          <div className="mt-12 animate-fade-up">
-            <SiteSlider images={images} height="h-[460px]" />
+    <main>
+      <PageHero
+        eyebrow="Bulletin"
+        title="JAIS Bulletin"
+        subtitle="Year 1 · Issue 2 · March 2026 — flip through our latest bulletin."
+      />
+
+      <section className="py-12 sm:py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="relative mx-auto" style={{ perspective: "2200px" }}>
+            <div className="relative mx-auto aspect-[1240/1600] w-full max-w-[560px]">
+              {PAGES.map((src, i) => {
+                const flipped = i < index;
+                return (
+                  <div
+                    key={i}
+                    className="absolute inset-0 origin-left rounded-r-2xl shadow-[var(--shadow-elegant)] transition-transform duration-700"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: flipped ? "rotateY(-180deg)" : "rotateY(0deg)",
+                      zIndex: flipped ? i : TOTAL - i,
+                    }}
+                  >
+                    {/* Front */}
+                    <div
+                      className="absolute inset-0 overflow-hidden rounded-r-2xl border border-border bg-card"
+                      style={{ backfaceVisibility: "hidden" }}
+                    >
+                      <PageFace src={src} pageNum={i + 1} />
+                    </div>
+                    {/* Back */}
+                    <div
+                      className="absolute inset-0 overflow-hidden rounded-r-2xl border border-border bg-card"
+                      style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+                    >
+                      {PAGES[i + 1] ? (
+                        <PageFace src={PAGES[i + 1]} pageNum={i + 2} />
+                      ) : (
+                        <PageFace src={src} pageNum={i + 1} />
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {images.slice(0, 8).map((im, i) => (
-              <div key={i} className="img-zoom animate-scale-in overflow-hidden rounded-2xl shadow-[var(--shadow-card)]" style={{ animationDelay: `${i * 80}ms` }}>
-                <img src={im.src} alt={im.caption} className="aspect-square w-full object-cover" />
-              </div>
-            ))}
+
+          {/* Controls */}
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <Button variant="outline" onClick={prev} disabled={index === 0}>
+              <ChevronLeft className="h-4 w-4" /> Prev
+            </Button>
+            <div className="min-w-[110px] text-center text-sm font-semibold text-primary">
+              Page {index + 1} of {TOTAL}
+            </div>
+            <Button variant="hero" onClick={next} disabled={index === TOTAL - 1}>
+              Next <ChevronRight className="h-4 w-4" />
+            </Button>
           </div>
         </div>
       </section>
-    </>
+    </main>
+  );
+}
+
+function PageFace({ src, pageNum }: { src: string; pageNum: number }) {
+  return (
+    <div className="relative h-full w-full bg-white">
+      <img
+        src={src}
+        alt={`JAIS Bulletin page ${pageNum}`}
+        className="h-full w-full object-contain"
+        loading={pageNum <= 2 ? "eager" : "lazy"}
+      />
+      <div className="pointer-events-none absolute bottom-2 right-3 rounded bg-primary/80 px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">
+        p-{pageNum}
+      </div>
+    </div>
   );
 }
