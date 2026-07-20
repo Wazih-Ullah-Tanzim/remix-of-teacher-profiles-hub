@@ -10,20 +10,21 @@ export const Route = createFileRoute("/board-of-directors")({
 type Director = { sl: number; name: string; role: string; photo?: string };
 
 import p1 from "@/assets/board-21.jpg.asset.json";
-import p2 from "@/assets/board-22.jpg.asset.json";
-import p3 from "@/assets/board-23.jpg.asset.json";
-import p4 from "@/assets/board-24.jpg.asset.json";
 import p5 from "@/assets/board-25.jpg.asset.json";
 import p6 from "@/assets/board-26.jpg.asset.json";
 import p7 from "@/assets/board-27.jpg.asset.json";
 import p8 from "@/assets/board-28.jpg.asset.json";
 import p9 from "@/assets/board-29.jpg.asset.json";
+import pChairman from "@/assets/board-chairman.jpg.asset.json";
+import pProgramme from "@/assets/board-programme.jpg.asset.json";
+import pTreasurer from "@/assets/board-treasurer.jpg.asset.json";
+import pImtiaz from "@/assets/board-imtiaz.jpg.asset.json";
 
 const directorsList: Director[] = [
   { sl: 1, name: "Mr. Khondokar Ehosan Habib", role: "Founder", photo: p1.url },
-  { sl: 2, name: "Dr. Abul Khaer Mohammad Helal Uddin", role: "Chairman", photo: p2.url },
-  { sl: 3, name: "Mr. Mohammad Abdul Queaum", role: "Programme Director", photo: p3.url },
-  { sl: 4, name: "Engr. A K M Jahirul Hasan", role: "Treasurer", photo: p4.url },
+  { sl: 2, name: "Dr. Abul Khaer Mohammad Helal Uddin", role: "Chairman", photo: pChairman.url },
+  { sl: 3, name: "Mr. Mohammad Abdul Queaum", role: "Programme Director", photo: pProgramme.url },
+  { sl: 4, name: "Engr. A K M Jahirul Hasan", role: "Treasurer", photo: pTreasurer.url },
   { sl: 5, name: "Mr. Anisur Rahman Anis", role: "Director", photo: p5.url },
   { sl: 6, name: "Mr. Anwar Hossain Kamal", role: "Director", photo: p6.url },
   { sl: 7, name: "Mr. Diderul Islam Dider", role: "Director", photo: p7.url },
@@ -31,7 +32,7 @@ const directorsList: Director[] = [
   { sl: 9, name: "Dr. Bilkis Parvin", role: "Director", photo: p9.url },
   { sl: 10, name: "Mr. Shah Muhammad Mustofa Noor", role: "Founding Director" },
   { sl: 11, name: "Md. Mazharul Islam Bhuiya", role: "Founding Director" },
-  { sl: 12, name: "Mr. Khandaker Imtiyaz Habib", role: "Founding Director" },
+  { sl: 12, name: "Mr. Khandaker Imtiyaz Habib", role: "Founding Director", photo: pImtiaz.url },
   { sl: 13, name: "Mr. Matiur Rahman", role: "Founding Director" },
   { sl: 14, name: "Mr. Hasan Jamil", role: "Founding Director" },
   { sl: 15, name: "Mr. Razuan Ahmed Shuvro", role: "Founding Director" },
@@ -42,6 +43,7 @@ const directorsList: Director[] = [
   { sl: 20, name: "Mr. Habibur Rahman Milon", role: "Director" },
   { sl: 21, name: "Md. Sahadat Hossan Somel", role: "Director" },
 ];
+
 
 function initials(name: string) {
   return name.replace(/^(Mr\.|Ms\.|Md\.|Dr\.|Engr\.|Eng\.)\s+/i, "").split(/\s+/).slice(0, 2).map((s) => s[0]).join("").toUpperCase();
