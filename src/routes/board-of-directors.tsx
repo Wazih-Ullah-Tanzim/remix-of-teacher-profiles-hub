@@ -9,6 +9,10 @@ export const Route = createFileRoute("/board-of-directors")({
 
 type Director = { sl: number; name: string; role: string; photo: string };
 
+import founderPhoto from "@/assets/director-founder.png.asset.json";
+import chairmanPhoto from "@/assets/director-chairman.png.asset.json";
+import programDirectorPhoto from "@/assets/director-program.png.asset.json";
+
 const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=80`;
 
 const portraits = [
@@ -20,6 +24,12 @@ const portraits = [
   "photo-1463453091185-61582044d556", "photo-1547425260-76bcadfb4f2c", "photo-1542178243-bc20204b769f",
   "photo-1506794778202-cad84cf45f1d", "photo-1492562080023-ab3db95bfbce", "photo-1488161628813-04466f872be2",
 ];
+
+const overrides: Record<number, { photo: string; role?: string }> = {
+  1: { photo: founderPhoto.url },
+  2: { photo: chairmanPhoto.url },
+  3: { photo: programDirectorPhoto.url, role: "Program Director" },
+};
 
 const directorsList: Director[] = [
   { sl: 1, name: "Mr. Khondokar Ehosan Habib", role: "Founder" },
@@ -43,7 +53,10 @@ const directorsList: Director[] = [
   { sl: 19, name: "Mr. Anwar Hossain Kamal", role: "Director" },
   { sl: 20, name: "Dr. Bilkis Parvin", role: "Director" },
   { sl: 21, name: "Md. Sahadat Hossan Somel", role: "Director" },
-].map((d, i) => ({ ...d, photo: u(portraits[i % portraits.length]) }));
+].map((d, i) => {
+  const o = overrides[d.sl];
+  return { ...d, role: o?.role ?? d.role, photo: o?.photo ?? u(portraits[i % portraits.length]) };
+});
 
 function Page() {
   return (
