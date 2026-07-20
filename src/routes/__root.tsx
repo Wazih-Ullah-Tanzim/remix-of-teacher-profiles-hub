@@ -5,6 +5,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
+import { MapEmbed } from "../components/site/MapEmbed";
 import { NewsTicker } from "../components/site/NewsTicker";
 import { Toaster } from "../components/ui/sonner";
 import { FloatingWhatsApp } from "../components/site/FloatingWhatsApp";
@@ -33,4 +34,4 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   shellComponent: RootShell, component: RootComponent, notFoundComponent: NotFoundComponent, errorComponent: ErrorComponent,
 });
 function RootShell({ children }: { children: ReactNode }) { return <html lang="en"><head><HeadContent /></head><body>{children}<Scripts /></body></html>; }
-function RootComponent() { const { queryClient } = Route.useRouteContext(); return <QueryClientProvider client={queryClient}><div className="flex min-h-screen flex-col" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }}><NewsTicker /><Header /><main className="flex-1"><Outlet /></main><Footer /><FloatingWhatsApp /><Toaster richColors position="top-right" /></div></QueryClientProvider>; }
+function RootComponent() { const { queryClient } = Route.useRouteContext(); return <QueryClientProvider client={queryClient}><div className="flex min-h-screen flex-col" style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif" }}><NewsTicker /><Header /><main className="flex-1"><Outlet /></main><MapEmbed /><Footer /><FloatingWhatsApp /><Toaster richColors position="top-right" /></div></QueryClientProvider>; }

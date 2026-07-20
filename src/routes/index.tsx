@@ -10,7 +10,7 @@ import playgroundCdnImg from "@/assets/playground.jpg.asset.json";
 
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { MapEmbed } from "@/components/site/MapEmbed";
+
 import { MotionStagger, MotionStaggerItem, AnimatedCounter } from "@/components/site/Motion";
 import { useEffect, useState } from "react";
 
@@ -287,7 +287,7 @@ function HomePage() {
           </div>
         </div>
       </section>
-      <MapEmbed />
+      
     </>
   );
 }
