@@ -197,9 +197,11 @@ export function Header() {
           <Link to="/admissions" className="ml-2" onMouseEnter={() => openMenu("__none__")}>
             <Button variant="hero" size="sm">Apply Now</Button>
           </Link>
+          <ThemeToggle className="ml-2" />
         </nav>
 
-        <button className="lg:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
