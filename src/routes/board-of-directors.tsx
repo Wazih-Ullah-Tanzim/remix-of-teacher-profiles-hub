@@ -29,6 +29,7 @@ import pJamil from "@/assets/dir-47.jpg.asset.json";
 import pImtiaz from "@/assets/dir-48.jpg.asset.json";
 import pMajharul from "@/assets/dir-49.jpg.asset.json";
 import pRazwan from "@/assets/dir-50.jpg.asset.json";
+import pAmran from "@/assets/dir-51.jpg.asset.json";
 
 const directorsList: Director[] = [
   { sl: 1, name: "Mr. Khondokar Ehosan Habib", role: "Founder", photo: pFounder.url },
@@ -39,18 +40,19 @@ const directorsList: Director[] = [
   { sl: 6, name: "Mr. Hasan Jamil", role: "Founding Director", photo: pJamil.url },
   { sl: 7, name: "Mr. Mohammad Majharul Haque Bhuyan", role: "Founding Director", photo: pMajharul.url },
   { sl: 8, name: "Mr. Razwan Ahmed Shuvro", role: "Founding Director", photo: pRazwan.url },
-  { sl: 9, name: "Mr. Anisur Rahman Anis", role: "Director", photo: pAnis.url },
-  { sl: 10, name: "Mr. Anwar Hossain Kamal", role: "Director", photo: pKamal.url },
-  { sl: 11, name: "Mr. Diderul Islam Dider", role: "Director", photo: pDider.url },
-  { sl: 12, name: "Dr. Ahmed Shakil Hashmi", role: "Director", photo: pHashmi.url },
-  { sl: 13, name: "Dr. Bilkis Parvin", role: "Director", photo: pBilkis.url },
-  { sl: 14, name: "Ms. Jannatun Nusra", role: "Director", photo: pNusra.url },
-  { sl: 15, name: "Mr. Md. Abdul Jabbar Selim", role: "Director", photo: pSelim.url },
-  { sl: 16, name: "Mr. Md. Habibur Rahman Milon", role: "Director", photo: pMilon.url },
-  { sl: 17, name: "Mr. Md. Sahadat Hossan Somel", role: "Director", photo: pSomel.url },
-  { sl: 18, name: "Mr. Md. Shohidul Islam Shahid", role: "Director", photo: pShahid.url },
-  { sl: 19, name: "Mr. Mohammad Faruk Hasan", role: "Director", photo: pFaruk.url },
-  { sl: 20, name: "Ms. Tanjila Akter", role: "Director", photo: pTanjila.url },
+  { sl: 9, name: "Mr. S M Amran Shohel", role: "Founding Director", photo: pAmran.url },
+  { sl: 10, name: "Mr. Anisur Rahman Anis", role: "Director", photo: pAnis.url },
+  { sl: 11, name: "Mr. Anwar Hossain Kamal", role: "Director", photo: pKamal.url },
+  { sl: 12, name: "Mr. Diderul Islam Dider", role: "Director", photo: pDider.url },
+  { sl: 13, name: "Dr. Ahmed Shakil Hashmi", role: "Director", photo: pHashmi.url },
+  { sl: 14, name: "Dr. Bilkis Parvin", role: "Director", photo: pBilkis.url },
+  { sl: 15, name: "Ms. Jannatun Nusra", role: "Director", photo: pNusra.url },
+  { sl: 16, name: "Mr. Md. Abdul Jabbar Selim", role: "Director", photo: pSelim.url },
+  { sl: 17, name: "Mr. Md. Habibur Rahman Milon", role: "Director", photo: pMilon.url },
+  { sl: 18, name: "Mr. Md. Sahadat Hossan Somel", role: "Director", photo: pSomel.url },
+  { sl: 19, name: "Mr. Md. Shohidul Islam Shahid", role: "Director", photo: pShahid.url },
+  { sl: 20, name: "Mr. Mohammad Faruk Hasan", role: "Director", photo: pFaruk.url },
+  { sl: 21, name: "Ms. Tanjila Akter", role: "Director", photo: pTanjila.url },
 ];
 
 
