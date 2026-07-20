@@ -12,6 +12,15 @@ type Director = { sl: number; name: string; role: string; photo: string };
 import founderPhoto from "@/assets/director-founder.png.asset.json";
 import chairmanPhoto from "@/assets/director-chairman.png.asset.json";
 import programDirectorPhoto from "@/assets/director-program.png.asset.json";
+import d4 from "@/assets/director-4.png.asset.json";
+import d5 from "@/assets/director-5.png.asset.json";
+import d6 from "@/assets/director-6.png.asset.json";
+import d7 from "@/assets/director-7.png.asset.json";
+import d8 from "@/assets/director-8.png.asset.json";
+import d9 from "@/assets/director-9.png.asset.json";
+import d10 from "@/assets/director-10.png.asset.json";
+import d11 from "@/assets/director-11.png.asset.json";
+import d12 from "@/assets/director-12.png.asset.json";
 
 const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=80`;
 
@@ -29,6 +38,15 @@ const overrides: Record<number, { photo: string; role?: string }> = {
   1: { photo: founderPhoto.url },
   2: { photo: chairmanPhoto.url },
   3: { photo: programDirectorPhoto.url, role: "Program Director" },
+  4: { photo: d4.url },
+  5: { photo: d5.url },
+  6: { photo: d6.url },
+  7: { photo: d7.url },
+  8: { photo: d8.url },
+  9: { photo: d9.url },
+  10: { photo: d10.url },
+  11: { photo: d11.url },
+  12: { photo: d12.url },
 };
 
 const directorsList: Director[] = [
