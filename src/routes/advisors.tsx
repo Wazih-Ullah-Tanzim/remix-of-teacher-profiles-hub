@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import mohitPhoto from "@/assets/prof-mohit-ul-alam.jpg.asset.json";
+import shahidPhoto from "@/assets/dr-shahiduzzaman.jpg.asset.json";
 
 export const Route = createFileRoute("/advisors")({
   head: () => ({
