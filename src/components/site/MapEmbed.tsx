@@ -3,9 +3,6 @@ export function MapEmbed() {
     <section className="w-full py-12 px-4" style={{ backgroundColor: "#1e3a5f" }} aria-label="John Amos International School location map">
       <div className="mx-auto max-w-7xl">
         <h2 className="text-center text-3xl font-bold text-white sm:text-4xl">Find Us</h2>
-        <p className="mt-3 text-center text-base font-medium sm:text-lg" style={{ color: "#f97316" }}>
-          19/D Shaheb Ali Road, Mymensingh 2200, Bangladesh
-        </p>
         <div className="mt-8 overflow-hidden rounded-xl shadow-lg">
           <iframe
             title="John Amos International School map"
