@@ -27,6 +27,8 @@ export const Route = createFileRoute("/bulletin")({
 const PAGES = [p1.url, p2.url, p3.url, p4.url, p5.url, p6.url, p7.url, p8.url];
 const TOTAL = PAGES.length;
 
+const FLIP_MS = 1400;
+
 function BulletinPage() {
   const [index, setIndex] = useState(0);
   const [flipping, setFlipping] = useState<null | "next" | "prev">(null);
@@ -39,8 +41,13 @@ function BulletinPage() {
     window.setTimeout(() => {
       setIndex((i) => (dir === "next" ? i + 1 : i - 1));
       setFlipping(null);
-    }, 650);
+    }, FLIP_MS);
   };
+
+  // Underneath (destination) page shown while the top page rotates.
+  const basePage = flipping === "next" ? index + 1 : index;
+  // Rotating overlay page.
+  const overlayPage = flipping === "next" ? index : index - 1;
 
   return (
     <main>
@@ -54,41 +61,35 @@ function BulletinPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div
             className="mx-auto flex w-full max-w-[1120px] items-stretch justify-center rounded-2xl shadow-[var(--shadow-elegant)]"
-            style={{ perspective: "2400px" }}
+            style={{ perspective: "2600px" }}
           >
             {/* Left page — blank */}
             <div className="hidden aspect-[1240/1600] w-1/2 rounded-l-2xl border border-r-0 border-border bg-white sm:block" />
             {/* Right page — current bulletin page */}
             <div
-              className="relative aspect-[1240/1600] w-full overflow-hidden rounded-2xl border border-border bg-white sm:w-1/2 sm:rounded-l-none sm:rounded-r-2xl"
+              className="relative aspect-[1240/1600] w-full rounded-2xl border border-border bg-white sm:w-1/2 sm:rounded-l-none sm:rounded-r-2xl"
               style={{ transformStyle: "preserve-3d" }}
             >
-              {/* Current page — soft cross-fade */}
-              <div
-                key={index}
-                className="absolute inset-0 animate-[bulletinFadeIn_650ms_ease-out_both]"
-              >
-                <PageFace src={PAGES[index]} pageNum={index + 1} />
+              {/* Base (destination or current) — static, no fade */}
+              <div className="absolute inset-0 overflow-hidden rounded-2xl sm:rounded-l-none sm:rounded-r-2xl">
+                <PageFace src={PAGES[basePage]} pageNum={basePage + 1} />
               </div>
 
-              {/* Flip overlay — soft page-turn */}
+              {/* Rotating overlay */}
               {flipping && (
                 <div
-                  className="pointer-events-none absolute inset-0"
+                  className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl sm:rounded-l-none sm:rounded-r-2xl"
                   style={{
-                    transformOrigin: flipping === "next" ? "left center" : "right center",
+                    transformOrigin: "left center",
                     transformStyle: "preserve-3d",
+                    backfaceVisibility: "hidden",
+                    boxShadow: "0 30px 60px -25px rgba(0,0,0,0.45)",
                     animation: `${
                       flipping === "next" ? "bulletinFlipNext" : "bulletinFlipPrev"
-                    } 650ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards`,
-                    boxShadow: "0 20px 40px -20px rgba(0,0,0,0.35)",
-                    backfaceVisibility: "hidden",
+                    } ${FLIP_MS}ms cubic-bezier(0.42, 0, 0.35, 1) forwards`,
                   }}
                 >
-                  <PageFace
-                    src={PAGES[flipping === "next" ? index : index - 1]}
-                    pageNum={(flipping === "next" ? index : index - 1) + 1}
-                  />
+                  <PageFace src={PAGES[overlayPage]} pageNum={overlayPage + 1} />
                 </div>
               )}
             </div>
@@ -111,6 +112,7 @@ function BulletinPage() {
     </main>
   );
 }
+
 
 
 function PageFace({ src, pageNum }: { src: string; pageNum: number }) {
