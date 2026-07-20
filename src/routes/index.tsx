@@ -132,7 +132,7 @@ function HomePage() {
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            <img src={classroomImg} alt="Smart classroom at John Amos" loading="lazy" width={1200} height={800} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" />
+            <img src={playgroundCdnImg.url} alt="Children enjoying the John Amos indoor playground" loading="lazy" width={1280} height={800} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" style={{ filter: "saturate(1.15) contrast(1.08) brightness(1.05)" }} />
             <div>
               <SectionHeader
                 eyebrow="Welcome"
