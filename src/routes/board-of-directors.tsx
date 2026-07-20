@@ -7,74 +7,45 @@ export const Route = createFileRoute("/board-of-directors")({
   component: Page,
 });
 
-type Director = { sl: number; name: string; role: string; photo: string };
+type Director = { sl: number; name: string; role: string; photo?: string };
 
-import founderPhoto from "@/assets/director-founder.png.asset.json";
-import chairmanPhoto from "@/assets/director-chairman.png.asset.json";
-import programDirectorPhoto from "@/assets/director-program.png.asset.json";
-import d4 from "@/assets/director-4.png.asset.json";
-import d5 from "@/assets/director-5.png.asset.json";
-import d6 from "@/assets/director-6.png.asset.json";
-import d7 from "@/assets/director-7.png.asset.json";
-import d8 from "@/assets/director-8.png.asset.json";
-import d9 from "@/assets/director-9.png.asset.json";
-import d10 from "@/assets/director-10.png.asset.json";
-import d11 from "@/assets/director-11.png.asset.json";
-import d12 from "@/assets/director-12.png.asset.json";
-
-const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=400&q=80`;
-
-const portraits = [
-  "photo-1556157382-97eda2d62296", "photo-1573497019940-1c28c88b4f3e", "photo-1519085360753-af0119f7cbe7",
-  "photo-1472099645785-5658abf4ff4e", "photo-1500648767791-00dcc994a43e", "photo-1507003211169-0a1dd7228f2d",
-  "photo-1560250097-0b93528c311a", "photo-1568602471122-7832951cc4c5", "photo-1531427186611-ecfd6d936c79",
-  "photo-1494790108377-be9c29b29330", "photo-1438761681033-6461ffad8d80", "photo-1551836022-d5d88e9218df",
-  "photo-1573496359142-b8d87734a5a2", "photo-1580489944761-15a19d654956", "photo-1521119989659-a83eee488004",
-  "photo-1463453091185-61582044d556", "photo-1547425260-76bcadfb4f2c", "photo-1542178243-bc20204b769f",
-  "photo-1506794778202-cad84cf45f1d", "photo-1492562080023-ab3db95bfbce", "photo-1488161628813-04466f872be2",
-];
-
-const overrides: Record<number, { photo: string; role?: string }> = {
-  1: { photo: founderPhoto.url },
-  2: { photo: chairmanPhoto.url },
-  3: { photo: programDirectorPhoto.url, role: "Program Director" },
-  4: { photo: d4.url },
-  5: { photo: d5.url },
-  6: { photo: d6.url },
-  7: { photo: d7.url },
-  8: { photo: d8.url },
-  9: { photo: d9.url },
-  10: { photo: d10.url },
-  11: { photo: d11.url },
-  12: { photo: d12.url },
-};
+import p1 from "@/assets/board-21.jpg.asset.json";
+import p2 from "@/assets/board-22.jpg.asset.json";
+import p3 from "@/assets/board-23.jpg.asset.json";
+import p4 from "@/assets/board-24.jpg.asset.json";
+import p5 from "@/assets/board-25.jpg.asset.json";
+import p6 from "@/assets/board-26.jpg.asset.json";
+import p7 from "@/assets/board-27.jpg.asset.json";
+import p8 from "@/assets/board-28.jpg.asset.json";
+import p9 from "@/assets/board-29.jpg.asset.json";
 
 const directorsList: Director[] = [
-  { sl: 1, name: "Mr. Khondokar Ehosan Habib", role: "Founder" },
-  { sl: 2, name: "Dr. Abul Khaer Mohammad Helal Uddin", role: "Chairman" },
-  { sl: 3, name: "Eng. A K M Jahirul Hasan", role: "Treasurer" },
-  { sl: 4, name: "Mr. Shah Muhammad Mustofa Noor", role: "Founding Director" },
-  { sl: 5, name: "Md. Mazharul Islam Bhuiya", role: "Founding Director" },
-  { sl: 6, name: "Mr. Khandaker Imtiyaz Habib", role: "Founding Director" },
-  { sl: 7, name: "Mr. Matiur Rahman", role: "Founding Director" },
-  { sl: 8, name: "Mr. Hasan Jamil", role: "Founding Director" },
-  { sl: 9, name: "Mr. Razuan Ahmed Shuvro", role: "Founding Director" },
-  { sl: 10, name: "Ms. Tanjila Akter", role: "Director" },
-  { sl: 11, name: "Mr. Abdul Jabbar Selim", role: "Director" },
-  { sl: 12, name: "Mr. Shahidul Islam Shahid", role: "Director" },
-  { sl: 13, name: "Mr. Anisur Rahman Anis", role: "Director" },
-  { sl: 14, name: "Ms. Jannatun Nusra", role: "Director" },
-  { sl: 15, name: "Mr. Mohammad Abdul Queaum", role: "Director" },
-  { sl: 16, name: "Dr. Ahmad Shakil Hashmi", role: "Director" },
-  { sl: 17, name: "Mr. Habibur Rahman Milon", role: "Director" },
-  { sl: 18, name: "Mr. Diderul Islam Dider", role: "Director" },
-  { sl: 19, name: "Mr. Anwar Hossain Kamal", role: "Director" },
-  { sl: 20, name: "Dr. Bilkis Parvin", role: "Director" },
+  { sl: 1, name: "Mr. Khondokar Ehosan Habib", role: "Founder", photo: p1.url },
+  { sl: 2, name: "Dr. Abul Khaer Mohammad Helal Uddin", role: "Chairman", photo: p2.url },
+  { sl: 3, name: "Mr. Mohammad Abdul Queaum", role: "Programme Director", photo: p3.url },
+  { sl: 4, name: "Engr. A K M Jahirul Hasan", role: "Treasurer", photo: p4.url },
+  { sl: 5, name: "Mr. Anisur Rahman Anis", role: "Director", photo: p5.url },
+  { sl: 6, name: "Mr. Anwar Hossain Kamal", role: "Director", photo: p6.url },
+  { sl: 7, name: "Mr. Diderul Islam Dider", role: "Director", photo: p7.url },
+  { sl: 8, name: "Dr. Ahmed Shakil Hashmi", role: "Director", photo: p8.url },
+  { sl: 9, name: "Dr. Bilkis Parvin", role: "Director", photo: p9.url },
+  { sl: 10, name: "Mr. Shah Muhammad Mustofa Noor", role: "Founding Director" },
+  { sl: 11, name: "Md. Mazharul Islam Bhuiya", role: "Founding Director" },
+  { sl: 12, name: "Mr. Khandaker Imtiyaz Habib", role: "Founding Director" },
+  { sl: 13, name: "Mr. Matiur Rahman", role: "Founding Director" },
+  { sl: 14, name: "Mr. Hasan Jamil", role: "Founding Director" },
+  { sl: 15, name: "Mr. Razuan Ahmed Shuvro", role: "Founding Director" },
+  { sl: 16, name: "Ms. Tanjila Akter", role: "Director" },
+  { sl: 17, name: "Mr. Abdul Jabbar Selim", role: "Director" },
+  { sl: 18, name: "Mr. Shahidul Islam Shahid", role: "Director" },
+  { sl: 19, name: "Ms. Jannatun Nusra", role: "Director" },
+  { sl: 20, name: "Mr. Habibur Rahman Milon", role: "Director" },
   { sl: 21, name: "Md. Sahadat Hossan Somel", role: "Director" },
-].map((d, i) => {
-  const o = overrides[d.sl];
-  return { ...d, role: o?.role ?? d.role, photo: o?.photo ?? u(portraits[i % portraits.length]) };
-});
+];
+
+function initials(name: string) {
+  return name.replace(/^(Mr\.|Ms\.|Md\.|Dr\.|Engr\.|Eng\.)\s+/i, "").split(/\s+/).slice(0, 2).map((s) => s[0]).join("").toUpperCase();
+}
 
 function Page() {
   return (
@@ -87,8 +58,12 @@ function Page() {
           <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {directorsList.map((d) => (
               <div key={d.sl} className="flex flex-col items-center rounded-2xl border border-border bg-card p-4 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                <div className="img-zoom aspect-[3/4] w-full max-w-[150px] overflow-hidden rounded-xl ring-2 ring-primary/10 shadow-sm">
-                  <img src={d.photo} alt={d.name} loading="lazy" className="h-full w-full object-cover" />
+                <div className="img-zoom aspect-[3/4] w-full max-w-[150px] overflow-hidden rounded-xl ring-2 ring-primary/10 shadow-sm bg-muted flex items-center justify-center">
+                  {d.photo ? (
+                    <img src={d.photo} alt={d.name} loading="lazy" className="h-full w-full object-cover" />
+                  ) : (
+                    <span className="text-2xl font-bold text-primary/40">{initials(d.name)}</span>
+                  )}
                 </div>
                 <div className="mt-3">
                   <div className="text-[10px] font-bold uppercase tracking-wider text-accent">{d.role}</div>
