@@ -84,6 +84,13 @@ export const faculty: Teacher[] = [
     qualifications: ["M.A. in English", "B.Ed"],
     experience: "5 years teaching", email: "sajia@johnamosbd.com", personalMessage: defaultMessage,
   },
+  {
+    id: "hijbullah-ghalib", name: "Hijbullah Ghalib", title: "Class Teacher",
+    subject: "Islamic Studies & Moral Education", photo: pHijbullah.url,
+    bio: "Hijbullah Ghalib guides young learners in Islamic studies and character education, nurturing values alongside academics.",
+    qualifications: ["Dawrah-e-Hadith (Kamil)", "B.A. in Islamic Studies"],
+    experience: "5 years teaching", email: "hijbullah@johnamosbd.com", personalMessage: defaultMessage,
+  },
 ];
 
 
