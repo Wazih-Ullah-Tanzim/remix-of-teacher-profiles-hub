@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import mohitPhoto from "@/assets/prof-mohit-ul-alam.jpg.asset.json";
+import shahidPhoto from "@/assets/dr-shahiduzzaman.jpg.asset.json";
 
 export const Route = createFileRoute("/advisors")({
   head: () => ({
@@ -30,6 +31,17 @@ const advisorList: Advisor[] = [
       "He passed his master's and Honours from Chittagong University in English, and then secured another master's degree in English from Lakehead University, Thunder Bay, Canada, and then he earned his PhD degree from Dhaka University.",
       "Dr. Mohit Ul Alam is a former professor of Chittagong University. He was Dean at School of Arts and Humanities, ULAB and also the founder and chairman of Department of English Literature and Language in Premier University, Chittagong.",
       "He has more than thirty books to his credit – fiction, poetry, and nonfiction, including books on teaching English. In addition, he has written columns published in Bangla and English dailies addressing current issues. He was a syndicated sports-columnist for Prothom Alo during the World Cup Soccer (2010) and ICC Cricket World Cup in 2011, respectively. He has been the editor of the academic journal Crossings: ULAB Journal of English Studies.",
+    ],
+  },
+  {
+    name: "Dr. Shahiduzzaman",
+    role: "Advisor — Technology & Research",
+    photo: shahidPhoto.url,
+    paragraphs: [
+      "An accomplished academic in Electrical and Electronic Engineering, Dr. Shahiduzzaman is an Associate Professor at Jatiya Kabi Kazi Nazrul Islam University. With over a decade of experience, he focuses on technology-driven solutions that benefit society. His expertise includes Human Activity Recognition (HAR), smart elderly fall detection systems, and machine learning in power systems. He is pursuing his PhD at Khulna University of Engineering and Technology, concentrating on smart elderly care and AI-driven predictive systems.",
+      "Dr. Shahiduzzaman earned his Master's degree in Electronics Engineering with a specialization in Communication Systems from Hochschule Bremen University of Applied Sciences and has published numerous articles in esteemed journals.",
+      "Dr. Shahiduzzaman's work includes research on elderly fall detection, renewable energy forecasting, and machine learning-based fault management. He has led funded projects as Principal Investigator and is known for his interactive teaching style and mentorship.",
+      "His technical skills encompass MATLAB, Python, Simulink, and LABVIEW. He inspires students through his dedication to innovation and research excellence.",
     ],
   },
 ];
