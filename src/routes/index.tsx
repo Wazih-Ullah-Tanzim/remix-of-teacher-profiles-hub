@@ -89,7 +89,14 @@ function HomePage() {
           <div className="relative animate-scale-in delay-200">
             <div className="absolute -inset-6 rounded-3xl bg-accent/30 blur-3xl animate-float" />
             <div className="img-zoom relative overflow-hidden rounded-2xl shadow-[var(--shadow-elegant)] ring-1 ring-white/10 glow-photo">
-              <img src={heroImg} alt="John Amos International School campus" width={1536} height={1024} className="aspect-[4/3] w-full object-cover" />
+              <img
+                src={studentsArtworkImg.url}
+                alt="John Amos students proudly displaying their Victory Day artwork in class"
+                width={1920}
+                height={900}
+                className="aspect-[4/3] w-full object-cover"
+                style={{ filter: "saturate(1.15) contrast(1.08) brightness(1.03)" }}
+              />
             </div>
           </div>
         </div>
