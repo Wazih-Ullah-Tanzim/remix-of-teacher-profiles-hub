@@ -50,13 +50,6 @@ export const faculty: Teacher[] = [
     experience: "6 years in school administration", email: "admin@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
-    id: "hijbullah-ghalib", name: "Hijbullah Ghalib", title: "Class Teacher",
-    subject: "Islamic Studies & Moral Education", photo: pHijbullah.url,
-    bio: "Hijbullah Ghalib guides young learners in Islamic studies and character education, nurturing values alongside academics.",
-    qualifications: ["Dawrah-e-Hadith (Kamil)", "B.A. in Islamic Studies"],
-    experience: "5 years teaching", email: "hijbullah@johnamosbd.com", personalMessage: defaultMessage,
-  },
-  {
     id: "irin-rashid-nipa", name: "Irin Rashid Nipa", title: "Class Teacher",
     subject: "Primary Class Teacher", photo: pIrin.url,
     bio: "Irin Rashid Nipa creates a caring, structured classroom where young children build confidence, curiosity and strong learning habits.",
@@ -90,6 +83,13 @@ export const faculty: Teacher[] = [
     bio: "Syeda Sajia Afrin Rothy blends creative activities with clear routines, helping children love school from the very first day.",
     qualifications: ["M.A. in English", "B.Ed"],
     experience: "5 years teaching", email: "sajia@johnamosbd.com", personalMessage: defaultMessage,
+  },
+  {
+    id: "hijbullah-ghalib", name: "Hijbullah Ghalib", title: "Class Teacher",
+    subject: "Islamic Studies & Moral Education", photo: pHijbullah.url,
+    bio: "Hijbullah Ghalib guides young learners in Islamic studies and character education, nurturing values alongside academics.",
+    qualifications: ["Dawrah-e-Hadith (Kamil)", "B.A. in Islamic Studies"],
+    experience: "5 years teaching", email: "hijbullah@johnamosbd.com", personalMessage: defaultMessage,
   },
 ];
 
