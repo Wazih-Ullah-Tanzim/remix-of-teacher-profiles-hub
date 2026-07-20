@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 const logo = "/logo.png";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/site/ThemeToggle";
 
 type NavItem = { to: string; label: string; children?: NavItem[] };
 
