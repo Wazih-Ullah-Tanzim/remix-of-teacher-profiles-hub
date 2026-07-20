@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown, ChevronRight } from "lucide-react";
 const logo = "/logo.png";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/site/ThemeToggle";
 
 type NavItem = { to: string; label: string; children?: NavItem[] };
 
@@ -196,11 +197,15 @@ export function Header() {
           <Link to="/admissions" className="ml-2" onMouseEnter={() => openMenu("__none__")}>
             <Button variant="hero" size="sm">Apply Now</Button>
           </Link>
+          <ThemeToggle className="ml-2" />
         </nav>
 
-        <button className="lg:hidden" onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <button onClick={() => setOpen((v) => !v)} aria-label="Toggle menu">
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
