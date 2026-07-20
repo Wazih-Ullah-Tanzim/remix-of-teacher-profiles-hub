@@ -4,6 +4,7 @@ import heroImg from "@/assets/school-hero.jpg";
 import classroomImg from "@/assets/classroom.jpg";
 import studentsImg from "@/assets/students.jpg";
 import playgroundImg from "@/assets/playground.jpg";
+import buildingImg from "@/assets/school-building.jpg.asset.json";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MapEmbed } from "@/components/site/MapEmbed";
@@ -134,6 +135,25 @@ function HomePage() {
               </p>
               <Link to="/about" className="mt-8 inline-flex"><Button variant="navy" size="lg">More About Us <ArrowRight className="h-4 w-4" /></Button></Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MAIN BUILDING */}
+      <section className="py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Our Campus"
+            title="The John Amos Main Building"
+            subtitle="Our purpose-built campus in the heart of Mymensingh — home to Cambridge classrooms, the John Amos Centre and our welcoming reception."
+          />
+          <div className="mt-10 overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-elegant)] glow-photo">
+            <img
+              src={buildingImg.url}
+              alt="John Amos International School main building in Mymensingh"
+              loading="lazy"
+              className="w-full object-cover"
+            />
           </div>
         </div>
       </section>
