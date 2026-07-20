@@ -29,6 +29,7 @@ import pJamil from "@/assets/dir-47.jpg.asset.json";
 import pImtiaz from "@/assets/dir-48.jpg.asset.json";
 import pMajharul from "@/assets/dir-49.jpg.asset.json";
 import pRazwan from "@/assets/dir-50.jpg.asset.json";
+import pAmran from "@/assets/dir-51.jpg.asset.json";
 
 const directorsList: Director[] = [
   { sl: 1, name: "Mr. Khondokar Ehosan Habib", role: "Founder", photo: pFounder.url },
