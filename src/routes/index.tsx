@@ -5,6 +5,8 @@ import classroomImg from "@/assets/classroom.jpg";
 import studentsImg from "@/assets/students.jpg";
 import playgroundImg from "@/assets/playground.jpg";
 import buildingImg from "@/assets/school-building.jpg.asset.json";
+import studentsArtworkImg from "@/assets/students-artwork.jpg.asset.json";
+
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { MapEmbed } from "@/components/site/MapEmbed";
