@@ -40,6 +40,7 @@ const directorsList: Director[] = [
   { sl: 6, name: "Mr. Hasan Jamil", role: "Founding Director", photo: pJamil.url },
   { sl: 7, name: "Mr. Mohammad Majharul Haque Bhuyan", role: "Founding Director", photo: pMajharul.url },
   { sl: 8, name: "Mr. Razwan Ahmed Shuvro", role: "Founding Director", photo: pRazwan.url },
+  { sl: 9, name: "Mr. S M Amran Shohel", role: "Founding Director", photo: pAmran.url },
   { sl: 9, name: "Mr. Anisur Rahman Anis", role: "Director", photo: pAnis.url },
   { sl: 10, name: "Mr. Anwar Hossain Kamal", role: "Director", photo: pKamal.url },
   { sl: 11, name: "Mr. Diderul Islam Dider", role: "Director", photo: pDider.url },
