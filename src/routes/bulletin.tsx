@@ -41,42 +41,13 @@ function BulletinPage() {
       />
 
       <section className="py-12 sm:py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <div className="relative mx-auto" style={{ perspective: "2200px" }}>
-            <div className="relative mx-auto aspect-[1240/1600] w-full max-w-[560px]">
-              {PAGES.map((src, i) => {
-                const flipped = i < index;
-                return (
-                  <div
-                    key={i}
-                    className="absolute inset-0 origin-left rounded-r-2xl shadow-[var(--shadow-elegant)] transition-transform duration-700"
-                    style={{
-                      transformStyle: "preserve-3d",
-                      transform: flipped ? "rotateY(-180deg)" : "rotateY(0deg)",
-                      zIndex: flipped ? i : TOTAL - i,
-                    }}
-                  >
-                    {/* Front */}
-                    <div
-                      className="absolute inset-0 overflow-hidden rounded-r-2xl border border-border bg-card"
-                      style={{ backfaceVisibility: "hidden" }}
-                    >
-                      <PageFace src={src} pageNum={i + 1} />
-                    </div>
-                    {/* Back */}
-                    <div
-                      className="absolute inset-0 overflow-hidden rounded-r-2xl border border-border bg-card"
-                      style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
-                    >
-                      {PAGES[i + 1] ? (
-                        <PageFace src={PAGES[i + 1]} pageNum={i + 2} />
-                      ) : (
-                        <PageFace src={src} pageNum={i + 1} />
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto flex w-full max-w-[1120px] items-stretch justify-center rounded-2xl shadow-[var(--shadow-elegant)]">
+            {/* Left page — blank */}
+            <div className="hidden aspect-[1240/1600] w-1/2 rounded-l-2xl border border-r-0 border-border bg-white sm:block" />
+            {/* Right page — current bulletin page */}
+            <div className="aspect-[1240/1600] w-full overflow-hidden rounded-2xl border border-border bg-white sm:w-1/2 sm:rounded-l-none sm:rounded-r-2xl">
+              <PageFace src={PAGES[index]} pageNum={index + 1} />
             </div>
           </div>
 
