@@ -6,6 +6,7 @@ import studentsImg from "@/assets/students.jpg";
 import playgroundImg from "@/assets/playground.jpg";
 import buildingImg from "@/assets/school-building.jpg.asset.json";
 import studentsArtworkImg from "@/assets/students-artwork.jpg.asset.json";
+import playgroundImg from "@/assets/playground.jpg.asset.json";
 
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
