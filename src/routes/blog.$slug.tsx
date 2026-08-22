@@ -23,8 +23,7 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function Page() {
-  const p = Route.useLoaderData();
-  if (!p) return null;
+  const p = Route.useLoaderData() as (typeof blogPosts)[number];
   const related = blogPosts.filter((b) => b.slug !== p.slug && b.category === p.category).slice(0, 3);
   const fillers = blogPosts.filter((b) => b.slug !== p.slug && !related.includes(b)).slice(0, 3 - related.length);
   const relatedPosts = [...related, ...fillers];

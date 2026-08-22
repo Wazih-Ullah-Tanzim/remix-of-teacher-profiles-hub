@@ -34,8 +34,7 @@ export const Route = createFileRoute("/counseling/$type")({
 });
 
 function Page() {
-  const d = Route.useLoaderData();
-  if (!d) return null;
+  const d = Route.useLoaderData() as NonNullable<(typeof detail)[string]>;
   return (
     <>
       <PageHero eyebrow={d.eyebrow} title={d.title} subtitle={d.intro} />
