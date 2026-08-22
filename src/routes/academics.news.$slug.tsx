@@ -11,6 +11,7 @@ export const Route = createFileRoute("/academics/news/$slug")({
 });
 function Page() {
   const n = Route.useLoaderData();
+  if (!n) return null;
   return (
     <>
       <PageHero eyebrow={n.tag} title={n.title} subtitle={n.body} />

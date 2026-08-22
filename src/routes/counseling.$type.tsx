@@ -35,6 +35,7 @@ export const Route = createFileRoute("/counseling/$type")({
 
 function Page() {
   const d = Route.useLoaderData();
+  if (!d) return null;
   return (
     <>
       <PageHero eyebrow={d.eyebrow} title={d.title} subtitle={d.intro} />
