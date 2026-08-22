@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.3",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "john-amos-international-school",
+      "version": "0.1.0",
+      "title": "John Amos International School"
+    },
+    "tools": [
+      {
+        "name": "get_school_info",
+        "title": "Get school info",
+        "description": "Get public information about John Amos International School: contact details, location, admissions overview and key website pages.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_faculty",
+        "title": "List faculty",
+        "description": "List all teachers and staff of John Amos International School with their id, name, title and subject.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_faculty_profile",
+        "title": "Get faculty profile",
+        "description": "Get the full public profile of one teacher — bio, qualifications, experience, subject and contact email.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Faculty id from list_faculty, e.g. 'muhammad-arif-mujtaba-kamal'."
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_notices",
+        "title": "List news and notices",
+        "description": "List published school news, notices and announcements (admissions, events, academics).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "tag": {
+              "description": "Optional tag filter, e.g. 'Admissions', 'Event', 'Academics', 'Notice'.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_blog_posts",
+        "title": "List blog posts",
+        "description": "List public blog articles from the school, optionally filtered by category or a search term.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Optional category filter, e.g. 'Academics'.",
+              "type": "string"
+            },
+            "search": {
+              "description": "Optional case-insensitive search over title and excerpt.",
+              "type": "string"
+            },
+            "limit": {
+              "description": "Maximum posts to return (default 20).",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
+            }
+          }
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
