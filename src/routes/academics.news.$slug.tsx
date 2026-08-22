@@ -10,7 +10,7 @@ export const Route = createFileRoute("/academics/news/$slug")({
   component: Page,
 });
 function Page() {
-  const n = Route.useLoaderData();
+  const n = Route.useLoaderData() as (typeof notices)[number];
   return (
     <>
       <PageHero eyebrow={n.tag} title={n.title} subtitle={n.body} />
