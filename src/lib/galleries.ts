@@ -23,6 +23,14 @@ import foodPartyGroupAsset from "@/assets/food-party-group.jpg.asset.json";
 import foodPartySpreadAsset from "@/assets/food-party-spread.jpg.asset.json";
 import foodPartyStudentsAsset from "@/assets/food-party-students.jpg.asset.json";
 import foodPartyClassAsset from "@/assets/food-party-class.jpg.asset.json";
+import siratHadithNarratorAsset from "@/assets/sirat-hadith-narrator.jpg.asset.json";
+import siratStudentSpeechAsset from "@/assets/sirat-student-speech.jpg.asset.json";
+import siratChairmanSpeechAsset from "@/assets/sirat-chairman-speech.jpg.asset.json";
+import siratStudentAwardsAsset from "@/assets/sirat-student-awards.jpg.asset.json";
+import siratAwardsCelebrationAsset from "@/assets/sirat-awards-celebration.jpg.asset.json";
+import siratAwardPresentationAsset from "@/assets/sirat-award-presentation.jpg.asset.json";
+import siratStudentAwardAsset from "@/assets/sirat-student-award.jpg.asset.json";
+import siratPrizeDistributionAsset from "@/assets/sirat-prize-distribution.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -102,10 +110,14 @@ export const galleries: Record<
     eyebrow: "Occasion",
     description: "Our annual Sirat-Un-Nabi gathering — students share the life and teachings of the Prophet (PBUH).",
     images: [
-      { src: u("photo-1542816417-0983c9c9ad53"), caption: "Recitation" },
-      { src: u("photo-1604881991720-f91add269bed"), caption: "Reflection circle" },
-      { src: u("photo-1564769662533-4f00a87b4056"), caption: "Speeches by students" },
-      { src: u("photo-1473177104440-ffee2f376098"), caption: "Community gathering" },
+      { src: siratHadithNarratorAsset.url, caption: "Student Hadith narration" },
+      { src: siratStudentSpeechAsset.url, caption: "Student speech performance" },
+      { src: siratChairmanSpeechAsset.url, caption: "Chairman's address at the celebration" },
+      { src: siratStudentAwardsAsset.url, caption: "Students celebrating their awards" },
+      { src: siratAwardsCelebrationAsset.url, caption: "Award winners at Sirat-Un-Nabi" },
+      { src: siratAwardPresentationAsset.url, caption: "Prize presentation ceremony" },
+      { src: siratStudentAwardAsset.url, caption: "Student receiving an award" },
+      { src: siratPrizeDistributionAsset.url, caption: "Sirat-Un-Nabi prize distribution" },
     ],
   },
   "food-party": {
