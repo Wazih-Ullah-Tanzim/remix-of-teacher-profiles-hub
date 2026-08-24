@@ -18,6 +18,11 @@ import noboBorshoTraditionalDressAsset from "@/assets/nobo-borsho-traditional-dr
 import noboBorshoMaroonAsset from "@/assets/nobo-borsho-maroon.jpg.asset.json";
 import noboBorshoHeadbandAsset from "@/assets/nobo-borsho-headband.jpg.asset.json";
 import noboBorshoWhitePanjabiAsset from "@/assets/nobo-borsho-white-panjabi.jpg.asset.json";
+import foodPartyTableAsset from "@/assets/food-party-table.jpg.asset.json";
+import foodPartyGroupAsset from "@/assets/food-party-group.jpg.asset.json";
+import foodPartySpreadAsset from "@/assets/food-party-spread.jpg.asset.json";
+import foodPartyStudentsAsset from "@/assets/food-party-students.jpg.asset.json";
+import foodPartyClassAsset from "@/assets/food-party-class.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -108,10 +113,11 @@ export const galleries: Record<
     eyebrow: "Occasion",
     description: "A joyful celebration of cuisine, culture and community across the John Amos family.",
     images: [
-      { src: u("photo-1555939594-58d7cb561ad1"), caption: "Buffet of joy" },
-      { src: u("photo-1567620905732-2d1ec7ab7445"), caption: "Sweet treats" },
-      { src: u("photo-1414235077428-338989a2e8c0"), caption: "Shared meals" },
-      { src: u("photo-1551218808-94e220e084d2"), caption: "Smiles all around" },
+      { src: foodPartyTableAsset.url, caption: "A colourful table of shared treats" },
+      { src: foodPartyGroupAsset.url, caption: "Students and teachers at the Food Party" },
+      { src: foodPartySpreadAsset.url, caption: "A festive spread prepared for everyone" },
+      { src: foodPartyStudentsAsset.url, caption: "Food Party celebration with students and teachers" },
+      { src: foodPartyClassAsset.url, caption: "Classroom Food Party memories" },
     ],
   },
   "art-exhibition": {
