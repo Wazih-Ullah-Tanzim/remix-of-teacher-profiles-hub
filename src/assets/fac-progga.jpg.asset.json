@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "d1c58ec8-712d-46b1-946f-07982568ae1b",
-  "project_id": "a942b50c-f349-4cd9-84cb-aadd2b386f9f",
-  "url": "/__l5e/assets-v1/d1c58ec8-712d-46b1-946f-07982568ae1b/progga-paromita-ghosh.jpg",
-  "r2_key": "a/v1/a942b50c-f349-4cd9-84cb-aadd2b386f9f/d1c58ec8-712d-46b1-946f-07982568ae1b/progga-paromita-ghosh.jpg",
-  "original_filename": "progga-paromita-ghosh.jpg",
-  "size": 78446,
   "content_type": "image/jpeg",
-  "created_at": "2026-07-20T19:10:33Z"
+  "created_at": "2026-07-20T19:10:33Z",
+  "original_filename": "progga-paromita-ghosh.jpg",
+  "project_id": "bcbbd063-605e-497a-97a5-a671e6431b9d",
+  "r2_key": "a/v1/bcbbd063-605e-497a-97a5-a671e6431b9d/d1c58ec8-712d-46b1-946f-07982568ae1b/progga-paromita-ghosh.jpg",
+  "size": 78446,
+  "url": "/__l5e/assets-v1/d1c58ec8-712d-46b1-946f-07982568ae1b/progga-paromita-ghosh.jpg",
+  "version": 1
 }

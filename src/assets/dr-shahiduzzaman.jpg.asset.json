@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "d0150994-e5d6-401c-b214-3b5f2603925e",
-  "project_id": "a942b50c-f349-4cd9-84cb-aadd2b386f9f",
-  "url": "/__l5e/assets-v1/d0150994-e5d6-401c-b214-3b5f2603925e/dr-shahiduzzaman.jpg",
-  "r2_key": "a/v1/a942b50c-f349-4cd9-84cb-aadd2b386f9f/d0150994-e5d6-401c-b214-3b5f2603925e/dr-shahiduzzaman.jpg",
-  "original_filename": "dr-shahiduzzaman.jpg",
-  "size": 80584,
   "content_type": "image/webp",
-  "created_at": "2026-07-20T18:48:08Z"
+  "created_at": "2026-07-20T18:48:08Z",
+  "original_filename": "dr-shahiduzzaman.jpg",
+  "project_id": "bcbbd063-605e-497a-97a5-a671e6431b9d",
+  "r2_key": "a/v1/bcbbd063-605e-497a-97a5-a671e6431b9d/d0150994-e5d6-401c-b214-3b5f2603925e/dr-shahiduzzaman.jpg",
+  "size": 80584,
+  "url": "/__l5e/assets-v1/d0150994-e5d6-401c-b214-3b5f2603925e/dr-shahiduzzaman.jpg",
+  "version": 1
 }

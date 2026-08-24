@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "ddb68e3a-5724-4fe6-91b6-3c09da3503f0",
-  "project_id": "a942b50c-f349-4cd9-84cb-aadd2b386f9f",
-  "url": "/__l5e/assets-v1/ddb68e3a-5724-4fe6-91b6-3c09da3503f0/jais-full-logo.png",
-  "r2_key": "a/v1/a942b50c-f349-4cd9-84cb-aadd2b386f9f/ddb68e3a-5724-4fe6-91b6-3c09da3503f0/jais-full-logo.png",
-  "original_filename": "jais-full-logo.png",
-  "size": 90236,
   "content_type": "image/png",
-  "created_at": "2026-06-26T17:11:52Z"
+  "created_at": "2026-06-26T17:11:52Z",
+  "original_filename": "jais-full-logo.png",
+  "project_id": "bcbbd063-605e-497a-97a5-a671e6431b9d",
+  "r2_key": "a/v1/bcbbd063-605e-497a-97a5-a671e6431b9d/ddb68e3a-5724-4fe6-91b6-3c09da3503f0/jais-full-logo.png",
+  "size": 90236,
+  "url": "/__l5e/assets-v1/ddb68e3a-5724-4fe6-91b6-3c09da3503f0/jais-full-logo.png",
+  "version": 1
 }

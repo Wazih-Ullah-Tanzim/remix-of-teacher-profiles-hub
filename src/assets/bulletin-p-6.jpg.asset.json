@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "f932c966-66ef-4cfa-abec-30424b5c99e9",
-  "project_id": "a942b50c-f349-4cd9-84cb-aadd2b386f9f",
-  "url": "/__l5e/assets-v1/f932c966-66ef-4cfa-abec-30424b5c99e9/bulletin-p-6.jpg",
-  "r2_key": "a/v1/a942b50c-f349-4cd9-84cb-aadd2b386f9f/f932c966-66ef-4cfa-abec-30424b5c99e9/bulletin-p-6.jpg",
-  "original_filename": "bulletin-p-6.jpg",
-  "size": 792162,
   "content_type": "image/jpeg",
-  "created_at": "2026-07-20T18:51:51Z"
+  "created_at": "2026-07-20T18:51:51Z",
+  "original_filename": "bulletin-p-6.jpg",
+  "project_id": "bcbbd063-605e-497a-97a5-a671e6431b9d",
+  "r2_key": "a/v1/bcbbd063-605e-497a-97a5-a671e6431b9d/f932c966-66ef-4cfa-abec-30424b5c99e9/bulletin-p-6.jpg",
+  "size": 792162,
+  "url": "/__l5e/assets-v1/f932c966-66ef-4cfa-abec-30424b5c99e9/bulletin-p-6.jpg",
+  "version": 1
 }
