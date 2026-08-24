@@ -90,12 +90,12 @@ function HomePage() {
                 { n: 9, suffix: "+", label: "Expert Teachers" },
                 { n: 75, suffix: "+", label: "Students Enrolled" },
                 { n: 30, suffix: "+", label: "Spoken English Learners" },
-                { n: 2023, suffix: "", label: "Established" },
+                { n: 2023, suffix: "", label: "Established", format: false },
                 { n: 80000, suffix: "+", label: "Visitors" },
               ].map((c) => (
                 <div key={c.label} className="text-center">
                   <div className="text-5xl font-extrabold text-primary">
-                    <AnimatedCounter to={c.n} suffix={c.suffix} />
+                    {c.format === false ? c.n : <AnimatedCounter to={c.n} suffix={c.suffix} />}
                   </div>
                   <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">{c.label}</div>
                 </div>
