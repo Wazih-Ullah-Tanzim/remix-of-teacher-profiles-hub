@@ -41,8 +41,6 @@ const nav: NavItem[] = [
     children: [
       { to: "/admissions", label: "Admissions" },
       { to: "/fees", label: "Fees & Payments" },
-      { to: "/career", label: "Careers" },
-      { to: "/instructor-registration", label: "Instructor Registration" },
     ],
   },
   {
