@@ -1,6 +1,9 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { ArrowLeft, CheckCircle2 } from "lucide-react";
+import healthCheckupA from "@/assets/health-checkup-a.jpg.asset.json";
+import healthCheckupB from "@/assets/health-checkup-b.jpg.asset.json";
+import healthCheckupC from "@/assets/health-checkup-c.jpg.asset.json";
 
 const detail: Record<string, { title: string; eyebrow: string; intro: string; points: string[] }> = {
   academic: {
@@ -23,7 +26,16 @@ const detail: Record<string, { title: string; eyebrow: string; intro: string; po
 export const Route = createFileRoute("/counseling/$type")({
   head: ({ params }) => {
     const d = detail[params.type];
-    return { meta: [{ title: d ? `${d.title} — John Amos` : "Counseling" }, { name: "description", content: d?.intro ?? "Counseling at John Amos." }] };
+    return {
+      meta: [
+        { title: d ? `${d.title} — John Amos International School` : "Counseling — John Amos International School" },
+        { name: "description", content: d?.intro ?? "Counseling at John Amos International School." },
+        { property: "og:title", content: d ? `${d.title} — John Amos International School` : "Counseling — John Amos International School" },
+        { property: "og:description", content: d?.intro ?? "Counseling at John Amos International School." },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+    };
   },
   loader: ({ params }) => {
     const d = detail[params.type];
@@ -51,6 +63,21 @@ function Page() {
               </li>
             ))}
           </ul>
+          {d.eyebrow === "Counseling" && d.title === "Health Counseling" ? (
+            <div className="mt-14">
+              <h2 className="text-2xl font-bold text-primary">Student Health Check-ups</h2>
+              <p className="mt-2 text-sm text-muted-foreground">Routine health check-ups help us support every child’s wellbeing throughout the school year.</p>
+              <div className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {[
+                  { src: healthCheckupA.url, alt: "Students receiving a health check-up at the school health corner" },
+                  { src: healthCheckupB.url, alt: "A student receiving a health examination from the school doctor" },
+                  { src: healthCheckupC.url, alt: "School health consultation for a student and parent" },
+                ].map((image) => (
+                  <img key={image.src} src={image.src} alt={image.alt} loading="lazy" width={900} height={1200} className="aspect-[3/4] w-full rounded-xl object-cover shadow-[var(--shadow-card)]" />
+                ))}
+              </div>
+            </div>
+          ) : null}
         </div>
       </section>
     </>
