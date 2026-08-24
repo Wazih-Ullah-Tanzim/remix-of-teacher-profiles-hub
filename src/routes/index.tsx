@@ -4,7 +4,7 @@ import heroImg from "@/assets/school-hero.jpg";
 import classroomImg from "@/assets/classroom.jpg";
 import buildingImg from "@/assets/school-building.jpg.asset.json";
 import studentsArtworkImg from "@/assets/students-artwork.jpg.asset.json";
-import nationalAnthemImg from "@/assets/jais-national-anthem-performance.jpg.asset.json";
+import nationalStageCeremonyImg from "@/assets/jais-national-stage-ceremony.png.asset.json";
 import playgroundCdnImg from "@/assets/playground.jpg.asset.json";
 import classroomsImg from "@/assets/jais-classrooms.jpg.asset.json";
 import libraryWorkImg from "@/assets/jais-library-work.jpeg.asset.json";
@@ -93,8 +93,8 @@ function HomePage() {
           />
           <figure className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-elegant)] glow-photo">
             <img
-              src={nationalAnthemImg.url}
-              alt="John Amos students and teachers performing the national anthem on stage in front of the Bangladesh flag"
+                src={nationalStageCeremonyImg.url}
+                alt="John Amos students and educators celebrating together on the National Stage"
               loading="lazy"
               width={1920}
               height={1080}
