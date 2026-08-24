@@ -123,9 +123,16 @@ export const faculty: Teacher[] = [
   {
     id: "hijbullah-ghalib", name: "Hijbullah Ghalib", title: "Class Teacher",
     subject: "Islamic Studies & Moral Education", photo: pHijbullah.url,
-    bio: "Hijbullah Ghalib guides young learners in Islamic studies and character education, nurturing values alongside academics.",
-    qualifications: ["Dawrah-e-Hadith (Kamil)", "B.A. in Islamic Studies"],
-    experience: "5 years teaching", email: "hijbullah@johnamosbd.com", personalMessage: defaultMessage,
+    bio: "Hijbullah Ghalib is a Class Teacher of Islamic Studies and Moral Education who supports students in developing knowledge, character and values. His advanced Islamic scholarship, strong communication skills and disciplined approach help create a respectful, purposeful learning environment.",
+    qualifications: [
+      "Takmil Fil Hadith (Master's Equivalent) — Jamia Madania Baridhara Madrasa, Dhaka (2024–2025)",
+      "Jayyid Jiddan (1st Class equivalent) — Al-Haiatul Ulya Lil-Jamiatil Qawmia",
+      "Hifzul Quran — Madinatul Ulum (Beg) Madrasa (2017–2018)",
+      "Mumtaz result and 3rd position on the Befaqul Madarisil Arabia Bangladesh board merit list",
+      "Fluent in Bengali and Arabic, with working proficiency in English",
+      "Proficient in MS Office and email communication, with strengths in teamwork, problem-solving and adaptability",
+    ],
+    experience: "Class Teacher • Islamic Studies & Moral Education", email: "hijbullah@johnamosbd.com", personalMessage: defaultMessage,
   },
 ];
 
