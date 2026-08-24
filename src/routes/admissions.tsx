@@ -1,12 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { toast } from "sonner";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { CheckCircle2, FileText, Upload, CreditCard, Building2, ShieldCheck } from "lucide-react";
-import { guardSubmit, markSubmitted, honeypotInputProps } from "@/lib/form-security";
+import { CheckCircle2, Upload, CreditCard, Building2 } from "lucide-react";
+import { AdmissionApplicationForm } from "@/components/admissions/AdmissionApplicationForm";
 
 export const Route = createFileRoute("/admissions")({
   head: () => ({
@@ -39,35 +36,6 @@ const FAQS: { q: string; a: string }[] = [
 ];
 
 function AdmissionsPage() {
-  const [loading, setLoading] = useState(false);
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    if (!guardSubmit(form, "admissions", (m) => toast.error(m))) return;
-    const f = new FormData(form);
-    setLoading(true);
-    markSubmitted("admissions");
-    const fields: [string, string][] = [
-      ["Student Full Name", String(f.get("studentName") || "")],
-      ["Father's Name", String(f.get("fatherName") || "")],
-      ["Mother's Name", String(f.get("motherName") || "")],
-      ["Date of Birth", String(f.get("birthDate") || "")],
-      ["Previous School", String(f.get("previousSchool") || "")],
-      ["Session", "2026-2027"],
-      ["Phone Number", String(f.get("phone") || "")],
-      ["Full Address", String(f.get("fullAddress") || "")],
-      ["City", String(f.get("city") || "")],
-      ["Country", String(f.get("country") || "Bangladesh")],
-    ];
-    const body = fields.map(([k, v]) => `${k}: ${v}`).join("\n");
-    const subject = `Admission Application 2026-2027 — ${fields[0][1] || "New Applicant"}`;
-    const mailto = `mailto:admission@johnamosbd.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-    toast.success("Opening your email app to send the application…");
-    setTimeout(() => setLoading(false), 1200);
-  };
-
   return (
     <>
       <PageHero
@@ -154,59 +122,9 @@ function AdmissionsPage() {
       <section className="bg-secondary py-20">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <SectionHeader eyebrow="Admission Form" title="Apply for Session 2026-2027" />
-          <form onSubmit={onSubmit} className="mt-10 grid gap-4 rounded-3xl border border-border bg-card p-6 shadow-[var(--shadow-elegant)] sm:grid-cols-2">
-            {/* Honeypot */}
-            <input {...honeypotInputProps} />
-
-
-            <Field label="Student Full Name" name="studentName" required />
-            <Field label="Father's Name" name="fatherName" required />
-            <Field label="Mother's Name" name="motherName" required />
-            <Field label="Date of Birth" name="birthDate" type="date" required />
-            <Field label="Previous School" name="previousSchool" />
-            <div>
-              <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-primary">Session *</label>
-              <select name="session" required defaultValue="2026-2027" className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30">
-                <option value="2026-2027">2026-2027</option>
-              </select>
-            </div>
-            <Field label="Phone Number" name="phone" type="tel" required />
-            <Field label="City" name="city" required />
-            <div className="sm:col-span-2">
-              <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-primary">Full Address *</label>
-              <textarea name="fullAddress" required rows={3} className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30" />
-            </div>
-            <Field label="Country" name="country" required value="Bangladesh" />
-
-            <div className="sm:col-span-2 flex items-center gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-xs font-semibold text-emerald-800">
-              <ShieldCheck className="h-4 w-4" /> Your information is sent securely to admission@johnamosbd.com
-            </div>
-
-            <Button disabled={loading} type="submit" variant="hero" size="xl" className="sm:col-span-2">
-              <FileText className="mr-2 h-5 w-5" />
-              {loading ? "Opening email…" : "Submit Application"}
-            </Button>
-          </form>
+          <AdmissionApplicationForm />
         </div>
       </section>
     </>
-  );
-}
-
-function Field({ label, name, type = "text", required, value }: { label: string; name: string; type?: string; required?: boolean; value?: string }) {
-  return (
-    <div>
-      <label className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-primary">
-        {label}
-        {required && <span className="text-accent"> *</span>}
-      </label>
-      <input
-        name={name}
-        type={type}
-        required={required}
-        defaultValue={value}
-        className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/30"
-      />
-    </div>
   );
 }
