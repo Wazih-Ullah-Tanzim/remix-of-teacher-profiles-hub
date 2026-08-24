@@ -10,6 +10,9 @@ export type BlogPost = {
   category: string;
   readTime: string;
   content: string[];
+  table?: { headers: string[]; rows: string[][] };
+  steps?: string[];
+  equations?: { name: string; formula: string; use: string }[];
 };
 
 const author = "Wazih Ullah Tanzim";
