@@ -3,7 +3,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { BookOpen, FlaskConical, Languages, Palette, Calculator, Globe2 } from "lucide-react";
-import classroomImg from "@/assets/classroom.jpg";
+import curriculumOverviewAsset from "@/assets/curriculum-overview.jpg.asset.json";
 
 export const Route = createFileRoute("/academics/")({
   head: () => ({
@@ -12,7 +12,8 @@ export const Route = createFileRoute("/academics/")({
       { name: "description", content: "Explore our Cambridge curriculum — from Early Years through Lower Secondary — built for international standards and lifelong learning." },
       { property: "og:title", content: "Academics — John Amos International School" },
       { property: "og:description", content: "Cambridge curriculum from Early Years onwards." },
-      { property: "og:image", content: classroomImg },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: AcademicsPage,
@@ -53,7 +54,7 @@ function AcademicsPage() {
       <section className="bg-secondary py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-center gap-12 md:grid-cols-2">
-            <img src={classroomImg} alt="Cambridge classroom" loading="lazy" width={1200} height={800} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" />
+            <img src={curriculumOverviewAsset.url} alt="Students and teacher presenting a classroom learning project" loading="lazy" width={1200} height={800} className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" />
             <div>
               <SectionHeader align="left" eyebrow="Subjects" title="A broad and balanced curriculum" subtitle="Core academic subjects are taught alongside the arts, technology and global perspectives." />
               <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
