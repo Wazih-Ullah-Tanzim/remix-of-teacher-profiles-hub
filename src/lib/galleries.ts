@@ -36,6 +36,16 @@ import classPartyCakeAsset from "@/assets/class-party-cake.jpg.asset.json";
 import classPartyCakeCuttingAsset from "@/assets/class-party-cake-cutting.jpg.asset.json";
 import classPartyStaffAsset from "@/assets/class-party-staff.jpg.asset.json";
 import classPartyGroupAsset from "@/assets/class-party-group.jpg.asset.json";
+import firstAwardCeremonySingerAsset from "@/assets/first-award-ceremony-singer.jpg.asset.json";
+import firstAwardCeremonyFootballDanceAsset from "@/assets/first-award-ceremony-football-dance.jpg.asset.json";
+import firstAwardCeremonyFootballPerformanceAsset from "@/assets/first-award-ceremony-football-performance.jpg.asset.json";
+import firstAwardCeremonyDanceAsset from "@/assets/first-award-ceremony-dance.jpg.asset.json";
+import firstAwardCeremonyPurpleTeamAsset from "@/assets/first-award-ceremony-purple-team.jpg.asset.json";
+import firstAwardCeremonyBlueTeamAsset from "@/assets/first-award-ceremony-blue-team.jpg.asset.json";
+import firstAwardCeremonyFairyDanceAsset from "@/assets/first-award-ceremony-fairy-dance.jpg.asset.json";
+import firstAwardCeremonyGuestSingerAsset from "@/assets/first-award-ceremony-guest-singer.jpg.asset.json";
+import firstAwardCeremonyRedDanceAsset from "@/assets/first-award-ceremony-red-dance.jpg.asset.json";
+import firstAwardCeremonyMusicianAsset from "@/assets/first-award-ceremony-musician.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -189,6 +199,23 @@ export const galleries: Record<
       { src: classPartyGroupAsset.url, caption: "Students and teachers celebrating Class Party" },
     ],
   },
+  "first-award-ceremony": {
+    title: "First Award Ceremony",
+    eyebrow: "Annual Programme",
+    description: "Highlights from our first annual award ceremony — student performances, music and a joyful celebration of achievement.",
+    images: [
+      { src: firstAwardCeremonySingerAsset.url, caption: "Live music performance on stage" },
+      { src: firstAwardCeremonyFootballDanceAsset.url, caption: "Football-inspired student performance" },
+      { src: firstAwardCeremonyFootballPerformanceAsset.url, caption: "Students performing with footballs" },
+      { src: firstAwardCeremonyDanceAsset.url, caption: "Student dance presentation" },
+      { src: firstAwardCeremonyPurpleTeamAsset.url, caption: "JAIS team at the award ceremony" },
+      { src: firstAwardCeremonyBlueTeamAsset.url, caption: "Teachers and guests celebrating together" },
+      { src: firstAwardCeremonyFairyDanceAsset.url, caption: "Young students performing on stage" },
+      { src: firstAwardCeremonyGuestSingerAsset.url, caption: "Guest singer's special performance" },
+      { src: firstAwardCeremonyRedDanceAsset.url, caption: "Colourful student dance programme" },
+      { src: firstAwardCeremonyMusicianAsset.url, caption: "Musical performance at the ceremony" },
+    ],
+  },
   "parents-meeting": {
     title: "Parents Meeting",
     eyebrow: "School Community",
@@ -207,6 +234,7 @@ export type GallerySlug = keyof typeof galleries;
 export type GalleryNode = { slug: string; label: string; description?: string; children?: GalleryNode[] };
 
 export const galleryTree: GalleryNode[] = [
+  { slug: "first-award-ceremony", label: "First Award Ceremony", description: "Highlights from the first annual award ceremony." },
   { slug: "victory-day", label: "Victory Day", description: "A proud celebration of Bangladesh's Victory Day." },
   { slug: "nobo-borsho-celebration", label: "Nobo Borsho Celebration", description: "Bangla New Year celebrations on campus." },
   { slug: "art-exhibition", label: "Art Exhebetion", description: "Student creativity on display." },
