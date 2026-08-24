@@ -1,99 +1,47 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { CalendarDays, Loader2, Image as ImageIcon } from "lucide-react";
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
+import { SiteSlider } from "@/components/site/SiteSlider";
+import julyAugustCalendar from "@/assets/academic-calendar-july-august-2026.jpg.asset.json";
+import septemberOctoberCalendar from "@/assets/academic-calendar-september-october-2026.jpg.asset.json";
+import novemberDecemberCalendar from "@/assets/academic-calendar-november-december-2026.jpg.asset.json";
+import januaryFebruaryCalendar from "@/assets/academic-calendar-january-february-2027.jpg.asset.json";
+import marchAprilCalendar from "@/assets/academic-calendar-march-april-2027.jpg.asset.json";
+import mayJuneCalendar from "@/assets/academic-calendar-may-june-2027.jpg.asset.json";
 
 export const Route = createFileRoute("/academic-calendar")({
   head: () => ({
     meta: [
-      { title: "Academic Calendar — John Amos International School" },
-      { name: "description", content: "Term dates, holidays and key events for the academic year." },
+      { title: "Academic Calendar 2026–2027 | John Amos International School" },
+      { name: "description", content: "Explore the John Amos International School academic calendar for 2026–2027, including term dates, holidays, examinations and key events." },
+      { property: "og:title", content: "Academic Calendar 2026–2027 | John Amos International School" },
+      { property: "og:description", content: "Term dates, holidays, examinations and key events for the 2026–2027 academic year." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Page,
 });
 
-const terms = [
-  { term: "Term 1", dates: "12 Jan – 28 Mar", events: ["First Day Welcome Assembly", "Parent Orientation", "Cultural Day"] },
-  { term: "Term 2", dates: "13 Apr – 27 Jun", events: ["Pohela Boishakh", "Sports Week", "Mid-Year Reports"] },
-  { term: "Term 3", dates: "20 Jul – 26 Sep", events: ["Independence Day Programme", "Science Fair", "Art Exhibition"] },
-  { term: "Term 4", dates: "12 Oct – 18 Dec", events: ["Pitha Utsob", "Annual Concert", "Year-End Reports"] },
+const calendarPages = [
+  { src: julyAugustCalendar.url, caption: "July – August 2026" },
+  { src: septemberOctoberCalendar.url, caption: "September – October 2026" },
+  { src: novemberDecemberCalendar.url, caption: "November – December 2026" },
+  { src: januaryFebruaryCalendar.url, caption: "January – February 2027" },
+  { src: marchAprilCalendar.url, caption: "March – April 2027" },
+  { src: mayJuneCalendar.url, caption: "May – June 2027" },
 ];
 
-const BUCKET = "academic-calendar";
-
 function Page() {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  async function loadLatest() {
-    setLoading(true);
-    const { data, error } = await supabase.storage.from(BUCKET).list("", {
-      limit: 100,
-      sortBy: { column: "created_at", order: "desc" },
-    });
-    if (error) { setLoading(false); return; }
-    const latest = data?.find((f) => f.name && !f.name.startsWith("."));
-    if (latest) {
-      const { data: signed } = await supabase.storage
-        .from(BUCKET)
-        .createSignedUrl(latest.name, 60 * 60 * 24 * 7);
-      setImageUrl(signed?.signedUrl ?? null);
-    } else {
-      setImageUrl(null);
-    }
-    setLoading(false);
-  }
-
-  useEffect(() => { loadLatest(); }, []);
-
   return (
     <>
-      <PageHero eyebrow="Calendar" title="Academic Calendar 2026" subtitle="A clear view of terms, key events and holidays for the year." />
+      <PageHero eyebrow="Calendar" title="Academic Calendar 2026 – 2027" subtitle="A clear view of terms, holidays, examinations and key events for the school year." />
 
-      <section className="py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="Official Calendar" title="Full Academic Calendar" />
-          <div className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-card)]">
-            {loading ? (
-              <div className="flex h-80 items-center justify-center text-muted-foreground">
-                <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Loading…
-              </div>
-            ) : imageUrl ? (
-              <img src={imageUrl} alt="Academic Calendar" className="w-full object-contain" />
-            ) : (
-              <div className="flex h-80 flex-col items-center justify-center gap-3 text-muted-foreground">
-                <ImageIcon className="h-10 w-10" />
-                <p className="text-sm">The academic calendar image will appear here once published by the school office.</p>
-              </div>
-            )}
-          </div>
-
-        </div>
-      </section>
-
-      <section className="pb-20">
+      <section className="py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <SectionHeader eyebrow="Terms" title="At a glance" />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {terms.map((t, i) => (
-              <div key={t.term} className="animate-fade-up tilt-card rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[image:var(--gradient-accent)] text-accent-foreground"><CalendarDays className="h-6 w-6" /></div>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{t.term}</div>
-                    <div className="text-lg font-extrabold text-primary">{t.dates}</div>
-                  </div>
-                </div>
-                <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
-                  {t.events.map((e) => (
-                    <li key={e} className="flex gap-2"><span className="mt-2 h-1.5 w-1.5 rounded-full bg-accent" />{e}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <SectionHeader eyebrow="Official Calendar" title="Full Academic Calendar" />
+          <div className="mt-10">
+            <SiteSlider images={calendarPages} height="h-[440px] sm:h-[620px] lg:h-[720px]" />
           </div>
         </div>
       </section>
