@@ -35,12 +35,12 @@ function AboutPage() {
       />
 
       <section className="py-20">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 md:grid-cols-2 md:items-center lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 md:grid-cols-[1.2fr_0.8fr] md:items-center lg:px-8">
           <img
             src={awardCeremonyImg.url}
             alt="John Amos International School students celebrating achievements at the award ceremony"
             loading="lazy"
-            className="glow-image aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]"
+            className="glow-image aspect-[16/11] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]"
           />
           <div>
             <SectionHeader
