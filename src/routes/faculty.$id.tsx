@@ -31,6 +31,10 @@ export const Route = createFileRoute("/faculty/$id")({
 
 function Page() {
   const t: Teacher = Route.useLoaderData();
+  const emphasizedQualifications = new Set([
+    "B.Sc. in Computer Science & Engineering — Premier University Chattogram (CGPA 3.96/4.00)",
+    "First author of BD Sports-10, a 3,000-video Bangladeshi sports dataset published in Data in Brief (Elsevier)",
+  ]);
   return (
     <>
       <PageHero eyebrow={t.title} title={t.name} subtitle={t.subject} />
@@ -54,7 +58,9 @@ function Page() {
               </div>
               <ul className="mt-4 space-y-3">
                 {t.qualifications.map((q) => (
-                  <li key={q} className="rounded-xl border border-border bg-card p-4 text-sm text-foreground/85 shadow-[var(--shadow-card)]">{q}</li>
+                  <li key={q} className="rounded-xl border border-border bg-card p-4 text-sm text-foreground/85 shadow-[var(--shadow-card)]">
+                    {t.id === "wazih-ullah-tanzim" && emphasizedQualifications.has(q) ? <strong>{q}</strong> : q}
+                  </li>
                 ))}
               </ul>
             </div>
