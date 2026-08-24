@@ -10,7 +10,7 @@ export const Route = createFileRoute("/about")({
     meta: [
       { title: "About, Mission & Vision — John Amos International School" },
       { name: "description", content: "Mission, vision and the journey of John Amos International School in Mymensingh." },
-      { property: "og:image", content: studentsImg },
+      { property: "og:image", content: awardCeremonyImg.url },
     ],
   }),
   component: AboutPage,
