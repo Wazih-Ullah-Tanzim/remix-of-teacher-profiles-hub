@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-export function SiteSlider({ images, height = "h-[420px]" }: { images: { src: string; caption?: string }[]; height?: string }) {
+export function SiteSlider({ images, height = "h-[420px]", fit = "cover" }: { images: { src: string; caption?: string }[]; height?: string; fit?: "cover" | "contain" }) {
   const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 4500, stopOnInteraction: false })]);
   const [idx, setIdx] = useState(0);
   useEffect(() => {
@@ -18,7 +18,7 @@ export function SiteSlider({ images, height = "h-[420px]" }: { images: { src: st
         <div className="flex">
           {images.map((im, i) => (
             <div key={i} className={`relative flex-[0_0_100%] ${height}`}>
-              <img src={im.src} alt={im.caption ?? ""} className="absolute inset-0 h-full w-full animate-ken-burns object-cover" />
+              <img src={im.src} alt={im.caption ?? ""} className={`absolute inset-0 h-full w-full ${fit === "contain" ? "object-contain" : "animate-ken-burns object-cover"}`} />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
               {im.caption && (
                 <div className="absolute bottom-6 left-6 right-6 animate-fade-up text-primary-foreground">

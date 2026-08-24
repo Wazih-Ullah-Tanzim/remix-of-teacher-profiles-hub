@@ -41,7 +41,7 @@ function Page() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <SectionHeader eyebrow="Official Calendar" title="Full Academic Calendar" />
           <div className="mt-10">
-            <SiteSlider images={calendarPages} height="h-[440px] sm:h-[620px] lg:h-[720px]" />
+            <SiteSlider images={calendarPages} height="h-[440px] sm:h-[620px] lg:h-[720px]" fit="contain" />
           </div>
         </div>
       </section>
