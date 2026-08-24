@@ -68,7 +68,7 @@ const nav: NavItem[] = [
         { to: "/gallery/excursion", label: "Excursion Program" },
       ]},
       { to: "/eca-clubs", label: "ECA Clubs", children: [
-        { to: "/eca-clubs", label: "Swimming Club" },
+        { to: "/eca-clubs#swimming-club", label: "Swimming Club" },
         { to: "/eca-clubs", label: "Art & Music Club" },
       ]},
       { to: "/academic-calendar", label: "Academic Calendar" },
