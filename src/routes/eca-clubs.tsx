@@ -8,6 +8,11 @@ import swimmingPoolOverviewAsset from "@/assets/swimming-session-pool-overview.j
 import swimmingWaterPlayAsset from "@/assets/swimming-session-water-play.jpg.asset.json";
 import swimmingGreetingAsset from "@/assets/swimming-session-greeting.jpg.asset.json";
 import swimmingInaugurationAsset from "@/assets/swimming-session-inauguration.jpg.asset.json";
+import musicClassPerformanceAsset from "@/assets/eca-music-class-performance.jpg.asset.json";
+import artLotusPrizeAsset from "@/assets/eca-art-lotus-prize.jpg.asset.json";
+import artLotusDrawingAsset from "@/assets/eca-art-lotus-drawing.jpg.asset.json";
+import artClassroomAsset from "@/assets/eca-art-classroom.jpg.asset.json";
+import musicCircleAsset from "@/assets/eca-music-circle.jpg.asset.json";
 
 export const Route = createFileRoute("/eca-clubs")({
   head: () => ({
@@ -65,6 +70,14 @@ const swimmingMoments = [
   { src: swimmingPoolsideAsset.url, caption: "Poolside learning and water confidence" },
   { src: swimmingPoolOverviewAsset.url, caption: "Students enjoying their swimming session" },
   { src: swimmingWaterPlayAsset.url, caption: "Guided water activities at the pool" },
+];
+
+const artMusicMoments = [
+  { src: musicClassPerformanceAsset.url, caption: "Music class performance and listening session" },
+  { src: musicCircleAsset.url, caption: "Learning rhythm and melody together" },
+  { src: artLotusPrizeAsset.url, caption: "First prize artwork — water lilies" },
+  { src: artLotusDrawingAsset.url, caption: "Young artists at work" },
+  { src: artClassroomAsset.url, caption: "Creative drawing session in the art classroom" },
 ];
 
 function ClubGrid({ tone }: { tone: Tone }) {
@@ -130,6 +143,19 @@ function Page() {
           <SectionHeader eyebrow="ECA Clubs" title="Swimming Club" subtitle="Building water confidence, movement skills and joyful memories together." />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {swimmingMoments.map((moment, index) => (
+              <figure key={moment.caption} className={`overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] ${index === 0 ? "lg:col-span-2" : ""}`}>
+                <img src={moment.src} alt={moment.caption} loading="lazy" className="aspect-[4/3] h-full w-full object-cover transition duration-300 hover:scale-[1.03]" />
+                <figcaption className="px-4 py-3 text-sm font-semibold text-foreground">{moment.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="art-music-club" className="scroll-mt-28 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader eyebrow="ECA Clubs" title="Art & Music Club" subtitle="A creative space for students to draw, listen, learn and express themselves." />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {artMusicMoments.map((moment, index) => (
               <figure key={moment.caption} className={`overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] ${index === 0 ? "lg:col-span-2" : ""}`}>
                 <img src={moment.src} alt={moment.caption} loading="lazy" className="aspect-[4/3] h-full w-full object-cover transition duration-300 hover:scale-[1.03]" />
                 <figcaption className="px-4 py-3 text-sm font-semibold text-foreground">{moment.caption}</figcaption>
