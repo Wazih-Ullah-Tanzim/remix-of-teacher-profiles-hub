@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { blogPosts } from "@/lib/blog";
-import { ArrowLeft, CalendarDays, User, Tag } from "lucide-react";
+import { ArrowLeft, CalendarDays, User, Tag, ListChecks, Sigma } from "lucide-react";
 
 export const Route = createFileRoute("/blog/$slug")({
   head: ({ params }) => {
@@ -47,6 +47,9 @@ function Page() {
           <div className="mt-10 space-y-6 text-lg leading-relaxed text-foreground/85">
             {p.content.map((para: string, i: number) => <p key={i}>{para}</p>)}
           </div>
+          {p.steps && <section className="mt-10"><div className="flex items-center gap-2 text-lg font-extrabold text-primary"><ListChecks className="h-5 w-5 text-accent" /> Practical steps</div><ol className="mt-4 grid gap-3">{p.steps.map((step, index) => <li key={step} className="flex gap-3 rounded-xl border border-border bg-secondary/40 p-4 text-sm leading-relaxed text-foreground/85"><span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">{index + 1}</span>{step}</li>)}</ol></section>}
+          {p.equations && <section className="mt-10"><div className="flex items-center gap-2 text-lg font-extrabold text-primary"><Sigma className="h-5 w-5 text-accent" /> Core equations in action</div><div className="mt-4 overflow-x-auto rounded-xl border border-border"><table className="w-full min-w-[680px] text-left text-sm"><thead className="bg-secondary text-primary"><tr><th className="p-4">Concept</th><th className="p-4">Equation</th><th className="p-4">Real-world use</th></tr></thead><tbody>{p.equations.map((equation) => <tr key={equation.name} className="border-t border-border"><td className="p-4 font-semibold text-primary">{equation.name}</td><td className="p-4 font-mono text-xs text-foreground">{equation.formula}</td><td className="p-4 text-muted-foreground">{equation.use}</td></tr>)}</tbody></table></div></section>}
+          {p.table && <section className="mt-10 overflow-x-auto rounded-xl border border-border"><table className="w-full min-w-[680px] text-left text-sm"><thead className="bg-secondary text-primary"><tr>{p.table.headers.map((header) => <th key={header} className="p-4">{header}</th>)}</tr></thead><tbody>{p.table.rows.map((row, index) => <tr key={index} className="border-t border-border">{row.map((cell, cellIndex) => <td key={cellIndex} className="p-4 align-top text-muted-foreground">{cell}</td>)}</tr>)}</tbody></table></section>}
         </div>
       </article>
       {relatedPosts.length > 0 && (
