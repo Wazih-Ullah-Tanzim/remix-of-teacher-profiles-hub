@@ -72,9 +72,16 @@ export const faculty: Teacher[] = [
   {
     id: "mahmuda-akter", name: "Mahmuda Akter", title: "Class Teacher",
     subject: "Primary Class Teacher", photo: pMahmuda.url,
-    bio: "Mahmuda Akter brings warmth and patience into every lesson, helping students develop both literacy and life skills.",
-    qualifications: ["M.A. in Bangla", "B.Ed"],
-    experience: "8 years teaching", email: "mahmuda@johnamosbd.com", personalMessage: defaultMessage,
+    bio: "Mahmuda Akter (Sumi) is a Class Teacher with a strong academic foundation in Bangla language and literature. She brings higher-education teaching experience, thoughtful classroom leadership and a student-centred approach to supporting primary learners.",
+    qualifications: [
+      "M.A. in Bangla Language & Literature — Jatiya Kabi Kazi Nazrul Islam University (2011), CGPA 3.49/4.00, 1st Class 3rd",
+      "B.A. (Honours) in Bangla Language & Literature — Jatiya Kabi Kazi Nazrul Islam University (2010), CGPA 3.34/4.00, 1st Class 5th",
+      "Lecturer in Bangla, Fulbaria Royel College (2015–2018)",
+      "Assistant Teacher, Faruk's Special Batch (2014–2015)",
+      "Completed the 8th College Teacher Registration in Bangla",
+      "Proficient in Bangla and English, Microsoft Office, internet research, teamwork and time management",
+    ],
+    experience: "Class Teacher • Former Bangla Lecturer at Fulbaria Royel College", email: "mahmuda@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
     id: "mary-sixjan-capistrano", name: "Mary Six Jan I. Capistrano", title: "Class Teacher",
