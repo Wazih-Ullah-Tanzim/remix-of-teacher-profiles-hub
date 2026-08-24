@@ -43,6 +43,7 @@ const nav: NavItem[] = [
       { to: "/fees", label: "Fees & Payments" },
     ],
   },
+  { to: "/blog", label: "Blog" },
   {
     to: "/academics", label: "JAIS Life",
     children: [
@@ -68,7 +69,6 @@ const nav: NavItem[] = [
         { to: "/eca-clubs", label: "Art & Music Club" },
       ]},
       { to: "/yearbook", label: "JAIS Yearbook" },
-      { to: "/blog", label: "Blog" },
       { to: "/academic-calendar", label: "Academic Calendar" },
     ],
   },
