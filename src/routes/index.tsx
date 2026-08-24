@@ -4,6 +4,7 @@ import heroImg from "@/assets/school-hero.jpg";
 import classroomImg from "@/assets/classroom.jpg";
 import buildingImg from "@/assets/school-building.jpg.asset.json";
 import studentsArtworkImg from "@/assets/students-artwork.jpg.asset.json";
+import nationalAwardImg from "@/assets/jais-national-award-ceremony.jpg.asset.json";
 import playgroundCdnImg from "@/assets/playground.jpg.asset.json";
 import classroomsImg from "@/assets/jais-classrooms.jpg.asset.json";
 import libraryWorkImg from "@/assets/jais-library-work.jpeg.asset.json";
@@ -79,6 +80,27 @@ function HomePage() {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* NATIONAL AWARD CEREMONY */}
+      <section className="bg-secondary py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Celebrating Achievement"
+            title="Proud Moments on the National Stage"
+            subtitle="John Amos students and educators celebrating achievement, confidence and the spirit of Bangladesh together."
+          />
+          <figure className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-elegant)] glow-photo">
+            <img
+              src={nationalAwardImg.url}
+              alt="John Amos students and teachers performing together at an award ceremony in front of the Bangladesh flag"
+              loading="lazy"
+              width={1920}
+              height={1080}
+              className="aspect-video w-full object-cover"
+            />
+          </figure>
         </div>
       </section>
 
