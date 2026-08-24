@@ -8,6 +8,16 @@ import victoryAwardAsset from "@/assets/victory-day-award.jpg.asset.json";
 import victoryGroupAsset from "@/assets/victory-day-group.jpg.asset.json";
 import victoryArtworkAsset from "@/assets/victory-day-artwork.jpg.asset.json";
 import victorySecondPrizeAsset from "@/assets/victory-day-second-prize.jpg.asset.json";
+import noboBorshoGroupAsset from "@/assets/nobo-borsho-group.jpg.asset.json";
+import noboBorshoCostumesAsset from "@/assets/nobo-borsho-costumes.jpg.asset.json";
+import noboBorshoRickshawAsset from "@/assets/nobo-borsho-rickshaw.jpg.asset.json";
+import noboBorshoStageAsset from "@/assets/nobo-borsho-stage.jpg.asset.json";
+import noboBorshoRedSariAsset from "@/assets/nobo-borsho-red-sari.jpg.asset.json";
+import noboBorshoFlowersAsset from "@/assets/nobo-borsho-flowers.jpg.asset.json";
+import noboBorshoTraditionalDressAsset from "@/assets/nobo-borsho-traditional-dress.jpg.asset.json";
+import noboBorshoMaroonAsset from "@/assets/nobo-borsho-maroon.jpg.asset.json";
+import noboBorshoHeadbandAsset from "@/assets/nobo-borsho-headband.jpg.asset.json";
+import noboBorshoWhitePanjabiAsset from "@/assets/nobo-borsho-white-panjabi.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -127,6 +137,23 @@ export const galleries: Record<
       { src: victorySecondPrizeAsset.url, caption: "Second prize presentation" },
     ],
   },
+  "nobo-borsho-celebration": {
+    title: "Nobo Borsho Celebration",
+    eyebrow: "Occasion",
+    description: "A colourful celebration of Bangla New Year, filled with traditional dress, student creativity and joyful cultural spirit.",
+    images: [
+      { src: noboBorshoGroupAsset.url, caption: "Students and teachers celebrating Nobo Borsho" },
+      { src: noboBorshoCostumesAsset.url, caption: "Traditional Bangla New Year costumes" },
+      { src: noboBorshoRickshawAsset.url, caption: "Student dressed as a rickshaw puller" },
+      { src: noboBorshoStageAsset.url, caption: "Nobo Borsho presentation" },
+      { src: noboBorshoRedSariAsset.url, caption: "Student in traditional red sari" },
+      { src: noboBorshoFlowersAsset.url, caption: "Flowers and traditional celebration dress" },
+      { src: noboBorshoTraditionalDressAsset.url, caption: "Young student in traditional Bangla attire" },
+      { src: noboBorshoMaroonAsset.url, caption: "Student dressed for the celebration" },
+      { src: noboBorshoHeadbandAsset.url, caption: "Bangla New Year headband and festive dress" },
+      { src: noboBorshoWhitePanjabiAsset.url, caption: "Student in a traditional white panjabi" },
+    ],
+  },
   "class-party": {
     title: "Class Party",
     eyebrow: "School Life",
@@ -157,6 +184,7 @@ export type GalleryNode = { slug: string; label: string; description?: string; c
 
 export const galleryTree: GalleryNode[] = [
   { slug: "victory-day", label: "Victory Day", description: "A proud celebration of Bangladesh's Victory Day." },
+  { slug: "nobo-borsho-celebration", label: "Nobo Borsho Celebration", description: "Bangla New Year celebrations on campus." },
   { slug: "art-exhibition", label: "Art Exhebetion", description: "Student creativity on display." },
   { slug: "food-party", label: "Food Party", description: "A joyful celebration of food and friendship." },
   { slug: "class-party", label: "Class Party", description: "Celebrations shared with classmates." },
