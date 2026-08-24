@@ -116,9 +116,16 @@ export const faculty: Teacher[] = [
   {
     id: "syeda-sajia-afrin-rothy", name: "Syeda Sajia Afrin Rothy", title: "Class Teacher",
     subject: "Primary Class Teacher", photo: pSajia.url,
-    bio: "Syeda Sajia Afrin Rothy blends creative activities with clear routines, helping children love school from the very first day.",
-    qualifications: ["M.A. in English", "B.Ed"],
-    experience: "5 years teaching", email: "sajia@johnamosbd.com", personalMessage: defaultMessage,
+    bio: "Syeda Sajia Afrin Rothy is a Primary Class Teacher who brings a caring, organized and creative approach to early learning. Her background in Islamic History and Culture, classroom management and arts-based activities helps students learn with confidence and enthusiasm.",
+    qualifications: [
+      "M.A. in Islamic History & Culture — Ananda Mohon College, Mymensingh (2020)",
+      "B.A. in Islamic History & Culture — Ananda Mohon College, Mymensingh (2018)",
+      "Strong classroom management, motivation, teamwork, art and craft skills",
+      "Proficient in MS Word, Excel, PowerPoint, internet research and professional communication",
+      "Very good Bengali and English communication skills, with Hindi listening and speaking ability",
+      "Interested in photography and community-based social activities",
+    ],
+    experience: "Class Teacher • Primary education and creative classroom learning", email: "sajia@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
     id: "hijbullah-ghalib", name: "Hijbullah Ghalib", title: "Class Teacher",
