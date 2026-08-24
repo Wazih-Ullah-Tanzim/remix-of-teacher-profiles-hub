@@ -2,7 +2,7 @@ import { Megaphone } from "lucide-react";
 
 const items = [
   "📢 Enrolment is now open for the 2026–2027 academic session!",
-  "🇬🇧 Discover the first Cambridge English Medium curriculum in Mymensingh.",
+  "🎓 Discover the first Cambridge English Medium curriculum in Mymensingh.",
   "📝 Register now at our official IELTS Mock Test Centre.",
   "🗣️ Improve your communication with our ongoing Spoken English courses.",
   "🏊 Enjoy extra-curricular activities and swimming classes every Saturday.",
