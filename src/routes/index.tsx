@@ -2,8 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, GraduationCap, Globe2, Sparkles, ShieldCheck, BookOpen, Trophy, Quote } from "lucide-react";
 import heroImg from "@/assets/school-hero.jpg";
 import classroomImg from "@/assets/classroom.jpg";
-import studentsImg from "@/assets/students.jpg";
-import playgroundImg from "@/assets/playground.jpg";
 import buildingImg from "@/assets/school-building.jpg.asset.json";
 import studentsArtworkImg from "@/assets/students-artwork.jpg.asset.json";
 import playgroundCdnImg from "@/assets/playground.jpg.asset.json";
