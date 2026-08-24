@@ -62,6 +62,13 @@ import excursionStandardTwoFourMedalistsAsset from "@/assets/excursion-standard-
 import excursionKgMedalistsAsset from "@/assets/excursion-kg-medalists.jpg.asset.json";
 import excursionNurseryMedalistsAsset from "@/assets/excursion-nursery-medalists.jpg.asset.json";
 import excursionPlayGroupMedalistsAsset from "@/assets/excursion-play-group-medalists.jpg.asset.json";
+import islamicOlympiadSpeakerOneAsset from "@/assets/islamic-olympiad-speaker-one.jpg.asset.json";
+import islamicOlympiadSpeakerTwoAsset from "@/assets/islamic-olympiad-speaker-two.jpg.asset.json";
+import islamicOlympiadSpeakerThreeAsset from "@/assets/islamic-olympiad-speaker-three.jpg.asset.json";
+import islamicOlympiadSpeakerFourAsset from "@/assets/islamic-olympiad-speaker-four.jpg.asset.json";
+import islamicOlympiadSpeakerFiveAsset from "@/assets/islamic-olympiad-speaker-five.jpg.asset.json";
+import islamicOlympiadSpeakerSixAsset from "@/assets/islamic-olympiad-speaker-six.jpg.asset.json";
+import islamicOlympiadSpeakerSevenAsset from "@/assets/islamic-olympiad-speaker-seven.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -255,6 +262,20 @@ export const galleries: Record<
       { src: u("photo-1531482615713-2afd69097998"), caption: "Community partnership" },
     ],
   },
+  "islamic-olympiad-season-3": {
+    title: "Islamic Olympiad Season 3",
+    eyebrow: "Student Achievement",
+    description: "Proud moments from our students' participation in the Fresh Islamic Olympiad 2026, Season 3 Mymensingh audition.",
+    images: [
+      { src: islamicOlympiadSpeakerOneAsset.url, caption: "Student presentation at the Islamic Olympiad" },
+      { src: islamicOlympiadSpeakerTwoAsset.url, caption: "Confident recitation on stage" },
+      { src: islamicOlympiadSpeakerThreeAsset.url, caption: "Young participant sharing on stage" },
+      { src: islamicOlympiadSpeakerFourAsset.url, caption: "Student presentation during the audition" },
+      { src: islamicOlympiadSpeakerFiveAsset.url, caption: "Focused performance at Season 3" },
+      { src: islamicOlympiadSpeakerSixAsset.url, caption: "Student speaker at the Mymensingh audition" },
+      { src: islamicOlympiadSpeakerSevenAsset.url, caption: "A proud moment on the Islamic Olympiad stage" },
+    ],
+  },
 };
 
 export type GallerySlug = keyof typeof galleries;
@@ -263,6 +284,7 @@ export type GalleryNode = { slug: string; label: string; description?: string; c
 
 export const galleryTree: GalleryNode[] = [
   { slug: "first-award-ceremony", label: "First Award Ceremony", description: "Highlights from the first annual award ceremony." },
+  { slug: "islamic-olympiad-season-3", label: "Islamic Olympiad Season 3", description: "Proud student moments from the Fresh Islamic Olympiad 2026." },
   { slug: "victory-day", label: "Victory Day", description: "A proud celebration of Bangladesh's Victory Day." },
   { slug: "nobo-borsho-celebration", label: "Nobo Borsho Celebration", description: "Bangla New Year celebrations on campus." },
   { slug: "art-exhibition", label: "Art Exhebetion", description: "Student creativity on display." },
