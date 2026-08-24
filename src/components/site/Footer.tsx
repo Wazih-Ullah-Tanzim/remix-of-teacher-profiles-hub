@@ -18,7 +18,7 @@ export function Footer() {
         <div><h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-accent">Reach Us</h4><ul className="space-y-3 text-sm"><li className="flex gap-3"><MapPin className="h-4 w-4 shrink-0 text-accent" /> 19/D Shaheb Ali Road, Mymensingh 2200</li><li className="flex gap-3"><Phone className="h-4 w-4 shrink-0 text-accent" /> <a href="tel:+88002997710831" className="hover:text-accent">02997710831</a></li><li className="flex gap-3"><Mail className="h-4 w-4 shrink-0 text-accent" /> <ObfuscatedEmail encoded="aW5mb0Bqb2huYW1vc2JkLmNvbQ==" className="hover:text-accent" /></li></ul></div>
         <div><h4 className="mb-4 text-sm font-bold uppercase tracking-wider text-accent">School Hours</h4><ul className="space-y-2 text-sm text-primary-foreground/80"><li>Sunday – Thursday</li><li>8:00 AM – 2:30 PM</li><li className="pt-2 text-primary-foreground/60">Friday: Closed</li><li>Saturday: ECA Activities</li></ul></div>
       </div>
-      <div className="border-t border-white/10"><div className="mx-auto max-w-7xl px-4 py-5 text-center text-xs text-primary-foreground/60 sm:px-6 lg:px-8">© {new Date().getFullYear()} John Amos International School. All rights reserved.</div></div>
+      <div className="border-t border-white/10"><div className="mx-auto max-w-7xl px-4 py-5 text-center text-xs text-primary-foreground/60 sm:px-6 lg:px-8">© {new Date().getFullYear()} Creative IT Corner. All rights reserved. Designed and implemented by Wazih Ullah Tanzim.</div></div>
     </footer>
   );
 }
