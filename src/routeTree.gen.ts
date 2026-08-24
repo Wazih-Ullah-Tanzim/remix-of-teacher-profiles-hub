@@ -48,7 +48,6 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AcademicsNewsRouteImport } from './routes/academics.news'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
-import { Route as AcademicsNewsSlugRouteImport } from './routes/academics.news.$slug'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 
@@ -249,11 +248,6 @@ const Char91DotmcpChar93ListToolsRoute =
     path: '/.mcp/list-tools',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AcademicsNewsSlugRoute = AcademicsNewsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => AcademicsNewsRoute,
-} as any)
 const Char91DotmcpChar93InvokeToolToolRoute =
   Char91DotmcpChar93InvokeToolToolRouteImport.update({
     id: '/.mcp/invoke-tool/$tool',
@@ -299,7 +293,7 @@ export interface FileRoutesByFullPath {
   '/yearbook': typeof YearbookRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
-  '/academics/news': typeof AcademicsNewsRouteWithChildren
+  '/academics/news': typeof AcademicsNewsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/faculty/$id': typeof FacultyIdRoute
@@ -308,7 +302,6 @@ export interface FileRoutesByFullPath {
   '/faculty/': typeof FacultyIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
-  '/academics/news/$slug': typeof AcademicsNewsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -341,7 +334,7 @@ export interface FileRoutesByTo {
   '/yearbook': typeof YearbookRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
-  '/academics/news': typeof AcademicsNewsRouteWithChildren
+  '/academics/news': typeof AcademicsNewsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/faculty/$id': typeof FacultyIdRoute
@@ -350,7 +343,6 @@ export interface FileRoutesByTo {
   '/faculty': typeof FacultyIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
-  '/academics/news/$slug': typeof AcademicsNewsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -386,7 +378,7 @@ export interface FileRoutesById {
   '/yearbook': typeof YearbookRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
-  '/academics/news': typeof AcademicsNewsRouteWithChildren
+  '/academics/news': typeof AcademicsNewsRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/counseling/$type': typeof CounselingTypeRoute
   '/faculty/$id': typeof FacultyIdRoute
@@ -395,7 +387,6 @@ export interface FileRoutesById {
   '/faculty/': typeof FacultyIndexRoute
   '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
-  '/academics/news/$slug': typeof AcademicsNewsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -441,7 +432,6 @@ export interface FileRouteTypes {
     | '/faculty/'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
-    | '/academics/news/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -483,7 +473,6 @@ export interface FileRouteTypes {
     | '/faculty'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
-    | '/academics/news/$slug'
   id:
     | '__root__'
     | '/'
@@ -527,7 +516,6 @@ export interface FileRouteTypes {
     | '/faculty/'
     | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
-    | '/academics/news/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -842,13 +830,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/academics/news/$slug': {
-      id: '/academics/news/$slug'
-      path: '/$slug'
-      fullPath: '/academics/news/$slug'
-      preLoaderRoute: typeof AcademicsNewsSlugRouteImport
-      parentRoute: typeof AcademicsNewsRoute
-    }
     '/.mcp/invoke-tool/$tool': {
       id: '/.mcp/invoke-tool/$tool'
       path: '/.mcp/invoke-tool/$tool'
@@ -866,25 +847,13 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AcademicsNewsRouteChildren {
-  AcademicsNewsSlugRoute: typeof AcademicsNewsSlugRoute
-}
-
-const AcademicsNewsRouteChildren: AcademicsNewsRouteChildren = {
-  AcademicsNewsSlugRoute: AcademicsNewsSlugRoute,
-}
-
-const AcademicsNewsRouteWithChildren = AcademicsNewsRoute._addFileChildren(
-  AcademicsNewsRouteChildren,
-)
-
 interface AcademicsRouteChildren {
-  AcademicsNewsRoute: typeof AcademicsNewsRouteWithChildren
+  AcademicsNewsRoute: typeof AcademicsNewsRoute
   AcademicsIndexRoute: typeof AcademicsIndexRoute
 }
 
 const AcademicsRouteChildren: AcademicsRouteChildren = {
-  AcademicsNewsRoute: AcademicsNewsRouteWithChildren,
+  AcademicsNewsRoute: AcademicsNewsRoute,
   AcademicsIndexRoute: AcademicsIndexRoute,
 }
 
