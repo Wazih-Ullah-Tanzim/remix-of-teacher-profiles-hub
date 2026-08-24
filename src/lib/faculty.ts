@@ -2,7 +2,6 @@ import pArif from "@/assets/fac-arif.png.asset.json";
 import pProgga from "@/assets/fac-progga.jpg.asset.json";
 import pWazih from "@/assets/fac-wazih.png.asset.json";
 import pHijbullah from "@/assets/fac-hijbullah.jpg.asset.json";
-import pIrin from "@/assets/fac-irin.jpg.asset.json";
 import pMahmuda from "@/assets/fac-mahmuda.png.asset.json";
 import pMary from "@/assets/fac-mary.jpg.asset.json";
 import pSomaiya from "@/assets/fac-somaiya.png.asset.json";
@@ -69,13 +68,6 @@ export const faculty: Teacher[] = [
       "Certified in Deep Learning, Generative AI, Data Science and Cybersecurity; twice earned first-place merit scholarships",
     ],
     experience: "Teacher, Administrator & Web Developer at John Amos International School • Former Lecturer, Premier University", email: "admin@johnamosbd.com", personalMessage: defaultMessage,
-  },
-  {
-    id: "irin-rashid-nipa", name: "Irin Rashid Nipa", title: "Class Teacher",
-    subject: "Primary Class Teacher", photo: pIrin.url,
-    bio: "Irin Rashid Nipa creates a caring, structured classroom where young children build confidence, curiosity and strong learning habits.",
-    qualifications: ["B.Ed in Primary Education", "B.A. Honours"],
-    experience: "6 years with young learners", email: "irin@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
     id: "mahmuda-akter", name: "Mahmuda Akter", title: "Class Teacher",
