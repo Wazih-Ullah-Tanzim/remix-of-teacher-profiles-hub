@@ -85,7 +85,7 @@ function HomePage() {
       <section className="relative -mt-12 z-10">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-border bg-card p-8 shadow-[var(--shadow-elegant)] sm:p-10">
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
               {[
                 { n: 9, suffix: "+", label: "Expert Teachers" },
                 { n: 75, suffix: "+", label: "Students Enrolled" },
@@ -94,10 +94,10 @@ function HomePage() {
                 { n: 80000, suffix: "+", label: "Visitors" },
               ].map((c) => (
                 <div key={c.label} className="text-center">
-                  <div className="text-5xl font-extrabold text-primary">
+                  <div className="text-4xl font-extrabold text-primary">
                     {c.format === false ? c.n : <AnimatedCounter to={c.n} suffix={c.suffix} />}
                   </div>
-                  <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">{c.label}</div>
+                  <div className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-accent">{c.label}</div>
                 </div>
               ))}
             </div>
