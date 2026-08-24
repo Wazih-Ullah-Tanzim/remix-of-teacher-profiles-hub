@@ -67,6 +67,10 @@ const TIMELINE: { year: string; milestones: { title: string; text: string }[] }[
         title: "Extracurricular Enhancement",
         text: "Creative programs expanded with specialized Art, Music, and Dance classes.",
       },
+      {
+        title: "Advanced Software Integration",
+        text: "Advanced software integration is underway to further strengthen learning, communication, and school operations.",
+      },
     ],
   },
 ];
