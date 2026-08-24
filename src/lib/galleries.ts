@@ -57,6 +57,11 @@ import excursionDancePerformanceAsset from "@/assets/excursion-dance-performance
 import excursionSportsGroupAsset from "@/assets/excursion-sports-group.jpg.asset.json";
 import excursionGroupPhotoAsset from "@/assets/excursion-group-photo.jpg.asset.json";
 import excursionAwardPresentationAsset from "@/assets/excursion-award-presentation.jpg.asset.json";
+import excursionStandardOneMedalistsAsset from "@/assets/excursion-standard-one-medalists.jpg.asset.json";
+import excursionStandardTwoFourMedalistsAsset from "@/assets/excursion-standard-two-four-medalists.jpg.asset.json";
+import excursionKgMedalistsAsset from "@/assets/excursion-kg-medalists.jpg.asset.json";
+import excursionNurseryMedalistsAsset from "@/assets/excursion-nursery-medalists.jpg.asset.json";
+import excursionPlayGroupMedalistsAsset from "@/assets/excursion-play-group-medalists.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -78,6 +83,11 @@ export const galleries: Record<
       { src: excursionSportsGroupAsset.url, caption: "Students at Excursion Sports 2026" },
       { src: excursionGroupPhotoAsset.url, caption: "Excursion Programme 2026 group photo" },
       { src: excursionAwardPresentationAsset.url, caption: "Competition award presentation" },
+       { src: excursionPlayGroupMedalistsAsset.url, caption: "Prize giving — Play Group winners" },
+       { src: excursionNurseryMedalistsAsset.url, caption: "Prize giving — Nursery winners" },
+       { src: excursionKgMedalistsAsset.url, caption: "Prize giving — KG winners" },
+       { src: excursionStandardOneMedalistsAsset.url, caption: "Prize giving — Standard I winners" },
+       { src: excursionStandardTwoFourMedalistsAsset.url, caption: "Prize giving — Standards II and IV winners" },
     ],
   },
   "international-excursion": {
