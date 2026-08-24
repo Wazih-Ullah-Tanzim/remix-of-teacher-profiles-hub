@@ -48,6 +48,15 @@ import firstAwardCeremonyRedDanceAsset from "@/assets/first-award-ceremony-red-d
 import firstAwardCeremonyMusicianAsset from "@/assets/first-award-ceremony-musician.jpg.asset.json";
 import parentsMeetingDiscussionAsset from "@/assets/parents-meeting-discussion.jpg.asset.json";
 import parentsMeetingWideAsset from "@/assets/parents-meeting-wide.jpg.asset.json";
+import excursionChocolateRaceAsset from "@/assets/excursion-chocolate-race.jpg.asset.json";
+import excursionFrogJumpAsset from "@/assets/excursion-frog-jump.jpg.asset.json";
+import excursionSprintAsset from "@/assets/excursion-sprint.jpg.asset.json";
+import excursionBallGatheringAsset from "@/assets/excursion-ball-gathering.jpg.asset.json";
+import excursionBiscuitRaceAsset from "@/assets/excursion-biscuit-race.jpg.asset.json";
+import excursionDancePerformanceAsset from "@/assets/excursion-dance-performance.jpg.asset.json";
+import excursionSportsGroupAsset from "@/assets/excursion-sports-group.jpg.asset.json";
+import excursionGroupPhotoAsset from "@/assets/excursion-group-photo.jpg.asset.json";
+import excursionAwardPresentationAsset from "@/assets/excursion-award-presentation.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -56,14 +65,19 @@ export const galleries: Record<
   { title: string; eyebrow: string; description: string; images: { src: string; caption: string }[] }
 > = {
   excursion: {
-    title: "Domestic Excursion",
-    eyebrow: "Domestic Trip",
-    description: "Learning beyond the classroom — museums, nature reserves and historic landmarks around Bangladesh.",
+    title: "Excursion Programme 2026",
+    eyebrow: "Competition Day",
+    description: "A joyful day of friendly competition, team spirit, performances and shared memories at our Excursion Programme 2026.",
     images: [
-      { src: u("photo-1503454537195-1dcabb73ffb9"), caption: "Riverside discovery" },
-      { src: u("photo-1485470733090-0aae1788d5af"), caption: "Botanical garden visit" },
-      { src: u("photo-1551038247-3d9af20df552"), caption: "Heritage tour" },
-      { src: u("photo-1500964757637-c85e8a162699"), caption: "Nature trail" },
+      { src: excursionChocolateRaceAsset.url, caption: "Chocolate race — Play Group" },
+      { src: excursionFrogJumpAsset.url, caption: "Frog jump race — KG" },
+      { src: excursionSprintAsset.url, caption: "Sprint race — Standard I" },
+      { src: excursionBallGatheringAsset.url, caption: "Ball gathering — Standards II and IV" },
+      { src: excursionBiscuitRaceAsset.url, caption: "Biscuit race — Nursery" },
+      { src: excursionDancePerformanceAsset.url, caption: "Student dance performance" },
+      { src: excursionSportsGroupAsset.url, caption: "Students at Excursion Sports 2026" },
+      { src: excursionGroupPhotoAsset.url, caption: "Excursion Programme 2026 group photo" },
+      { src: excursionAwardPresentationAsset.url, caption: "Competition award presentation" },
     ],
   },
   "international-excursion": {
