@@ -7,6 +7,7 @@ import playgroundImg from "@/assets/playground.jpg";
 import buildingImg from "@/assets/school-building.jpg.asset.json";
 import studentsArtworkImg from "@/assets/students-artwork.jpg.asset.json";
 import playgroundCdnImg from "@/assets/playground.jpg.asset.json";
+import classroomsImg from "@/assets/jais-classrooms.jpg.asset.json";
 
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -143,6 +144,27 @@ function HomePage() {
               className="w-full object-cover"
             />
           </div>
+        </div>
+      </section>
+
+      {/* CLASSROOMS */}
+      <section className="bg-secondary py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            eyebrow="Learning Spaces"
+            title="Classrooms made for curiosity"
+            subtitle="From our computer lab to playful early-years classrooms, every space is designed for children to learn, explore and grow with confidence."
+          />
+          <figure className="mt-10 overflow-hidden rounded-3xl border border-border bg-card shadow-[var(--shadow-elegant)] glow-photo">
+            <img
+              src={classroomsImg.url}
+              alt="John Amos computer lab, play area and nursery classrooms"
+              loading="lazy"
+              width={1920}
+              height={1440}
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </figure>
         </div>
       </section>
 
