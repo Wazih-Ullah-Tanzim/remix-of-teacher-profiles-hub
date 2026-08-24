@@ -16,13 +16,59 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const TIMELINE: { year: string; title: string; text: string }[] = [
-  { year: "2021", title: "School founded", text: "Cambridge vision for Mymensingh takes shape." },
-  { year: "2022", title: "First batch enrolled", text: "Play Group to Standard I welcomed." },
-  { year: "2023", title: "Expanded to Std III", text: "New computer lab launched." },
-  { year: "2024", title: "Cambridge curriculum", text: "Fully implemented across all grades." },
-  { year: "2025", title: "First Std V batch", text: "Sports facilities added on campus." },
-  { year: "2026", title: "Growing strong", text: "280+ students and 9 expert teachers." },
+const TIMELINE: { year: string; milestones: { title: string; text: string }[] }[] = [
+  {
+    year: "2023",
+    milestones: [
+      {
+        title: "Foundation & Academic Launch",
+        text: "The school was officially established, opening admissions from Play Group to Standard V.",
+      },
+      {
+        title: "Infrastructure Setup",
+        text: "Classrooms were fully fitted with Air Conditioning (AC) to ensure a comfortable learning environment.",
+      },
+    ],
+  },
+  {
+    year: "2024",
+    milestones: [
+      {
+        title: "Technological Integration",
+        text: "Projectors were installed across classrooms to facilitate visual and multimedia learning.",
+      },
+      {
+        title: "Digital Literacy",
+        text: "A modern Computer Lab was launched to equip students with essential technical skills.",
+      },
+    ],
+  },
+  {
+    year: "2025",
+    milestones: [
+      {
+        title: "Interactive Education",
+        text: "Smart boards were introduced to foster dynamic, engaging, and interactive classroom sessions.",
+      },
+      {
+        title: "Recreation & Wellbeing",
+        text: "A dedicated, safe Play Zone was established for the physical development of early learners.",
+      },
+    ],
+  },
+  {
+    year: "2026",
+    milestones: [
+      {
+        title: "Holistic Development",
+        text: "Swimming class integration was introduced as part of the physical education curriculum.",
+      },
+      {
+        title: "Extracurricular Enhancement",
+        text: "Creative programs expanded with specialized Art, Music, and Dance classes.",
+      },
+    ],
+  },
 ];
 
 function AboutPage() {
@@ -115,8 +161,14 @@ function AboutPage() {
                       style={{ animationDelay: `${i * 90}ms` }}
                     >
                       <div className="text-xs font-bold uppercase tracking-[0.2em] text-accent">{item.year}</div>
-                      <h3 className="mt-1 text-xl font-extrabold text-primary">{item.title}</h3>
-                      <p className="mt-2 text-sm text-muted-foreground">{item.text}</p>
+                       <div className="mt-3 space-y-5">
+                         {item.milestones.map((milestone) => (
+                           <div key={milestone.title}>
+                             <h3 className="text-xl font-extrabold text-primary">{milestone.title}</h3>
+                             <p className="mt-2 text-sm text-muted-foreground">{milestone.text}</p>
+                           </div>
+                         ))}
+                       </div>
                     </div>
                   </li>
                 );
