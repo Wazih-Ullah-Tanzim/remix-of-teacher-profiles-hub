@@ -86,9 +86,18 @@ export const faculty: Teacher[] = [
   {
     id: "somaiya-binta-islam", name: "Somaiya Binta Islam", title: "Class Teacher",
     subject: "Primary Class Teacher", photo: pSomaiya.url,
-    bio: "Somaiya Binta Islam supports her students with a calm, encouraging classroom culture and a passion for reading and inquiry.",
-    qualifications: ["B.A. Honours in English", "Diploma in Early Childhood Care"],
-    experience: "4 years teaching", email: "somaiya@johnamosbd.com", personalMessage: defaultMessage,
+    bio: "Somaiya Binta Islam is a Fisheries Scientist and Class Teacher who brings academic discipline, creativity and strong organizational leadership to the classroom. Her science background and student-focused approach help create engaging, supportive learning experiences for young learners.",
+    qualifications: [
+      "M.S. in Fisheries Technology — Bangladesh Agricultural University (2025–present)",
+      "B.Sc. (Hons) in Fisheries — Sylhet Agricultural University (2020–2025), CGPA 3.588",
+      "GPA 5.00 in both HSC and SSC (Science), Dhaka Board",
+      "Startup Co-ordinator, HULT Prize — Sylhet Agricultural University (2024–2025)",
+      "Co-Head of Human Resources, Bangladesh Agricultural Olympiad (2022–present)",
+      "Organizing Co-ordinator, Binodhan Shangha — Sylhet Agricultural University (2024–2025)",
+      "Skilled in MS Office, graphic design, English, Bangla and Arabic",
+      "First runner-up, Sylhet Debate Competition (2023); Best Volunteer, Bangladesh Agricultural Olympiad (2023 & 2024)",
+    ],
+    experience: "Class Teacher • Fisheries Scientist • Student leadership and event coordination experience", email: "somaiya@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
     id: "syeda-sajia-afrin-rothy", name: "Syeda Sajia Afrin Rothy", title: "Class Teacher",
