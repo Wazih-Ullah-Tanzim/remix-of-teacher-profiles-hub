@@ -58,6 +58,7 @@ const nav: NavItem[] = [
       { to: "/facilities", label: "Facilities" },
       { to: "/gallery", label: "Gallery", children: [
         { to: "/gallery/first-award-ceremony", label: "First Award Ceremony" },
+        { to: "/gallery/islamic-olympiad-season-3", label: "Islamic Olympiad Season 3" },
         { to: "/gallery/victory-day", label: "Victory Day" },
         { to: "/gallery/nobo-borsho-celebration", label: "Nobo Borsho Celebration" },
         { to: "/gallery/art-exhibition", label: "Art Exhebetion" },
