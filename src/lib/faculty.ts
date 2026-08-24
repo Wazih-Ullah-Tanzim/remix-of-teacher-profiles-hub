@@ -44,9 +44,15 @@ export const faculty: Teacher[] = [
   {
     id: "progga-paromita-ghosh", name: "Progga Paromita Ghosh", title: "Academic Supervisor",
     subject: "Curriculum & Academic Oversight", photo: pProgga.url,
-    bio: "Progga Paromita Ghosh oversees curriculum quality, teaching standards and academic progression across all key stages.",
-    qualifications: ["M.A. in Education", "B.A. Honours in English", "Certified Cambridge Curriculum Coordinator"],
-    experience: "10+ years in academic leadership", email: "academic@johnamosbd.com", personalMessage: defaultMessage,
+    bio: "Progga Paromita Ghosh is an Academic Supervisor, educator and creative learning leader with nine years of teaching experience. She oversees curriculum delivery, academic assessment and classroom standards while building motivating learning experiences for students and families.",
+    qualifications: [
+      "M.Sc. in Biotechnology — Bangladesh Agricultural University (GPA 3.48/4.00)",
+      "B.Sc. in Biotechnology & Genetic Engineering — Sylhet Agricultural University (GPA 3.53/4.00)",
+      "9 years of teaching experience in curriculum development, assessment and creative learning",
+      "Experienced Spoken English, Biology, Art, Recitation and Dance Teacher",
+      "Academic and administrative leadership, school branding and parent engagement",
+    ],
+    experience: "9 years in teaching, academic supervision and creative learning leadership", email: "academic@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
     id: "wazih-ullah-tanzim", name: "Wazih Ullah Tanzim", title: "Admin",
