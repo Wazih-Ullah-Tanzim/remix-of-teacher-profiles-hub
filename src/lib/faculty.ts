@@ -31,9 +31,15 @@ export const faculty: Teacher[] = [
   {
     id: "muhammad-arif-mujtaba-kamal", name: "Muhammad Arif Mujtaba Kamal", title: "Head Teacher",
     subject: "School Leadership & Academics", photo: pArif.url,
-    bio: "As Head Teacher, Muhammad Arif Mujtaba Kamal leads the academic vision of John Amos International School with warmth, rigour and a deep commitment to every child's growth.",
-    qualifications: ["M.A. in English Language & Literature", "Post-Graduate Diploma in Educational Leadership", "Cambridge Professional Development Certificate"],
-    experience: "15+ years in international schooling", email: "headteacher@johnamosbd.com", personalMessage: defaultMessage,
+    bio: "Muhammad Arif Mujtaba Kamal is the Acting Principal of John Amos International School, Mymensingh, and Center Manager of John Amos Center. An English language education specialist, he brings academic leadership, teacher training and public-speaking experience to the school community.",
+    qualifications: [
+      "M.A. and B.A. (Honours) in English Language & Literature — University of Chittagong",
+      "1st position in the University of Chittagong ‘D’ Unit Admission Test",
+      "Cambridge International certified — Integrating Learning and Assessment (ILA)",
+      "Advanced leadership training — British Council and Bangladesh Youth Leadership Center (BYLC)",
+      "AI in English Classroom Management training — GIST International Foundation / US Embassy",
+    ],
+    experience: "Acting Principal, John Amos International School • Former Head of Research & Training, English Olympiad", email: "headteacher@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
     id: "progga-paromita-ghosh", name: "Progga Paromita Ghosh", title: "Academic Supervisor",
