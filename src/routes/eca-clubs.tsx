@@ -3,12 +3,21 @@ import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ChefHat, Shield, Music, Globe, Palette, Clock } from "lucide-react";
+import swimmingPoolsideAsset from "@/assets/swimming-session-poolside.jpg.asset.json";
+import swimmingPoolOverviewAsset from "@/assets/swimming-session-pool-overview.jpg.asset.json";
+import swimmingWaterPlayAsset from "@/assets/swimming-session-water-play.jpg.asset.json";
+import swimmingGreetingAsset from "@/assets/swimming-session-greeting.jpg.asset.json";
+import swimmingInaugurationAsset from "@/assets/swimming-session-inauguration.jpg.asset.json";
 
 export const Route = createFileRoute("/eca-clubs")({
   head: () => ({
     meta: [
       { title: "ECA Clubs & Activities — John Amos International School" },
       { name: "description", content: "After-class clubs for every age group — Chef, Martial Art, Musician, Language and Artistic Mind." },
+      { property: "og:title", content: "ECA Clubs & Activities — John Amos International School" },
+      { property: "og:description", content: "Explore JAIS extracurricular clubs and swimming activities for students." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Page,
@@ -49,6 +58,14 @@ const clubs = [
             junior: "Sketching basics, colour theory and themed projects from nature and festivals.",
             senior: "Drawing from observation, watercolour, mixed media and a year-end exhibition." } },
 ] as const;
+
+const swimmingMoments = [
+  { src: swimmingInaugurationAsset.url, caption: "Swimming Session inaugural ceremony" },
+  { src: swimmingGreetingAsset.url, caption: "A warm welcome for young swimmers" },
+  { src: swimmingPoolsideAsset.url, caption: "Poolside learning and water confidence" },
+  { src: swimmingPoolOverviewAsset.url, caption: "Students enjoying their swimming session" },
+  { src: swimmingWaterPlayAsset.url, caption: "Guided water activities at the pool" },
+];
 
 function ClubGrid({ tone }: { tone: Tone }) {
   return (
@@ -106,6 +123,19 @@ function Page() {
               </TabsContent>
             ))}
           </Tabs>
+        </div>
+      </section>
+      <section id="swimming-club" className="scroll-mt-28 bg-secondary/35 py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <SectionHeader eyebrow="ECA Clubs" title="Swimming Club" subtitle="Building water confidence, movement skills and joyful memories together." />
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {swimmingMoments.map((moment, index) => (
+              <figure key={moment.caption} className={`overflow-hidden rounded-xl border border-border bg-card shadow-[var(--shadow-card)] ${index === 0 ? "lg:col-span-2" : ""}`}>
+                <img src={moment.src} alt={moment.caption} loading="lazy" className="aspect-[4/3] h-full w-full object-cover transition duration-300 hover:scale-[1.03]" />
+                <figcaption className="px-4 py-3 text-sm font-semibold text-foreground">{moment.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
     </>
