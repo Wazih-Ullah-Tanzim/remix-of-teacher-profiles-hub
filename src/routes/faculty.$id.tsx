@@ -34,6 +34,7 @@ function Page() {
   const emphasizedQualifications = new Set([
     "B.Sc. in Computer Science & Engineering — Premier University Chattogram (CGPA 3.96/4.00)",
     "First author of BD Sports-10, a 3,000-video Bangladeshi sports dataset published in Data in Brief (Elsevier)",
+    "Certified in Deep Learning, Generative AI, Data Science and Cybersecurity; twice earned first-place merit scholarships",
   ]);
   return (
     <>
