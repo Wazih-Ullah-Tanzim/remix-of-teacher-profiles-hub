@@ -9,7 +9,6 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as YearbookRouteImport } from './routes/yearbook'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as McpRouteImport } from './routes/mcp'
@@ -51,11 +50,6 @@ import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 
-const YearbookRoute = YearbookRouteImport.update({
-  id: '/yearbook',
-  path: '/yearbook',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -290,7 +284,6 @@ export interface FileRoutesByFullPath {
   '/mcp': typeof McpRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/yearbook': typeof YearbookRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/academics/news': typeof AcademicsNewsRoute
@@ -331,7 +324,6 @@ export interface FileRoutesByTo {
   '/mcp': typeof McpRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/yearbook': typeof YearbookRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/academics/news': typeof AcademicsNewsRoute
@@ -375,7 +367,6 @@ export interface FileRoutesById {
   '/mcp': typeof McpRoute
   '/projects': typeof ProjectsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/yearbook': typeof YearbookRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/academics/news': typeof AcademicsNewsRoute
@@ -420,7 +411,6 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/projects'
     | '/sitemap.xml'
-    | '/yearbook'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/academics/news'
@@ -461,7 +451,6 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/projects'
     | '/sitemap.xml'
-    | '/yearbook'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/academics/news'
@@ -504,7 +493,6 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/projects'
     | '/sitemap.xml'
-    | '/yearbook'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/academics/news'
@@ -548,7 +536,6 @@ export interface RootRouteChildren {
   McpRoute: typeof McpRoute
   ProjectsRoute: typeof ProjectsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  YearbookRoute: typeof YearbookRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
@@ -557,13 +544,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/yearbook': {
-      id: '/yearbook'
-      path: '/yearbook'
-      fullPath: '/yearbook'
-      preLoaderRoute: typeof YearbookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -937,7 +917,6 @@ const rootRouteChildren: RootRouteChildren = {
   McpRoute: McpRoute,
   ProjectsRoute: ProjectsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  YearbookRoute: YearbookRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
