@@ -26,8 +26,9 @@ export const Route = createFileRoute("/.lovable/oauth/consent")({
     const { data } = await supabase.auth.getSession();
     if (!data.session) throw redirect({ to: "/" });
   },
-  loader: async ({ search }) => {
-    const { data, error } = await oauth.getAuthorizationDetails(search.authorization_id);
+  loader: async ({ location }) => {
+    const authorizationId = new URLSearchParams(location.search).get("authorization_id") ?? "";
+    const { data, error } = await oauth.getAuthorizationDetails(authorizationId);
     if (error) throw error;
     const destination = data?.redirect_url ?? data?.redirect_to;
     if (destination && !data?.client) throw redirect({ href: destination });
