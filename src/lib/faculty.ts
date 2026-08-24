@@ -57,9 +57,18 @@ export const faculty: Teacher[] = [
   {
     id: "wazih-ullah-tanzim", name: "Wazih Ullah Tanzim", title: "Admin",
     subject: "School Administration & Operations", photo: pWazih.url,
-    bio: "Wazih Ullah Tanzim manages the day-to-day administration of the school, ensuring smooth operations for students, parents and staff.",
-    qualifications: ["BBA in Management", "Diploma in Educational Administration"],
-    experience: "6 years in school administration", email: "admin@johnamosbd.com", personalMessage: defaultMessage,
+    bio: "Wazih Ullah Tanzim serves John Amos International School as a Teacher, Administrator and Web Developer, supporting STEM learning, school operations and the school’s digital infrastructure.",
+    qualifications: [
+      "B.Sc. in Computer Science & Engineering — Premier University Chattogram (CGPA 3.96/4.00)",
+      "Strong academic foundation in Science — GPA 5.00 in S.S.C. and GPA 4.58 in H.S.C.",
+      "Lecturer experience at Premier University, teaching Pattern Recognition, Numerical Methods and Discrete Mathematics",
+      "First author of BD Sports-10, a 3,000-video Bangladeshi sports dataset published in Data in Brief (Elsevier)",
+      "Advanced programming skills in Python, C, C++, JavaScript, MySQL, PHP and Java",
+      "Built digital solutions including a PHP-Laravel University Management System, online book shop and React-Node.js portfolio",
+      "Web development experience in WordPress customization, SMTP integration and UI troubleshooting",
+      "Certified in Deep Learning, Generative AI, Data Science and Cybersecurity; twice earned first-place merit scholarships",
+    ],
+    experience: "Teacher, Administrator & Web Developer at John Amos International School • Former Lecturer, Premier University", email: "admin@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
     id: "irin-rashid-nipa", name: "Irin Rashid Nipa", title: "Class Teacher",
