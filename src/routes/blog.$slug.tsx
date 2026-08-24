@@ -10,6 +10,7 @@ export const Route = createFileRoute("/blog/$slug")({
       meta: [
         { title: p ? `${p.title} — John Amos Journal` : "Article" },
         { name: "description", content: p?.excerpt ?? "Article from John Amos." },
+        ...(p ? [{ property: "og:title", content: p.title }, { property: "og:description", content: p.excerpt }, { property: "og:type", content: "article" }, { name: "twitter:card", content: "summary_large_image" }] : []),
         ...(p ? [{ property: "og:image", content: p.cover }] : []),
       ],
     };
