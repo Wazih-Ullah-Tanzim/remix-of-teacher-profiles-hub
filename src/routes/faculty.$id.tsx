@@ -1,7 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { faculty, type Teacher } from "@/lib/faculty";
-import { Mail, GraduationCap, BriefcaseBusiness, ArrowLeft } from "lucide-react";
+import { GraduationCap, BriefcaseBusiness, ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/faculty/$id")({
   head: ({ params }) => {
@@ -40,9 +40,6 @@ function Page() {
             <div className="img-zoom overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
               <img src={t.photo} alt={t.name} className="aspect-[3/4] w-full object-cover" />
             </div>
-            <a href={`mailto:${t.email}`} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent story-link">
-              <Mail className="h-4 w-4" /> {t.email}
-            </a>
           </div>
           <div className="animate-fade-up delay-200">
             <Link to="/faculty" className="inline-flex items-center gap-1 text-sm font-semibold text-muted-foreground hover:text-primary">
