@@ -45,7 +45,6 @@ const nav: NavItem[] = [
       { to: "/instructor-registration", label: "Instructor Registration" },
     ],
   },
-  { to: "/campus", label: "Campus" },
   {
     to: "/academics", label: "JAIS Life",
     children: [
@@ -59,25 +58,19 @@ const nav: NavItem[] = [
       ]},
       { to: "/facilities", label: "Facilities" },
       { to: "/gallery", label: "Gallery", children: [
-        { to: "/gallery/tour", label: "Tour", children: [
-          { to: "/gallery/tour-domestic", label: "Domestic Trip", children: [
-            { to: "/gallery/excursion", label: "Excursion" },
-          ]},
-          { to: "/gallery/tour-international", label: "International Trip", children: [
-            { to: "/gallery/international-excursion", label: "China" },
-          ]},
-        ]},
-        { to: "/gallery/occasion", label: "Occasions", children: [
-          { to: "/gallery/pohela-boishakh", label: "Pohela Boishakh" },
-          { to: "/gallery/pitha-utsob", label: "Pitha Utsob" },
-          { to: "/gallery/sports-day", label: "Sports Day" },
-          { to: "/gallery/cultural-program", label: "Cultural Program" },
-        ]},
+        { to: "/gallery/art-exhibition", label: "Art Exhibition" },
+        { to: "/gallery/food-party", label: "Food Party" },
+        { to: "/gallery/class-party", label: "Class Party" },
+        { to: "/gallery/sirat-un-nabi", label: "Sirat-Un-Nabi" },
+        { to: "/gallery/parents-meeting", label: "Parents Meeting" },
+        { to: "/gallery/excursion", label: "Excursion Program" },
       ]},
-      { to: "/eca-clubs", label: "ECA Clubs" },
+      { to: "/eca-clubs", label: "ECA Clubs", children: [
+        { to: "/eca-clubs", label: "Swimming Club" },
+        { to: "/eca-clubs", label: "Art & Music Club" },
+      ]},
       { to: "/yearbook", label: "JAIS Yearbook" },
       { to: "/blog", label: "Blog" },
-      { to: "/alumni", label: "Alumni Association" },
       { to: "/academic-calendar", label: "Academic Calendar" },
     ],
   },

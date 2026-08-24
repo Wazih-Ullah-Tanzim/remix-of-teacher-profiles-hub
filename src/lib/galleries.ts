@@ -94,15 +94,37 @@ export const galleries: Record<
       { src: u("photo-1551218808-94e220e084d2"), caption: "Smiles all around" },
     ],
   },
-  "music-and-art": {
-    title: "Music & Art",
+  "art-exhibition": {
+    title: "Art Exhibition",
     eyebrow: "Occasion",
-    description: "From watercolour to woodwind — every child is invited to express themselves.",
+    description: "A colourful celebration of imagination, craftsmanship and student expression.",
     images: [
       { src: u("photo-1513829596324-4bb2800c5efb"), caption: "Young painters" },
       { src: u("photo-1511379938547-c1f69419868d"), caption: "Music ensemble" },
       { src: u("photo-1499415479124-43c32433a620"), caption: "Stage performance" },
       { src: u("photo-1493612276216-ee3925520721"), caption: "Sketch & shade" },
+    ],
+  },
+  "class-party": {
+    title: "Class Party",
+    eyebrow: "School Life",
+    description: "Shared treats, laughter and memorable moments with classmates and teachers.",
+    images: [
+      { src: u("photo-1529156069898-49953e39b3ac"), caption: "Celebration together" },
+      { src: u("photo-1519167758481-83f550bb49b3"), caption: "Classroom smiles" },
+      { src: u("photo-1511632765486-a01980e01a18"), caption: "Party games" },
+      { src: u("photo-1527529482837-4698179dc6ce"), caption: "Happy memories" },
+    ],
+  },
+  "parents-meeting": {
+    title: "Parents Meeting",
+    eyebrow: "School Community",
+    description: "Meaningful conversations and strong partnerships between families and school.",
+    images: [
+      { src: u("photo-1516321318423-f06f85e504b3"), caption: "Parent consultation" },
+      { src: u("photo-1523240795612-9a054b0db644"), caption: "Learning together" },
+      { src: u("photo-1509062522246-3755977927d7"), caption: "School discussion" },
+      { src: u("photo-1531482615713-2afd69097998"), caption: "Community partnership" },
     ],
   },
 };
@@ -112,32 +134,16 @@ export type GallerySlug = keyof typeof galleries;
 export type GalleryNode = { slug: string; label: string; description?: string; children?: GalleryNode[] };
 
 export const galleryTree: GalleryNode[] = [
-  {
-    slug: "tour",
-    label: "Tour",
-    description: "Domestic and international learning trips.",
-    children: [
-      { slug: "tour-domestic", label: "Domestic Trip", description: "Inside Bangladesh", children: [{ slug: "excursion", label: "Excursion" }] },
-      { slug: "tour-international", label: "International Trip", description: "Global learning", children: [{ slug: "international-excursion", label: "China" }] },
-    ],
-  },
-  {
-    slug: "occasion",
-    label: "Occasions",
-    description: "Festivals and special programmes.",
-    children: [
-      { slug: "pohela-boishakh", label: "Pohela Boishakh" },
-      { slug: "pitha-utsob", label: "Pitha Utsob" },
-      { slug: "sports-day", label: "Sports Day" },
-      { slug: "cultural-program", label: "Cultural Program" },
-    ],
-  },
+  { slug: "art-exhibition", label: "Art Exhibition", description: "Student creativity on display." },
+  { slug: "food-party", label: "Food Party", description: "A joyful celebration of food and friendship." },
+  { slug: "class-party", label: "Class Party", description: "Celebrations shared with classmates." },
+  { slug: "sirat-un-nabi", label: "Sirat-Un-Nabi", description: "A reflective school gathering." },
+  { slug: "parents-meeting", label: "Parents Meeting", description: "Family and school working together." },
+  { slug: "excursion", label: "Excursion Program", description: "Learning beyond the classroom." },
 ];
 
 export const galleryMenu: { slug: string; label: string }[] = [
-  { slug: "excursion", label: "Domestic Excursion" },
-  { slug: "international-excursion", label: "International Excursion" },
-  ...galleryTree[1].children!.map((i) => ({ slug: i.slug, label: i.label })),
+  ...galleryTree.map(({ slug, label }) => ({ slug, label })),
 ];
 
 export const findGalleryNode = (slug: string, nodes: GalleryNode[] = galleryTree): GalleryNode | undefined => {
