@@ -39,7 +39,7 @@ function Page() {
   return (
     <>
       <PageHero eyebrow={t.title} title={t.name} subtitle={t.subject} />
-      <section className="py-20">
+      <section className="border-y border-sky-100 bg-sky-50/70 py-20 backdrop-blur-sm">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 md:grid-cols-[1fr_2fr] lg:px-8">
           <div className="animate-fade-up">
             <div className="img-zoom overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
@@ -59,7 +59,7 @@ function Page() {
               </div>
               <ul className="mt-4 space-y-3">
                 {t.qualifications.map((q) => (
-                  <li key={q} className="rounded-xl border border-border bg-card p-4 text-sm text-foreground/85 shadow-[var(--shadow-card)]">
+                  <li key={q} className="rounded-xl border border-sky-200/70 bg-card/75 p-4 text-sm text-foreground/85 shadow-[var(--shadow-card)] backdrop-blur-md">
                     {t.id === "wazih-ullah-tanzim" && emphasizedQualifications.has(q) ? <strong>{q}</strong> : q}
                   </li>
                 ))}
@@ -94,7 +94,7 @@ function Page() {
               </span>
             </div>
 
-            <div className="mt-10 flex items-center gap-3 rounded-xl bg-secondary p-5">
+            <div className="mt-10 flex items-center gap-3 rounded-xl border border-sky-200/70 bg-card/75 p-5 backdrop-blur-md">
               <BriefcaseBusiness className="h-5 w-5 text-accent" />
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-accent">Experience</div>
