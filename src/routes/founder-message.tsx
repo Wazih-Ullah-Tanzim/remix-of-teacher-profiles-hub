@@ -27,8 +27,8 @@ function Page() {
             </p>
             <div className="mt-8 border-l-4 border-accent pl-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">— Khondokar Ehosan Habib, Founder</div>
           </div>
-          <div className="img-zoom animate-fade-up delay-200 overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)]">
-            <img src={founderPortrait.url} alt="Khondokar Ehosan Habib, Founder of John Amos International School" className="aspect-[3/4] w-full object-cover" />
+          <div className="img-zoom animate-fade-up delay-200 w-full overflow-hidden rounded-3xl shadow-[var(--shadow-elegant)] md:max-w-[280px] md:justify-self-end">
+            <img src={founderPortrait.url} alt="Khondokar Ehosan Habib, Founder of John Amos International School" className="aspect-[4/5] w-full object-cover" />
             <div className="bg-primary p-5 text-primary-foreground">
               <div className="text-xs font-bold uppercase tracking-[0.18em] text-accent">Founder</div>
               <div className="mt-1 text-lg font-extrabold">Khondokar Ehosan Habib</div>
