@@ -46,6 +46,8 @@ import firstAwardCeremonyFairyDanceAsset from "@/assets/first-award-ceremony-fai
 import firstAwardCeremonyGuestSingerAsset from "@/assets/first-award-ceremony-guest-singer.jpg.asset.json";
 import firstAwardCeremonyRedDanceAsset from "@/assets/first-award-ceremony-red-dance.jpg.asset.json";
 import firstAwardCeremonyMusicianAsset from "@/assets/first-award-ceremony-musician.jpg.asset.json";
+import parentsMeetingDiscussionAsset from "@/assets/parents-meeting-discussion.jpg.asset.json";
+import parentsMeetingWideAsset from "@/assets/parents-meeting-wide.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -221,6 +223,8 @@ export const galleries: Record<
     eyebrow: "School Community",
     description: "Meaningful conversations and strong partnerships between families and school.",
     images: [
+      { src: parentsMeetingDiscussionAsset.url, caption: "Parents and school leaders in discussion" },
+      { src: parentsMeetingWideAsset.url, caption: "Families gathered for the Parents Meeting" },
       { src: u("photo-1516321318423-f06f85e504b3"), caption: "Parent consultation" },
       { src: u("photo-1523240795612-9a054b0db644"), caption: "Learning together" },
       { src: u("photo-1509062522246-3755977927d7"), caption: "School discussion" },
