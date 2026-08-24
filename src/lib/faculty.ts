@@ -6,6 +6,7 @@ import pMahmuda from "@/assets/fac-mahmuda.png.asset.json";
 import pMary from "@/assets/fac-mary.jpg.asset.json";
 import pSomaiya from "@/assets/fac-somaiya.png.asset.json";
 import pSajia from "@/assets/fac-sajia.jpg.asset.json";
+import pSilvia from "@/assets/fac-silvia-islam.jpeg.asset.json";
 
 const u = (id: string, w = 800) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -140,6 +141,20 @@ export const faculty: Teacher[] = [
       "Proficient in MS Office and email communication, with strengths in teamwork, problem-solving and adaptability",
     ],
     experience: "Class Teacher • Islamic Studies & Moral Education", email: "hijbullah@johnamosbd.com", personalMessage: defaultMessage,
+  },
+  {
+    id: "mst-silvia-islam", name: "Mst. Silvia Islam", title: "Class Teacher",
+    subject: "English Language", photo: pSilvia.url,
+    bio: "Mst. Silvia Islam is a passionate English educator with an advanced academic background in English literature and language. She brings experience in curriculum delivery, student mentoring and digital classroom integration to create inclusive, engaging learning experiences.",
+    qualifications: [
+      "M.A. in English — Rajshahi College, National University (2010 / held 2013)",
+      "B.A. (Honours) in English — Rajshahi College, National University (2009 / held 2011)",
+      "English Teacher for Classes 6–10, Shishu Shorgo Biddaniketon (2016–2017)",
+      "Experienced in English language and literature instruction, reading, writing, speaking and critical-thinking development",
+      "Diploma in IT Management (NIIT), with proficiency in Microsoft Office and digital lesson delivery",
+      "Skilled in curriculum execution, student assessment, mentoring and inclusive classroom management",
+    ],
+    experience: "Class Teacher • English educator with secondary-level teaching experience", email: "silvia.setu@gmail.com", personalMessage: defaultMessage,
   },
 ];
 
