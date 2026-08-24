@@ -2,12 +2,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, GraduationCap, Globe2, Sparkles, ShieldCheck, BookOpen, Trophy, Quote } from "lucide-react";
 import heroImg from "@/assets/school-hero.jpg";
 import classroomImg from "@/assets/classroom.jpg";
-import studentsImg from "@/assets/students.jpg";
-import playgroundImg from "@/assets/playground.jpg";
 import buildingImg from "@/assets/school-building.jpg.asset.json";
 import studentsArtworkImg from "@/assets/students-artwork.jpg.asset.json";
 import playgroundCdnImg from "@/assets/playground.jpg.asset.json";
 import classroomsImg from "@/assets/jais-classrooms.jpg.asset.json";
+import libraryWorkImg from "@/assets/jais-library-work.jpeg.asset.json";
+import libraryFirstDayImg from "@/assets/jais-library-first-day.jpeg.asset.json";
 
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -253,8 +253,8 @@ function HomePage() {
               <Link to="/campus" className="mt-8 inline-flex"><Button variant="navy" size="lg">Explore Campus <ArrowRight className="h-4 w-4" /></Button></Link>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <img src={studentsImg} alt="Students at John Amos" loading="lazy" width={1200} height={800} className="aspect-[3/4] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" />
-              <img src={playgroundImg} alt="School playground" loading="lazy" width={1200} height={800} className="mt-10 aspect-[3/4] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" />
+              <img src={libraryWorkImg.url} alt="Students working together in the John Amos school library" loading="lazy" width={1280} height={720} className="aspect-[3/4] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" />
+              <img src={libraryFirstDayImg.url} alt="Students exploring books on their first day at the John Amos library" loading="lazy" width={1280} height={720} className="mt-10 aspect-[3/4] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]" />
             </div>
           </div>
         </div>
