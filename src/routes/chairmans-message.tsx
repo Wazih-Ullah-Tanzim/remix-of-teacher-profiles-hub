@@ -41,7 +41,6 @@ function Page() {
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">
               We warmly invite you to join our vibrant community to build a brighter future together.
             </p>
-            <div className="mt-8 border-l-4 border-accent pl-4 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Warm regards, Dr. Abul Khaer Mohammad Helal Uddin, Chairman</div>
           </div>
         </div>
       </section>
