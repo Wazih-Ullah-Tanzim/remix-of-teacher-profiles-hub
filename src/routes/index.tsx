@@ -12,28 +12,6 @@ import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/site/SectionHeader";
 
 import { MotionStagger, MotionStaggerItem, AnimatedCounter } from "@/components/site/Motion";
-import { useEffect, useState } from "react";
-
-function VisitsStat() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    const KEY = "jais_visit_count";
-    const SESSION = "jais_visit_session";
-    let n = parseInt(localStorage.getItem(KEY) || "1233", 10);
-    if (!sessionStorage.getItem(SESSION)) {
-      n += 1;
-      localStorage.setItem(KEY, String(n));
-      sessionStorage.setItem(SESSION, "1");
-    }
-    setCount(n);
-  }, []);
-  return (
-    <div className="text-center">
-      <div className="text-5xl font-extrabold text-primary">{count.toLocaleString()}</div>
-      <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">Visitors</div>
-    </div>
-  );
-}
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -110,9 +88,10 @@ function HomePage() {
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
               {[
                 { n: 9, suffix: "+", label: "Expert Teachers" },
-                { n: 280, suffix: "+", label: "Students Enrolled" },
-                { n: 3, suffix: "+", label: "Years of Excellence" },
-                { n: 95, suffix: "%", label: "Cambridge Pass Rate" },
+                { n: 75, suffix: "+", label: "Students Enrolled" },
+                { n: 30, suffix: "+", label: "Spoken English Learners" },
+                { n: 2023, suffix: "", label: "Established" },
+                { n: 80000, suffix: "+", label: "Visitors" },
               ].map((c) => (
                 <div key={c.label} className="text-center">
                   <div className="text-5xl font-extrabold text-primary">
@@ -121,7 +100,6 @@ function HomePage() {
                   <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-accent">{c.label}</div>
                 </div>
               ))}
-              <VisitsStat />
             </div>
           </div>
         </div>
