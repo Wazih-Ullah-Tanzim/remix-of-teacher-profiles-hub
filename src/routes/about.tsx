@@ -3,7 +3,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Target, Eye } from "lucide-react";
-import studentsImg from "@/assets/students.jpg";
+import awardCeremonyImg from "@/assets/jais-award-ceremony.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -37,8 +37,8 @@ function AboutPage() {
       <section className="py-20">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 md:grid-cols-2 md:items-center lg:px-8">
           <img
-            src={studentsImg}
-            alt="Students at John Amos"
+            src={awardCeremonyImg.url}
+            alt="John Amos International School students celebrating achievements at the award ceremony"
             loading="lazy"
             className="glow-image aspect-[4/3] w-full rounded-2xl object-cover shadow-[var(--shadow-card)]"
           />
