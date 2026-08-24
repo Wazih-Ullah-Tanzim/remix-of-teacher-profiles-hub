@@ -7,6 +7,7 @@ import pMary from "@/assets/fac-mary.jpg.asset.json";
 import pSomaiya from "@/assets/fac-somaiya.png.asset.json";
 import pSajia from "@/assets/fac-sajia.jpg.asset.json";
 import pSilvia from "@/assets/fac-silvia-islam.jpeg.asset.json";
+import pTanzila from "@/assets/fac-tanzila-hossain.jpeg.asset.json";
 
 const u = (id: string, w = 800) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -155,6 +156,20 @@ export const faculty: Teacher[] = [
       "Skilled in curriculum execution, student assessment, mentoring and inclusive classroom management",
     ],
     experience: "Class Teacher • English educator with secondary-level teaching experience", email: "silvia.setu@gmail.com", personalMessage: defaultMessage,
+  },
+  {
+    id: "tanzila-hossain", name: "Tanzila Hossain", title: "Class Teacher",
+    subject: "Science & Environmental Studies", photo: pTanzila.url,
+    bio: "Tanzila Hossain is a science and environmental studies educator with academic, research and professional experience in environmental data, health impacts and sustainability. She brings an analytical mindset, clear communication and a supportive approach to student learning.",
+    qualifications: [
+      "M.Sc. — Bangladesh Agricultural University, Mymensingh (2022), CGPA 3.41/4.00",
+      "B.Sc. — Noakhali Science & Technology University (2018), CGPA 3.10/4.00",
+      "Research on household cooking-fuel air pollutants and associated health impacts in Mymensingh City",
+      "Research on the socio-economic impact of arsenic in Noakhali District",
+      "Professional experience in an executive environment at Mahmud Denims Limited (2024)",
+      "Skilled in environmental data collection and analysis, Microsoft Office, English and Bangla communication, teamwork and time management",
+    ],
+    experience: "Class Teacher • Environmental research and professional operations experience", email: "tanzilahossain488@gmail.com", personalMessage: defaultMessage,
   },
 ];
 
