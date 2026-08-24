@@ -14,7 +14,16 @@ import similarDifferentProject from "@/assets/C19-C_-_i_A.jpeg.asset.json";
 import banglaProject from "@/assets/C19-F_-_i.jpeg.asset.json";
 
 export const Route = createFileRoute("/projects")({
-  head: () => ({ meta: [{ title: "Student Projects — John Amos" }, { name: "description", content: "Project-based learning from Play Group to Standard V." }] }),
+  head: () => ({
+    meta: [
+      { title: "Student Projects — John Amos International School" },
+      { name: "description", content: "Explore hands-on student projects from Play Group to Standard V at John Amos International School." },
+      { property: "og:title", content: "Student Projects — John Amos International School" },
+      { property: "og:description", content: "Explore hands-on student projects from Play Group to Standard V at John Amos International School." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
+    ],
+  }),
   component: Page,
 });
 
