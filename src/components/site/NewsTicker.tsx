@@ -1,12 +1,14 @@
 import { Megaphone } from "lucide-react";
 
 const items = [
-  "📢 Admissions Open for 2026 — Play Group to Standard V",
-  "🎉 Annual Pitha Utsob celebrated with parents on campus",
-  "🏅 Cambridge Primary Checkpoint preparation begins",
-  "📚 New IELTS & Spoken English batch starts next month",
-  "🚌 Campus tours every Saturday — book your slot",
-  "🌍 International Affairs Club launches student exchange",
+  "📢 Enrolment is now open for the 2026–2027 academic session!",
+  "🇬🇧 Discover the first Cambridge English Medium curriculum in Mymensingh.",
+  "📝 Register now at our official IELTS Mock Test Centre.",
+  "🗣️ Improve your communication with our ongoing Spoken English courses.",
+  "🏊 Enjoy extra-curricular activities and swimming classes every Saturday.",
+  "🏫 Study in fully air-conditioned classrooms with smartboards and projectors.",
+  "💻 Gain practical skills in our modern, state-of-the-art computer lab.",
+  "🧸 Explore our safe and interactive playzone designed for young learners.",
 ];
 
 export function NewsTicker() {
