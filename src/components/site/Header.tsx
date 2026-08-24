@@ -57,7 +57,8 @@ const nav: NavItem[] = [
       ]},
       { to: "/facilities", label: "Facilities" },
       { to: "/gallery", label: "Gallery", children: [
-        { to: "/gallery/art-exhibition", label: "Art Exhibition" },
+        { to: "/gallery/victory-day", label: "Victory Day" },
+        { to: "/gallery/art-exhibition", label: "Art Exhebetion" },
         { to: "/gallery/food-party", label: "Food Party" },
         { to: "/gallery/class-party", label: "Class Party" },
         { to: "/gallery/sirat-un-nabi", label: "Sirat-Un-Nabi" },

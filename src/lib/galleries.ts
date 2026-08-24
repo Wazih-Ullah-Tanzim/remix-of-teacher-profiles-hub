@@ -1,4 +1,14 @@
 // Shared image collections for gallery sub-pages.
+import artCompetitionGroupAsset from "@/assets/art-competition-group.jpeg.asset.json";
+import artClassAsset from "@/assets/art-class-2.jpeg.asset.json";
+import artPosterAsset from "@/assets/art-poster-design.jpeg.asset.json";
+import artFirstPrizeAsset from "@/assets/art-first-prize.jpeg.asset.json";
+import victoryPerformanceAsset from "@/assets/victory-day-performance.jpg.asset.json";
+import victoryAwardAsset from "@/assets/victory-day-award.jpg.asset.json";
+import victoryGroupAsset from "@/assets/victory-day-group.jpg.asset.json";
+import victoryArtworkAsset from "@/assets/victory-day-artwork.jpg.asset.json";
+import victorySecondPrizeAsset from "@/assets/victory-day-second-prize.jpg.asset.json";
+
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 export const galleries: Record<
@@ -95,14 +105,26 @@ export const galleries: Record<
     ],
   },
   "art-exhibition": {
-    title: "Art Exhibition",
+    title: "Art Exhebetion",
     eyebrow: "Occasion",
     description: "A colourful celebration of imagination, craftsmanship and student expression.",
     images: [
-      { src: u("photo-1513829596324-4bb2800c5efb"), caption: "Young painters" },
-      { src: u("photo-1511379938547-c1f69419868d"), caption: "Music ensemble" },
-      { src: u("photo-1499415479124-43c32433a620"), caption: "Stage performance" },
-      { src: u("photo-1493612276216-ee3925520721"), caption: "Sketch & shade" },
+      { src: artCompetitionGroupAsset.url, caption: "Drawing competition participants" },
+      { src: artClassAsset.url, caption: "Students creating their artwork" },
+      { src: artPosterAsset.url, caption: "Poster design competition" },
+      { src: artFirstPrizeAsset.url, caption: "First prize artwork" },
+    ],
+  },
+  "victory-day": {
+    title: "Victory Day",
+    eyebrow: "Occasion",
+    description: "A proud celebration of Bangladesh's Victory Day, honouring student talent, achievement and national spirit.",
+    images: [
+      { src: victoryPerformanceAsset.url, caption: "Victory Day student performance" },
+      { src: victoryAwardAsset.url, caption: "Award presentation" },
+      { src: victoryGroupAsset.url, caption: "Victory Day celebration" },
+      { src: victoryArtworkAsset.url, caption: "Students at the art activity" },
+      { src: victorySecondPrizeAsset.url, caption: "Second prize presentation" },
     ],
   },
   "class-party": {
@@ -134,7 +156,8 @@ export type GallerySlug = keyof typeof galleries;
 export type GalleryNode = { slug: string; label: string; description?: string; children?: GalleryNode[] };
 
 export const galleryTree: GalleryNode[] = [
-  { slug: "art-exhibition", label: "Art Exhibition", description: "Student creativity on display." },
+  { slug: "victory-day", label: "Victory Day", description: "A proud celebration of Bangladesh's Victory Day." },
+  { slug: "art-exhibition", label: "Art Exhebetion", description: "Student creativity on display." },
   { slug: "food-party", label: "Food Party", description: "A joyful celebration of food and friendship." },
   { slug: "class-party", label: "Class Party", description: "Celebrations shared with classmates." },
   { slug: "sirat-un-nabi", label: "Sirat-Un-Nabi", description: "A reflective school gathering." },
