@@ -31,6 +31,11 @@ import siratAwardsCelebrationAsset from "@/assets/sirat-awards-celebration.jpg.a
 import siratAwardPresentationAsset from "@/assets/sirat-award-presentation.jpg.asset.json";
 import siratStudentAwardAsset from "@/assets/sirat-student-award.jpg.asset.json";
 import siratPrizeDistributionAsset from "@/assets/sirat-prize-distribution.jpg.asset.json";
+import classPartyChildrenAsset from "@/assets/class-party-children.jpg.asset.json";
+import classPartyCakeAsset from "@/assets/class-party-cake.jpg.asset.json";
+import classPartyCakeCuttingAsset from "@/assets/class-party-cake-cutting.jpg.asset.json";
+import classPartyStaffAsset from "@/assets/class-party-staff.jpg.asset.json";
+import classPartyGroupAsset from "@/assets/class-party-group.jpg.asset.json";
 
 const u = (id: string, w = 1600) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
 
@@ -177,10 +182,11 @@ export const galleries: Record<
     eyebrow: "School Life",
     description: "Shared treats, laughter and memorable moments with classmates and teachers.",
     images: [
-      { src: u("photo-1529156069898-49953e39b3ac"), caption: "Celebration together" },
-      { src: u("photo-1519167758481-83f550bb49b3"), caption: "Classroom smiles" },
-      { src: u("photo-1511632765486-a01980e01a18"), caption: "Party games" },
-      { src: u("photo-1527529482837-4698179dc6ce"), caption: "Happy memories" },
+      { src: classPartyChildrenAsset.url, caption: "Children celebrating together" },
+      { src: classPartyCakeAsset.url, caption: "Class Party 2026 celebration cake" },
+      { src: classPartyCakeCuttingAsset.url, caption: "Cake-cutting with students and families" },
+      { src: classPartyStaffAsset.url, caption: "Teachers and staff at the Class Party" },
+      { src: classPartyGroupAsset.url, caption: "Students and teachers celebrating Class Party" },
     ],
   },
   "parents-meeting": {
