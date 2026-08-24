@@ -86,9 +86,16 @@ export const faculty: Teacher[] = [
   {
     id: "mary-sixjan-capistrano", name: "Mary Six Jan I. Capistrano", title: "Class Teacher",
     subject: "English Language — International Faculty", photo: pMary.url,
-    bio: "Mary Six Jan I. Capistrano joins John Amos from the Philippines, bringing an international lens and strong English-language teaching to our classrooms.",
-    qualifications: ["Bachelor of Secondary Education — Major in English (Philippines)", "TESOL Certified"],
-    experience: "7 years in international schools", email: "mary@johnamosbd.com", personalMessage: defaultMessage,
+    bio: "Mary Six Jan I. Capistrano is an international faculty member from the Philippines who brings a Psychology background, healthcare experience and a caring, service-focused approach to English language learning. Her professional experience supports an organized, empathetic and engaging classroom environment.",
+    qualifications: [
+      "Bachelor of Science in Psychology — Our Lady of Fatima University, Philippines (2018)",
+      "Over three years of retail pharmacy assistant and technician experience at Southstar Drug & Watsons",
+      "Experienced in inventory control, medication storage, dispensing support and safety compliance",
+      "Healthcare internship experience at San Beda University, Armed Forces of the Philippines and Holy Spirit Clinic",
+      "Customer service experience, including inquiry support, transaction records and point-of-sale operations",
+      "Safety Officer Certification; proficient in English and Tagalog",
+    ],
+    experience: "Class Teacher • Former Retail Pharmacy Assistant / Technician in the Philippines", email: "mary@johnamosbd.com", personalMessage: defaultMessage,
   },
   {
     id: "somaiya-binta-islam", name: "Somaiya Binta Islam", title: "Class Teacher",
