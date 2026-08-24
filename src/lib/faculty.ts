@@ -1,6 +1,6 @@
 import pArif from "@/assets/fac-arif.png.asset.json";
 import pProgga from "@/assets/fac-progga.jpg.asset.json";
-import pWazih from "@/assets/fac-wazih.png.asset.json";
+import pWazih from "@/assets/fac-wazih-ullah-tanzim.png.asset.json";
 import pHijbullah from "@/assets/fac-hijbullah.jpg.asset.json";
 import pMahmuda from "@/assets/fac-mahmuda.png.asset.json";
 import pMary from "@/assets/fac-mary.jpg.asset.json";
@@ -69,7 +69,7 @@ export const faculty: Teacher[] = [
       "Web development experience in WordPress customization, SMTP integration and UI troubleshooting",
       "Certified in Deep Learning, Generative AI, Data Science and Cybersecurity; twice earned first-place merit scholarships",
     ],
-    experience: "Teacher, Administrator & Web Developer at John Amos International School • Former Lecturer, Premier University", email: "admin@johnamosbd.com", personalMessage: defaultMessage,
+    experience: "Teacher, Administrator & Web Developer at John Amos International School • Former Lecturer, Premier University", email: "admin@johnamosbd.com", personalMessage: "The paradox of education is precisely this — that as one begins to become conscious, one begins to examine the society in which he is being educated. — James Baldwin",
   },
   {
     id: "mahmuda-akter", name: "Mahmuda Akter", title: "Class Teacher",
