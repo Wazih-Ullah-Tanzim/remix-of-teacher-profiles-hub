@@ -12,8 +12,7 @@ const nav: NavItem[] = [
     to: "/about", label: "About",
     children: [
       { to: "/about", label: "About Us" },
-      { to: "/about#mission-vision", label: "Mission & Vision" },
-      { to: "/about#history", label: "History of JAIS" },
+      { to: "/about#mission-vision", label: "Mission, Vision & History of JAIS" },
       { to: "/founder-message", label: "Founder's Message" },
       { to: "/chairmans-message", label: "Chairman's Message" },
       { to: "/head-teacher-message", label: "Head Teacher's Message" },
