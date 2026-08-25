@@ -47,14 +47,6 @@ const nav: NavItem[] = [
   {
     to: "/academics", label: "JAIS Life",
     children: [
-      { to: "/academics", label: "Academics", children: [
-        { to: "/bulletin", label: "Bulletin Board" },
-      ]},
-      { to: "/counseling", label: "Counselling", children: [
-        { to: "/counseling/academic", label: "Academic" },
-        { to: "/counseling/health", label: "Health" },
-        { to: "/counseling/psychiatrist", label: "Psychiatrist Support" },
-      ]},
       { to: "/facilities", label: "Facilities" },
       { to: "/gallery", label: "Gallery", children: [
         { to: "/gallery/first-award-ceremony", label: "First Award Ceremony" },
