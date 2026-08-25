@@ -64,7 +64,6 @@ const nav: NavItem[] = [
         { to: "/eca-clubs#swimming-club", label: "Swimming Club" },
         { to: "/eca-clubs#art-music-club", label: "Art & Music Club" },
       ]},
-      { to: "/academic-calendar", label: "Academic Calendar" },
     ],
   },
 ];
