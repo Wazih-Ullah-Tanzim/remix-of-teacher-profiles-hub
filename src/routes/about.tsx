@@ -4,6 +4,8 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Target, Eye } from "lucide-react";
 import awardCeremonyImg from "@/assets/jais-award-ceremony.jpg.asset.json";
+import missionVisionImg from "@/assets/jais-mission-vision.jpg.asset.json";
+import aimValuesImg from "@/assets/jais-aim-values.jpg.asset.json";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -134,6 +136,25 @@ function AboutPage() {
                 excellence, character formation and a learning culture that prepares students for the world.
               </p>
             </article>
+          </div>
+
+          <div className="mt-12 grid gap-8 lg:grid-cols-2">
+            <figure className="animate-fade-up overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]">
+              <img
+                src={missionVisionImg.url}
+                alt="John Amos International School mission statement and vision"
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover object-top"
+              />
+            </figure>
+            <figure className="animate-fade-up overflow-hidden rounded-2xl border border-border bg-card shadow-[var(--shadow-card)]" style={{ animationDelay: "120ms" }}>
+              <img
+                src={aimValuesImg.url}
+                alt="John Amos International School aims and values"
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover object-top"
+              />
+            </figure>
           </div>
         </div>
       </section>
